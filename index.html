@@ -260,8 +260,22 @@
   @media (max-width:760px){ .metric-strip{ grid-template-columns:repeat(2,1fr); } }
   .metric{ background:var(--white); border:1px solid var(--line); border-radius:14px; padding:1.3rem 1.2rem; box-shadow:0 10px 30px rgba(0,40,86,.08); }
   .metric strong{ display:block; font-family:var(--display); font-weight:700; font-size:clamp(1.6rem,3vw,2.3rem); color:var(--gulf); line-height:1; letter-spacing:-0.03em; }
-  .metric strong .u{ color:var(--orange); }
+  .metric strong .u{ color:var(--orange); display:inline; margin-top:0; font-size:inherit; }
   .metric span{ display:block; margin-top:.5rem; font-size:.86rem; color:var(--ink-soft); }
+  .metric{ display:flex; flex-direction:column; justify-content:center; }
+  .metric.metric-map{ padding:0; overflow:hidden; justify-content:flex-start; }
+  .metric-map .map{ width:100%; height:auto; aspect-ratio:3/1; object-fit:cover; display:block; border-bottom:1px solid var(--line); }
+  .metric-map .tx{ padding:.85rem 1.2rem 1.15rem; }
+  .hero2 .travel{ margin-top:1.1rem; font-family:var(--display); font-weight:600; font-size:1.02rem; letter-spacing:.04em; color:var(--orange-br); }
+  /* partner engagement-mode cards */
+  .mode-card{ border-top:4px solid var(--gulf); display:flex; flex-direction:column; }
+  .mode-card.m-cardio{ border-top-color:var(--cardio); }
+  .mode-card.m-enviro{ border-top-color:var(--enviro); }
+  .mode-card.m-food{ border-top-color:var(--food); }
+  .mode-card .mode-kicker{ font-family:var(--display); font-size:.72rem; font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:var(--orange); margin-bottom:.5rem; }
+  /* data-domain tag cloud */
+  .domain-tags{ display:flex; flex-wrap:wrap; gap:.5rem; margin-top:1rem; }
+  .domain-tags span{ font-family:var(--display); font-weight:500; font-size:.78rem; padding:.38rem .75rem; border:1px solid var(--line); border-radius:999px; background:var(--white); color:var(--ink); }
   .hero2 .hero-emblem{ width:120px; height:120px; border-radius:50%; background:#fff; padding:10px; margin:0 auto 1.6rem; display:block; box-shadow:0 8px 30px rgba(0,0,0,.18); }
   .hero2 .hero-emblem img{ width:100%; height:100%; object-fit:contain; }
   .hero2 .lead{ margin-left:auto; margin-right:auto; }
@@ -658,7 +672,7 @@
 <a href="#projects">Projects</a>
 <a href="#people">People</a>
 <a href="#publications">Publications</a>
-<a href="#get-involved">Get Involved</a>
+<a href="#partner">Partner With Us</a>
 <a href="#contact">Contact</a>
 </nav>
 </div>
@@ -672,9 +686,10 @@
 <p class="eyebrow on-dark" style="justify-content:center;">Community Health Impact Projects</p>
 <h1 class="twotone" style="color:#fff;">Stronger communities. <span class="em">Better health.</span> Together.</h1>
 <p class="lead">A community-engaged research and public health program at the UTHealth Houston School of Public Health in El Paso — studying air pollution, extreme heat, food environments, and occupational risk, and translating findings into screening, evaluation, and action for U.S.–Mexico border communities.</p>
+<p class="travel">Built on the border. Designed to travel.</p>
 <div class="cta-row">
-<a class="btn btn-primary" href="#research">Explore the research</a>
-<a class="btn btn-ghost" href="#get-involved">Work with CHIP</a>
+<a class="btn btn-primary" href="#partner">Partner with CHIP</a>
+<a class="btn btn-ghost" href="#research">Explore the research</a>
 </div>
 <div class="sig">
 <span>El Paso, Texas</span><span>U.S.–Mexico border</span><span>Community-engaged research</span>
@@ -683,10 +698,10 @@
 </section>
 <!-- METRIC STRIP -->
 <div class="metric-strip">
-<div class="metric"><strong>400<span class="u">+</span></strong><span>community members screened across colonias, schools, and health fairs (as of June 2026)</span></div>
-<div class="metric"><strong>~6,000</strong><span>border residents in foundational traffic-pollution and cardiorespiratory research (2014–2020)</span></div>
-<div class="metric"><strong>3</strong><span>connected research pillars in one community-engaged program</span></div>
-<div class="metric"><strong>1</strong><span>integrated platform for research, screening, and training</span></div>
+<div class="metric"><strong>9</strong><span>federal, state, and foundation funders — including NIH, USDA, and NIOSH</span></div>
+<div class="metric metric-map"><img class="map" src="assets/map-strip.webp" alt="Map of the El Paso–Ciudad Juárez border region covered in orange dots marking cohort participant residences." width="720" height="240" loading="lazy" decoding="async"/><div class="tx"><strong>4,959</strong><span>participants in our geocoded border cohort — pilot data for new proposals</span></div></div>
+<div class="metric"><strong>400<span class="u">+</span></strong><span>bilingual screenings since 2025, banking consented biospecimens for epigenetic research</span></div>
+<div class="metric"><strong>3</strong><span>ways to work with us — grants, contracted services, or bringing the CHIP model to your region</span></div>
 </div>
     <!-- OVERVIEW + VENN -->
 <section id="overview">
@@ -710,10 +725,10 @@
 <div class="methods-panel reveal">
 <span class="bar-head navy">Cross-cutting methods &amp; capabilities</span>
 <div class="grid-4" style="margin-top:1.2rem;">
-<div class="card method-card"><figure class="method-image"><img alt="Community health screening with fingerstick testing and health assessment materials." src="assets/method-screening.webp" width="640" height="640" loading="lazy" decoding="async"/></figure><h3 style="font-size:1.02rem;">Community engagement &amp; screening</h3><p>On-site assessment via a trained community health worker network.</p></div>
-<div class="card method-card"><figure class="method-image"><img alt="Community group reviewing GIS maps, environmental layers, and local exposure information." src="assets/method-gis.webp" width="640" height="640" loading="lazy" decoding="async"/></figure><h3 style="font-size:1.02rem;">Geospatial &amp; environmental analysis</h3><p>Satellite remote sensing, land-use regression, and field sampling.</p></div>
-<div class="card method-card"><figure class="method-image"><img alt="Nutrition education activity with children preparing fresh foods in a classroom." src="assets/method-nutrition.webp" width="640" height="640" loading="lazy" decoding="async"/></figure><h3 style="font-size:1.02rem;">Program evaluation</h3><p>Mixed-methods evaluation tailored with partners.</p></div>
-<div class="card method-card"><figure class="method-image"><img alt="Community planning workshop with residents reviewing environmental and program priorities." src="assets/method-planning.webp" width="640" height="640" loading="lazy" decoding="async"/></figure><h3 style="font-size:1.02rem;">Implementation &amp; capacity</h3><p>Technical assistance, training, and capacity building.</p></div>
+<div class="card method-card"><figure class="method-image"><img alt="Community health screening with fingerstick testing and health assessment materials." src="assets/method-screening.webp" width="640" height="640" loading="lazy" decoding="async"/></figure><h3 style="font-size:1.02rem;">Community engagement &amp; screening</h3><p>A trained, IRB-experienced bilingual community health worker network that stands up field data collection and screening events.</p></div>
+<div class="card method-card"><figure class="method-image"><img alt="Community group reviewing GIS maps, environmental layers, and local exposure information." src="assets/method-gis.webp" width="640" height="640" loading="lazy" decoding="async"/></figure><h3 style="font-size:1.02rem;">Geospatial &amp; environmental analysis</h3><p>Satellite remote sensing, land-use regression, and field sampling — linking geocoded participants to exposure models.</p></div>
+<div class="card method-card"><figure class="method-image"><img alt="Nutrition education activity with children preparing fresh foods in a classroom." src="assets/method-nutrition.webp" width="640" height="640" loading="lazy" decoding="async"/></figure><h3 style="font-size:1.02rem;">Program evaluation</h3><p>Mixed-methods evaluation designed with partners — from logic model through reporting to funders.</p></div>
+<div class="card method-card"><figure class="method-image"><img alt="Community planning workshop with residents reviewing environmental and program priorities." src="assets/method-planning.webp" width="640" height="640" loading="lazy" decoding="async"/></figure><h3 style="font-size:1.02rem;">Implementation &amp; capacity</h3><p>Training, technical assistance, and capacity building to bring evidence-based programs to new settings.</p></div>
 </div>
 </div>
 </div>
@@ -868,39 +883,63 @@
 <div class="pub-cta reveal"><a class="btn btn-outline" href="https://scholar.google.com/citations?user=PaWNrAMAAAAJ&amp;hl=en" target="_blank" rel="noopener">View all on Google Scholar &#8599;</a><a class="btn btn-outline" href="https://orcid.org/0000-0002-6451-0662" target="_blank" rel="noopener">ORCID &#8599;</a><span class="pub-note">Selected from 24 peer-reviewed journal articles.</span></div>
 </div>
 </section>
-<!-- GET INVOLVED -->
-<section class="alt" id="get-involved">
+<!-- PARTNER WITH CHIP -->
+<section class="alt" id="partner">
+<div id="get-involved" aria-hidden="true" style="scroll-margin-top:80px;"></div>
 <div class="wrap">
-<div class="grid-2" style="gap:2.4rem; align-items:start;">
-<div class="reveal">
-<span class="bar-head green">Get involved</span>
-<h2 style="margin-top:1rem;">Collaborate, partner, or join the work.</h2>
-<p style="margin-top:1rem; color:var(--ink-soft);">CHIP welcomes new collaborations with researchers, students, community organizations, and institutional partners across the border region and beyond.</p>
-<div class="stripe-list" style="margin-top:1.4rem;">
-<div class="stripe c-navy"><div class="tx"><h3>Community &amp; institutional partners</h3><p>Community-based data collection, evaluation, and externally funded research.</p></div></div>
-<div class="stripe c-navy"><div class="tx"><h3>Research collaboration</h3><p>Exposure assessment, geospatial modeling, screening, and program evaluation.</p></div></div>
-<div class="stripe c-navy"><div class="tx"><h3>Students &amp; trainees</h3><p>Field research, evaluation, and analysis opportunities within the program.</p></div></div>
+<div class="section-head reveal" style="margin-bottom:2rem;">
+<span class="bar-head green">Partner with CHIP</span>
+<h2 style="margin-top:1rem;">One platform, three ways to work together.</h2>
+<p>CHIP was built on the U.S.–Mexico border, and the platform travels: bilingual field teams, screening infrastructure, exposure science, and evaluation methodology that can be applied wherever they are needed. All engagements are set up through UTHealth Houston — contact us and we will walk you through the details.</p>
 </div>
-<div class="cta-row" style="margin-top:1.6rem;">
-<a class="btn btn-primary" href="mailto:juan.aguilera@uth.tmc.edu">Email the director</a>
+<div class="grid-3 reveal">
+<div class="card mode-card m-cardio"><span class="mode-kicker">Grant collaboration</span><h3>Build us into your proposal</h3><p>Bring CHIP on as Co-Investigator, MPI, or subaward partner — from aims design through dissemination, not just the evaluation section. We contribute exposure assessment, community engagement cores, field data collection, geospatial analysis, and pilot data from an established border cohort.</p></div>
+<div class="card mode-card m-enviro"><span class="mode-kicker">Contracted services</span><h3>Cover our team&rsquo;s effort</h3><p>Defined scopes on a fee-for-service or contract basis: program evaluation, community needs assessments, bilingual screening events, exposure and geospatial analysis, survey design and data collection. Contracts run through UTHealth Houston — we handle the setup when you reach out.</p></div>
+<div class="card mode-card m-food"><span class="mode-kicker">Implementation partnerships</span><h3>Bring the model to your region</h3><p>Deploy the CHIP model — community health worker&ndash;delivered screening with education and clinical referral — in your county, health system, or service area. We train, adapt, and evaluate alongside your local team.</p></div>
 </div>
+<div class="cta-row reveal" style="margin-top:1.6rem;">
+<a class="btn btn-primary" href="mailto:juan.aguilera@uth.tmc.edu?subject=Partnering%20with%20CHIP">Start a conversation</a>
 </div>
-<div class="reveal">
-<span class="bar-head teal">Why it matters</span>
+<p class="reveal" style="margin-top:.9rem; font-size:.88rem; color:var(--ink-soft);">Students and trainees: field research, evaluation, and analysis opportunities are available within the program — reach out by email.</p>
+<div class="grid-2 reveal" style="gap:2.4rem; align-items:start; margin-top:2.6rem;">
+<div>
+<span class="bar-head teal">What we bring to your proposal</span>
 <div class="cream" style="margin-top:1rem;">
 <ul class="checklist">
-<li><svg fill="none" stroke="#0c6874" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" viewbox="0 0 20 20"><circle cx="10" cy="10" r="8.5"></circle><path d="M6 10.5l2.5 2.5L14 7.5"></path></svg><span>Build stronger, data-informed programs grounded in real community evidence.</span></li>
-<li><svg fill="none" stroke="#0c6874" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" viewbox="0 0 20 20"><circle cx="10" cy="10" r="8.5"></circle><path d="M6 10.5l2.5 2.5L14 7.5"></path></svg><span>Improve health outcomes in the communities you serve.</span></li>
-<li><svg fill="none" stroke="#0c6874" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" viewbox="0 0 20 20"><circle cx="10" cy="10" r="8.5"></circle><path d="M6 10.5l2.5 2.5L14 7.5"></path></svg><span>Access screening infrastructure and evaluation expertise.</span></li>
-<li><svg fill="none" stroke="#0c6874" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" viewbox="0 0 20 20"><circle cx="10" cy="10" r="8.5"></circle><path d="M6 10.5l2.5 2.5L14 7.5"></path></svg><span>Connect with a trusted, community-engaged research partner on the border.</span></li>
+<li><svg fill="none" stroke="#0c6874" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" viewbox="0 0 20 20"><circle cx="10" cy="10" r="8.5"></circle><path d="M6 10.5l2.5 2.5L14 7.5"></path></svg><span>An established, IRB-experienced bilingual field team embedded in the community.</span></li>
+<li><svg fill="none" stroke="#0c6874" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" viewbox="0 0 20 20"><circle cx="10" cy="10" r="8.5"></circle><path d="M6 10.5l2.5 2.5L14 7.5"></path></svg><span>Pilot data: a ~5,000-person geocoded cohort, biobanked specimens, and validated exposure models.</span></li>
+<li><svg fill="none" stroke="#0c6874" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" viewbox="0 0 20 20"><circle cx="10" cy="10" r="8.5"></circle><path d="M6 10.5l2.5 2.5L14 7.5"></path></svg><span>A screening operation that doubles as a consented specimen-collection pipeline for epigenetic and biomarker studies.</span></li>
+<li><svg fill="none" stroke="#0c6874" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" viewbox="0 0 20 20"><circle cx="10" cy="10" r="8.5"></circle><path d="M6 10.5l2.5 2.5L14 7.5"></path></svg><span>Ready-to-deploy bilingual, IRB-approved instruments and evaluation designs.</span></li>
+<li><svg fill="none" stroke="#0c6874" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" viewbox="0 0 20 20"><circle cx="10" cy="10" r="8.5"></circle><path d="M6 10.5l2.5 2.5L14 7.5"></path></svg><span>A track record executing NIH, USDA, NIOSH, state, and foundation awards.</span></li>
+<li><svg fill="none" stroke="#0c6874" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" viewbox="0 0 20 20"><circle cx="10" cy="10" r="8.5"></circle><path d="M6 10.5l2.5 2.5L14 7.5"></path></svg><span>Letters of support and community partnerships on a grant timeline.</span></li>
 </ul>
 </div>
-<span class="bar-head navy" style="margin-top:1.6rem; display:inline-block;">Support &amp; acknowledgment</span>
+</div>
+<div>
+<span class="bar-head navy">What one CHIP encounter captures</span>
+<p style="margin-top:1rem; color:var(--ink-soft); font-size:.95rem;">A single field encounter can collect data across the domains a proposal needs:</p>
+<div class="domain-tags">
+<span>Sociodemographics &amp; SDOH</span>
+<span>Healthcare access &amp; utilization</span>
+<span>Chronic disease &amp; family history</span>
+<span>Preventive screening adherence</span>
+<span>Respiratory health</span>
+<span>Air pollution exposure</span>
+<span>Heat exposure &amp; vulnerability</span>
+<span>Biometrics — BP, glucose, lipids, anthropometrics</span>
+<span>Biospecimens for epigenetics</span>
+<span>Geocoded exposure linkage</span>
+</div>
+<p style="margin-top:1.1rem; color:var(--ink-soft); font-size:.92rem;">New modules — like our air pollution and extreme heat instruments — extend the same bilingual questionnaire platform used in the founding ~5,000-participant cohort, so every new study stays comparable to a decade of baseline data.</p>
+</div>
+</div>
+<div class="reveal" style="margin-top:2.6rem;">
+<span class="bar-head navy">Funded by</span>
+<p style="margin-top:1rem; color:var(--ink-soft); font-size:.95rem;">CHIP investigators have led and partnered on work funded by federal, state, and foundation sponsors.</p>
 <div class="funders" style="margin-top:1rem;">
 <div class="funder-group"><h4>Federal</h4><ul><li>NIH (NIMHD)</li><li>USDA / NIFA / GusNIP</li><li>NIOSH — SWCOEH ERC</li><li>American Society for Nutrition</li></ul></div>
 <div class="funder-group"><h4>State</h4><ul><li>State of Texas Legislature</li><li>UTHealth Houston PRIME</li></ul></div>
 <div class="funder-group"><h4>Local &amp; Foundation</h4><ul><li>El Paso County</li><li>Paso del Norte Health Foundation</li><li>La Semilla Food Center</li></ul></div>
-</div>
 </div>
 </div>
 </div>
@@ -929,7 +968,7 @@
 <div class="wrap">
 <div><h5>CHIP</h5><p class="org">Community Health Impact Projects<br/>UTHealth Houston School of Public Health in El Paso</p></div>
 <div><h5>Contact</h5><p><a href="mailto:juan.aguilera@uth.tmc.edu">juan.aguilera@uth.tmc.edu</a><br/>5130 Gateway Blvd, Suite 110<br/>El Paso, TX 79905</p></div>
-<div><h5>Navigate</h5><p><a href="#research">Research</a> · <a href="#projects">Projects</a> · <a href="#people">People</a><br/><a href="#publications">Publications</a> · <a href="#get-involved">Get Involved</a> · <a href="#contact">Contact</a><br/><a href="https://sph.uth.edu/campuses/el-paso">El Paso campus ↗</a></p></div>
+<div><h5>Navigate</h5><p><a href="#research">Research</a> · <a href="#projects">Projects</a> · <a href="#people">People</a><br/><a href="#publications">Publications</a> · <a href="#partner">Partner With Us</a> · <a href="#contact">Contact</a><br/><a href="https://sph.uth.edu/campuses/el-paso">El Paso campus ↗</a></p></div>
 </div>
 <div class="legal"><div class="wrap"><span>© 2026 Community Health Impact Projects</span><span>UTHealth Houston School of Public Health in El Paso</span></div></div>
 </footer>
