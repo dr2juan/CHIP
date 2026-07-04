@@ -266,6 +266,13 @@
   .metric.metric-map{ padding:0; overflow:hidden; justify-content:flex-start; }
   .metric-map .map{ width:100%; height:auto; aspect-ratio:3/1; object-fit:cover; display:block; border-bottom:1px solid var(--line); }
   .metric-map .tx{ padding:.85rem 1.2rem 1.15rem; }
+  /* clickable metric cards that route into the pillars + partner section */
+  a.metric{ text-decoration:none; color:inherit; transition:transform .15s ease, box-shadow .15s ease, border-color .15s ease; }
+  a.metric:hover,a.metric:focus-visible{ transform:translateY(-3px); box-shadow:0 16px 40px rgba(0,40,86,.15); border-color:var(--orange); text-decoration:none; }
+  a.metric .go{ display:inline-flex; align-items:center; gap:.3rem; margin-top:.75rem; font-family:var(--display); font-weight:600; font-size:.72rem; letter-spacing:.1em; text-transform:uppercase; color:var(--orange); }
+  a.metric.metric-map .go{ margin-top:.55rem; }
+  a.metric:hover .go{ gap:.5rem; }
+  .pillar-card[id]{ scroll-margin-top:90px; }
   .hero2 .travel{ margin-top:1.1rem; font-family:var(--display); font-weight:600; font-size:1.02rem; letter-spacing:.04em; color:var(--orange-br); }
   /* partner engagement-mode cards */
   .mode-card{ border-top:4px solid var(--gulf); display:flex; flex-direction:column; }
@@ -718,10 +725,10 @@
 </section>
 <!-- METRIC STRIP -->
 <div class="metric-strip">
-<div class="metric"><strong>9</strong><span>federal, state, and foundation funders — including NIH, USDA, and NIOSH</span></div>
-<div class="metric metric-map"><img class="map" src="assets/map-strip.webp" alt="Map of the El Paso–Ciudad Juárez border region covered in orange dots marking cohort participant residences." width="720" height="240" loading="lazy" decoding="async"/><div class="tx"><strong>4,959</strong><span>participants in our geocoded border cohort — pilot data for new proposals</span></div></div>
-<div class="metric"><strong>400<span class="u">+</span></strong><span>bilingual screenings since 2025, banking consented biospecimens for epigenetic research</span></div>
-<div class="metric"><strong>3</strong><span>ways to work with us — grants, contracted services, or bringing the CHIP model to your region</span></div>
+<a class="metric metric-map" href="#research-cardio"><img class="map" src="assets/map-strip.webp" alt="Map of the El Paso–Ciudad Juárez border region covered in orange dots marking cohort participant residences." width="720" height="240" loading="lazy" decoding="async"/><div class="tx"><strong>4,959</strong><span>participants in our geocoded border cohort — pilot data behind our cardiometabolic research</span><span class="go">Cardiometabolic pillar →</span></div></a>
+<a class="metric" href="#research-enviro"><strong>~300</strong><span>consented biospecimens biobanked from bilingual screenings, powering heat &amp; air-pollution biomarker studies</span><span class="go">Environmental &amp; occupational →</span></a>
+<a class="metric" href="#research-food"><strong>60–78<span class="u">%</span></strong><span>food insecurity in the colonias we serve — driving our nutrition and produce-prescription work</span><span class="go">Food &amp; nutrition →</span></a>
+<a class="metric" href="#partner"><strong>3</strong><span>ways to work with us — grants, contracted services, or bringing the CHIP model to your region</span><span class="go">Partner with us →</span></a>
 </div>
     <!-- OVERVIEW + VENN -->
 <section id="overview">
@@ -735,6 +742,15 @@
 <figure aria-label="CHIP integrated themes and methods model" class="chip-venn-model reveal">
 <img alt="Three-pillar CHIP model showing Environmental and Occupational Health, Cardiometabolic and Chronic Disease, and Food Systems and Nutrition with key intersection areas." src="assets/model-integrated.webp" width="1100" height="959" loading="lazy" decoding="async"/>
 </figure>
+</div>
+<div class="reveal" style="margin-top:2.6rem; border-top:1px solid var(--line); padding-top:1.9rem;">
+<span class="bar-head navy">Funded by</span>
+<p style="margin-top:1rem; color:var(--ink-soft); font-size:.95rem; max-width:70ch;">One platform behind a decade of federal, state, and foundation awards — CHIP investigators have led and partnered on work funded by sponsors across all three pillars.</p>
+<div class="funders" style="margin-top:1.2rem;">
+<div class="funder-group"><h4>Federal</h4><ul><li>NIH (NIMHD)</li><li>USDA / NIFA / GusNIP</li><li>NIOSH — SWCOEH ERC</li><li>American Society for Nutrition</li></ul></div>
+<div class="funder-group"><h4>State</h4><ul><li>State of Texas Legislature</li><li>UTHealth Houston PRIME</li></ul></div>
+<div class="funder-group"><h4>Local &amp; Foundation</h4><ul><li>El Paso County</li><li>Paso del Norte Health Foundation</li><li>La Semilla Food Center</li></ul></div>
+</div>
 </div>
 </div>
 </section>
@@ -761,7 +777,7 @@
 <p>Our research program spans three connected pillars, each pairing field research with the methods and partnerships that turn findings into practice.</p>
 </div>
 <div class="research-pillars">
-<article class="pillar-card pillar-card--cardio pillar-card--reverse reveal">
+<article class="pillar-card pillar-card--cardio pillar-card--reverse reveal" id="research-cardio">
 <div class="pillar-content">
 <span class="bar-head crimson">Cardiometabolic &amp; chronic disease</span>
 <p class="lede">Examining the drivers of cardiometabolic and chronic disease risk in border Latino communities, and delivering field-based screening that turns measurement into action.</p>
@@ -783,7 +799,7 @@
     <p class="glance-note">Sources: Paso del Norte Community Health and Environment Cohort; Aguilera et&nbsp;al., <em>Transportation Research Record</em> (2021), land-use regression of transportation data on metabolic syndrome risk; CHIP community screening program, 2025&ndash;present.</p>
   </div>
 
-<article class="pillar-card pillar-card--enviro reveal">
+<article class="pillar-card pillar-card--enviro reveal" id="research-enviro">
 <div class="pillar-content">
 <span class="bar-head teal">Environmental &amp; occupational health</span>
 <p class="lede">Studying how traffic-related air pollution, extreme heat, and occupational conditions contribute to cardiorespiratory and cardiometabolic health in communities affected by industrial and cross-border activity.</p>
@@ -805,7 +821,7 @@
     <p class="glance-note">Sources: GSA Record of Decision, Bridge of the Americas (2025); IQAir World Air Quality Report (March 2026); CHIP community screening program.</p>
   </div>
 
-<article class="pillar-card pillar-card--food pillar-card--reverse reveal">
+<article class="pillar-card pillar-card--food pillar-card--reverse reveal" id="research-food">
 <div class="pillar-content">
 <span class="bar-head green">Food systems &amp; nutrition</span>
 <p class="lede">Evaluating nutrition, food-access, and wellness programs, and studying how culture, perception, and communication shape food choices in Latino families.</p>
@@ -998,15 +1014,6 @@
 <span>Geocoded exposure linkage</span>
 </div>
 <p style="margin-top:1.1rem; color:var(--ink-soft); font-size:.92rem;">New modules — like our air pollution and extreme heat instruments — extend the same bilingual questionnaire platform used in the founding ~5,000-participant cohort, so every new study stays comparable to a decade of baseline data.</p>
-</div>
-</div>
-<div class="reveal" style="margin-top:2.6rem;">
-<span class="bar-head navy">Funded by</span>
-<p style="margin-top:1rem; color:var(--ink-soft); font-size:.95rem;">CHIP investigators have led and partnered on work funded by federal, state, and foundation sponsors.</p>
-<div class="funders" style="margin-top:1rem;">
-<div class="funder-group"><h4>Federal</h4><ul><li>NIH (NIMHD)</li><li>USDA / NIFA / GusNIP</li><li>NIOSH — SWCOEH ERC</li><li>American Society for Nutrition</li></ul></div>
-<div class="funder-group"><h4>State</h4><ul><li>State of Texas Legislature</li><li>UTHealth Houston PRIME</li></ul></div>
-<div class="funder-group"><h4>Local &amp; Foundation</h4><ul><li>El Paso County</li><li>Paso del Norte Health Foundation</li><li>La Semilla Food Center</li></ul></div>
 </div>
 </div>
 </div>
