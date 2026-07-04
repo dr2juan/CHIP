@@ -582,6 +582,31 @@
   }
   @media(max-width:900px){ .pillar-card .pillar-media{ order:-1; } }
 
+  /* ---------- Current projects grid ---------- */
+  .pfilter{ display:flex; flex-wrap:wrap; gap:.55rem; margin:1.5rem 0 1.6rem; }
+  .pfilter button{ font-family:var(--display); font-weight:600; font-size:.8rem; letter-spacing:.03em; padding:.48rem 1rem; border-radius:999px; border:1px solid var(--line); background:var(--white); color:var(--ink-soft); cursor:pointer; transition:border-color .15s ease, color .15s ease, background .15s ease; }
+  .pfilter button:hover{ border-color:var(--orange); color:var(--orange); }
+  .pfilter button.on{ background:var(--gulf); border-color:var(--gulf); color:#fff; }
+  .pgrid{ display:grid; grid-template-columns:repeat(3,1fr); gap:1.1rem; }
+  @media (max-width:980px){ .pgrid{ grid-template-columns:repeat(2,1fr); } }
+  @media (max-width:640px){ .pgrid{ grid-template-columns:1fr; } }
+  .pcard{ position:relative; overflow:hidden; background:var(--white); border:1px solid var(--line); border-radius:12px; padding:1.15rem 1.2rem 1.1rem 1.35rem; display:flex; flex-direction:column; gap:.5rem; transition:border-color .15s ease, transform .15s ease, box-shadow .15s ease; }
+  .pcard::before{ content:""; position:absolute; inset:0 auto 0 0; width:6px; background:var(--gulf); }
+  .pcard.p-enviro::before{ background:var(--enviro); }
+  .pcard.p-cardio::before{ background:var(--cardio); }
+  .pcard.p-food::before{ background:var(--food); }
+  .pcard:hover{ border-color:var(--sand); transform:translateY(-2px); box-shadow:0 10px 26px rgba(0,40,86,.08); }
+  .pcard h3{ font-size:1rem; line-height:1.3; }
+  .pcard p{ font-size:.87rem; color:var(--ink-soft); flex:1; }
+  .pcard .ptags{ display:flex; flex-wrap:wrap; gap:.4rem; margin-top:.15rem; }
+  .ptag{ font-family:var(--display); font-weight:600; font-size:.64rem; letter-spacing:.09em; text-transform:uppercase; padding:.22rem .55rem; border-radius:4px; color:#fff; }
+  .ptag.t-enviro{ background:var(--enviro); }
+  .ptag.t-cardio{ background:var(--cardio); }
+  .ptag.t-food{ background:var(--food); }
+  .ptag.t-collab{ background:transparent; color:var(--gulf); border:1px solid var(--gulf); }
+  .ptag.t-funder{ background:var(--sand-tint); color:var(--ink-soft); border:1px solid var(--line); }
+  .pcard.hide{ display:none; }
+
   /* skip link for keyboard users */
   .skip-link{ position:absolute; left:-9999px; top:0; z-index:100; background:var(--gulf); color:#fff; padding:.7rem 1.2rem; font-family:var(--display); font-size:.9rem; border-radius:0 0 6px 0; }
   .skip-link:focus{ left:0; text-decoration:none; }
@@ -606,6 +631,7 @@
 <nav class="links" id="menu">
 <a href="#overview">Overview</a>
 <a href="#research">Research</a>
+<a href="#projects">Projects</a>
 <a href="#people">People</a>
 <a href="#get-involved">Get Involved</a>
 <a href="#contact">Contact</a>
@@ -745,6 +771,30 @@
 
 </div>
 </section>
+
+<!-- PROJECTS -->
+<section id="projects">
+<div class="wrap">
+<div class="section-head reveal" style="margin-bottom:0;">
+<span class="bar-head navy">Current projects</span>
+<h2 style="margin-top:1rem;">One program, twelve active projects.</h2>
+<p>Every CHIP project pairs rigorous measurement with a community partner. Filter by pillar to see how the work fits together.</p>
+</div>
+<div class="pfilter reveal" role="group" aria-label="Filter projects by pillar"><button class="on" data-f="all">All</button><button data-f="enviro">Environmental &amp; occupational</button><button data-f="cardio">Cardiometabolic</button><button data-f="food">Food &amp; nutrition</button><button data-f="collab">Collaborations</button></div>
+<div class="pgrid"><div class="pcard p-enviro reveal" data-p="cardio enviro"><h3>Health impacts of heat &amp; air pollution in at-risk populations</h3><p>On-site screenings in colonias, schools, and health fairs paired with NASA satellite exposure estimates &mdash; 400+ residents screened, ~300 swabs biobanked.</p><div class="ptags"><span class="ptag t-enviro">Environmental</span><span class="ptag t-cardio">Cardiometabolic</span><span class="ptag t-funder">UTHealth PRIME</span></div></div>
+<div class="pcard p-enviro reveal" data-p="enviro"><h3>Wearable heat-stress monitoring for outdoor workers</h3><p>Pilot of wearable physiological monitoring to prevent heat illness among day laborers and construction, landscaping, and agricultural workers.</p><div class="ptags"><span class="ptag t-enviro">Environmental</span></div></div>
+<div class="pcard p-enviro reveal" data-p="enviro"><h3>Heat &amp; ozone co-exposure and chronic disease</h3><p>Personal air-pollution and heat monitoring across work shifts, linked to blood pressure, respiratory symptoms, and cardiometabolic indicators.</p><div class="ptags"><span class="ptag t-enviro">Environmental</span></div></div>
+<div class="pcard p-enviro reveal" data-p="collab enviro"><h3>BOTA environmental health impact assessment</h3><p>Community-engaged risk assessment near the Bridge of the Americas port of entry: air, soil, and water sampling with cumulative-risk mapping.</p><div class="ptags"><span class="ptag t-enviro">Environmental</span><span class="ptag t-collab">Collaboration</span></div></div>
+<div class="pcard p-enviro reveal" data-p="enviro"><h3>Air pollution &amp; asthma GIS mapping</h3><p>Spatial analysis of de-identified health records mapping asthma and respiratory illness against traffic and industrial exposure layers.</p><div class="ptags"><span class="ptag t-enviro">Environmental</span></div></div>
+<div class="pcard p-enviro reveal" data-p="collab enviro"><h3>Texas Firefighter Cancer Study</h3><p>Statewide collaboration examining occupational cancer risk among Texas firefighters.</p><div class="ptags"><span class="ptag t-enviro">Environmental</span><span class="ptag t-collab">Collaboration</span></div></div>
+<div class="pcard p-enviro reveal" data-p="collab enviro"><h3>VALE+Tu Salud</h3><p>Corner-based randomized trial testing a health and safety program with Latino day laborers.</p><div class="ptags"><span class="ptag t-enviro">Environmental</span><span class="ptag t-collab">Collaboration</span></div></div>
+<div class="pcard p-cardio reveal" data-p="cardio"><h3>Raise the Bar</h3><p>Evaluation of physical activity and wellness programming for military-connected students in El Paso schools.</p><div class="ptags"><span class="ptag t-cardio">Cardiometabolic</span><span class="ptag t-funder">DoDEA</span></div></div>
+<div class="pcard p-food reveal" data-p="food"><h3>Cultivating Health: veggie scripts &amp; gardening</h3><p>Evaluation of produce prescription and gardening programs supporting healthy food access among SNAP participants.</p><div class="ptags"><span class="ptag t-food">Food &amp; nutrition</span><span class="ptag t-funder">USDA GusNIP</span></div></div>
+<div class="pcard p-food reveal" data-p="food"><h3>Southwest Regional Food Business Center evaluation</h3><p>Multi-state evaluation of food-business support and supply-chain capacity across Texas, New Mexico, and colonia communities.</p><div class="ptags"><span class="ptag t-food">Food &amp; nutrition</span><span class="ptag t-funder">USDA</span></div></div>
+<div class="pcard p-food reveal" data-p="food"><h3>Healthy Eating regional needs assessment</h3><p>Epidemiological scan, nutrition assets and workforce assessment, and coalition framework guiding healthy-eating investment across the Paso del Norte region.</p><div class="ptags"><span class="ptag t-food">Food &amp; nutrition</span><span class="ptag t-funder">PdNHF</span></div></div>
+<div class="pcard p-food reveal" data-p="food"><h3>Bilingual nutrition education in school meals</h3><p>How culture, perception, and communication shape food acceptance in a predominantly Latino elementary school &mdash; co-developing culturally meaningful nutrition tools.</p><div class="ptags"><span class="ptag t-food">Food &amp; nutrition</span></div></div></div>
+</div>
+</section>
 <!-- PEOPLE -->
 <section id="people">
 <div class="wrap">
@@ -838,7 +888,7 @@
 <div class="wrap">
 <div><h5>CHIP</h5><p class="org">Community Health Impact Projects<br/>UTHealth Houston School of Public Health in El Paso</p></div>
 <div><h5>Contact</h5><p><a href="mailto:juan.aguilera@uth.tmc.edu">juan.aguilera@uth.tmc.edu</a><br/>5130 Gateway Blvd, Suite 110<br/>El Paso, TX 79905</p></div>
-<div><h5>Navigate</h5><p><a href="#research">Research</a> · <a href="#people">People</a><br/><a href="#get-involved">Get Involved</a> · <a href="#contact">Contact</a><br/><a href="https://sph.uth.edu/campuses/el-paso">El Paso campus ↗</a></p></div>
+<div><h5>Navigate</h5><p><a href="#research">Research</a> · <a href="#projects">Projects</a> · <a href="#people">People</a><br/><a href="#get-involved">Get Involved</a> · <a href="#contact">Contact</a><br/><a href="https://sph.uth.edu/campuses/el-paso">El Paso campus ↗</a></p></div>
 </div>
 <div class="legal"><div class="wrap"><span>© 2026 Community Health Impact Projects</span><span>UTHealth Houston School of Public Health in El Paso</span></div></div>
 </footer>
@@ -863,6 +913,17 @@ links.forEach(function(a){a.classList.remove('active');});
 if(map[current])map[current].classList.add('active');}});
 },{rootMargin:'-35% 0px -55% 0px'});
 sections.forEach(function(s){io.observe(s);});
+})();
+/* project filter */
+(function(){
+var btns=document.querySelectorAll('.pfilter button'),cards=document.querySelectorAll('.pcard');
+btns.forEach(function(b){b.addEventListener('click',function(){
+btns.forEach(function(x){x.classList.remove('on');});b.classList.add('on');
+var f=b.getAttribute('data-f');
+cards.forEach(function(c){
+var show=f==='all'||(c.getAttribute('data-p')||'').split(' ').indexOf(f)>-1;
+c.classList.toggle('hide',!show);
+});});});
 })();
 /* back-to-top button */
 (function(){
