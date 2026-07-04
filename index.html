@@ -582,6 +582,25 @@
   }
   @media(max-width:900px){ .pillar-card .pillar-media{ order:-1; } }
 
+  /* ===== Featured study band: Air & Heat Study ===== */
+  .study-core{
+    border-radius:18px;
+    background:linear-gradient(120deg, var(--gulf) 0%, var(--blue) 55%, var(--enviro) 100%);
+    color:#fff;
+    padding:clamp(1.4rem,3vw,2.1rem);
+    box-shadow:0 16px 42px rgba(0,40,86,.16);
+  }
+  .study-core .core-eyebrow{ display:block; font-family:var(--display); font-weight:600; font-size:.74rem; letter-spacing:.16em; text-transform:uppercase; color:#b9e2de; margin-bottom:.55rem; }
+  .study-core h3{ color:#fff; font-size:clamp(1.25rem,2.4vw,1.55rem); margin-bottom:.6rem; }
+  .study-core p{ color:#dbe6ee; font-size:.98rem; max-width:78ch; }
+  .study-chips{ margin-top:1.15rem; display:flex; flex-wrap:wrap; gap:.55rem; }
+  .study-chips span{ font-family:var(--display); font-size:.78rem; background:rgba(255,255,255,.13); border:1px solid rgba(255,255,255,.25); padding:.35rem .78rem; border-radius:999px; color:#eaf2f6; }
+  .study-companions-head{ margin:2rem 0 1rem; display:flex; align-items:baseline; gap:1rem; flex-wrap:wrap; }
+  .study-companions-head p{ margin:0; font-size:.9rem; color:var(--ink-soft); }
+  .study-companions{ display:grid; grid-template-columns:repeat(3,1fr); gap:1rem; }
+  @media (max-width:900px){ .study-companions{ grid-template-columns:1fr; } }
+  .study-companions .pillar-map-item{ padding:1.2rem 1.25rem 1.25rem 1.35rem; box-shadow:0 10px 26px rgba(0,40,86,.06); background:var(--white); }
+
   /* ---------- Honors ---------- */
   .award-grid{ display:grid; grid-template-columns:repeat(2,1fr); gap:.9rem; margin-top:1.3rem; }
   @media (max-width:760px){ .award-grid{ grid-template-columns:1fr; } }
@@ -655,6 +674,7 @@
 <nav class="links" id="menu">
 <a href="#overview">Overview</a>
 <a href="#research">Research</a>
+<a href="#air-heat-study">Air &amp; Heat Study</a>
 <a href="#projects">Projects</a>
 <a href="#people">People</a>
 <a href="#publications">Publications</a>
@@ -797,6 +817,53 @@
 </div>
 </section>
 
+<!-- FEATURED STUDY: AIR & HEAT SURVEY -->
+<section class="glance" id="air-heat-study">
+<div class="wrap">
+<div class="section-head reveal" style="margin-bottom:1.8rem;">
+<span class="bar-head teal">Featured study · Now in the field</span>
+<h2 style="margin-top:1rem;">The Air &amp; Heat Study</h2>
+<p>Our flagship community survey — assessing the health impacts of extreme heat and air pollution in at-risk populations across El Paso.</p>
+</div>
+<div class="study-core reveal">
+<span class="core-eyebrow">The community survey · Encuesta comunitaria</span>
+<h3>What border residents experience — in their own words, in both languages.</h3>
+<p>An IRB-approved bilingual questionnaire on sociodemographics, healthcare access, chronic conditions, respiratory symptoms, air-pollution perceptions, and lived experience of heat waves — administered with on-site screenings in colonias, schools, and health fairs, and paired with NASA satellite exposure estimates. More than 400 residents screened and roughly 300 swabs biobanked to date.</p>
+<div class="study-chips">
+<span>English · Español</span>
+<span>Colonias, schools &amp; health fairs</span>
+<span>IRB-approved, HSC-SPH-25-0282 (2025)</span>
+<span>UTHealth PRIME</span>
+</div>
+</div>
+<div class="study-companions-head reveal">
+<span class="glance-eyebrow" style="margin-bottom:0;">Companion studies — distinct protocols, one program</span>
+<p>Three separate CHIP studies complement the survey from the occupational and cultural sides. <a href="#projects">See all twelve projects →</a></p>
+</div>
+<div class="study-companions reveal">
+<div class="pillar-map-item enviro">
+<span class="pillar-num">Its own study · Personal monitoring</span>
+<h3>Wearable heat-stress monitoring for outdoor workers</h3>
+<p>A standalone pilot placing wearable physiological monitors on day laborers and construction, landscaping, and agricultural workers to detect and prevent heat illness.</p>
+</div>
+<div class="pillar-map-item enviro">
+<span class="pillar-num">Its own study · Personal monitoring</span>
+<h3>Heat &amp; ozone co-exposure and chronic disease</h3>
+<p>A separate occupational study measuring personal heat and air-pollution exposure across work shifts, linked to blood pressure, respiratory symptoms, and cardiometabolic indicators.</p>
+</div>
+<div class="pillar-map-item food">
+<span class="pillar-num">Its own study · Culture &amp; nutrition</span>
+<h3>Bilingual nutrition education in school meals</h3>
+<p>An independent study of how culture, perception, and communication shape food acceptance in a predominantly Latino elementary school.</p>
+</div>
+</div>
+<div class="cta-row reveal" style="margin-top:1.8rem;">
+<a class="btn btn-primary" href="mailto:juan.aguilera@uth.tmc.edu?subject=Air%20%26%20Heat%20Study">Ask about participating</a>
+<a class="btn btn-outline" href="#projects">Browse all current projects</a>
+</div>
+</div>
+</section>
+
 <!-- PROJECTS -->
 <section id="projects">
 <div class="wrap">
@@ -929,7 +996,7 @@
 <div class="wrap">
 <div><h5>CHIP</h5><p class="org">Community Health Impact Projects<br/>UTHealth Houston School of Public Health in El Paso</p></div>
 <div><h5>Contact</h5><p><a href="mailto:juan.aguilera@uth.tmc.edu">juan.aguilera@uth.tmc.edu</a><br/>5130 Gateway Blvd, Suite 110<br/>El Paso, TX 79905</p></div>
-<div><h5>Navigate</h5><p><a href="#research">Research</a> · <a href="#projects">Projects</a> · <a href="#people">People</a><br/><a href="#publications">Publications</a> · <a href="#get-involved">Get Involved</a> · <a href="#contact">Contact</a><br/><a href="https://sph.uth.edu/campuses/el-paso">El Paso campus ↗</a></p></div>
+<div><h5>Navigate</h5><p><a href="#air-heat-study">Air &amp; Heat Study</a> · <a href="#research">Research</a> · <a href="#projects">Projects</a> · <a href="#people">People</a><br/><a href="#publications">Publications</a> · <a href="#get-involved">Get Involved</a> · <a href="#contact">Contact</a><br/><a href="https://sph.uth.edu/campuses/el-paso">El Paso campus ↗</a></p></div>
 </div>
 <div class="legal"><div class="wrap"><span>© 2026 Community Health Impact Projects</span><span>UTHealth Houston School of Public Health in El Paso</span></div></div>
 </footer>
