@@ -582,6 +582,22 @@
   }
   @media(max-width:900px){ .pillar-card .pillar-media{ order:-1; } }
 
+  /* ---------- Publications ---------- */
+  .pub-list{ list-style:none; margin:1.8rem 0 0; padding:0; display:flex; flex-direction:column; }
+  .pub{ display:grid; grid-template-columns:4.2rem 1fr; gap:1.1rem; padding:1.15rem 0; border-top:1px solid var(--line); }
+  .pub:first-child{ border-top:0; }
+  .pub-year{ font-family:var(--display); font-weight:700; font-size:.95rem; color:var(--orange); padding-top:.05rem; }
+  .pub-venue{ display:block; font-family:var(--display); font-size:.62rem; font-weight:600; letter-spacing:.09em; text-transform:uppercase; color:var(--gray); margin-top:.35rem; }
+  .pub-title{ font-family:var(--display); font-weight:600; font-size:1rem; line-height:1.32; color:var(--gulf); }
+  .pub-title a{ color:var(--gulf); }
+  .pub-title a:hover{ color:var(--orange); text-decoration:none; }
+  .pub-meta{ font-size:.86rem; color:var(--ink-soft); margin-top:.32rem; line-height:1.5; }
+  .pub-meta .me{ color:var(--ink); font-weight:600; }
+  .pub-meta em{ color:var(--ink); font-style:italic; }
+  .pub-cta{ margin-top:1.9rem; display:flex; flex-wrap:wrap; gap:.85rem; align-items:center; }
+  .pub-note{ font-size:.85rem; color:var(--ink-soft); }
+  @media (max-width:560px){ .pub{ grid-template-columns:1fr; gap:.3rem; } .pub-year{ padding-top:0; } }
+
   /* ---------- Current projects grid ---------- */
   .pfilter{ display:flex; flex-wrap:wrap; gap:.55rem; margin:1.5rem 0 1.6rem; }
   .pfilter button{ font-family:var(--display); font-weight:600; font-size:.8rem; letter-spacing:.03em; padding:.48rem 1rem; border-radius:999px; border:1px solid var(--line); background:var(--white); color:var(--ink-soft); cursor:pointer; transition:border-color .15s ease, color .15s ease, background .15s ease; }
@@ -633,6 +649,7 @@
 <a href="#research">Research</a>
 <a href="#projects">Projects</a>
 <a href="#people">People</a>
+<a href="#publications">Publications</a>
 <a href="#get-involved">Get Involved</a>
 <a href="#contact">Contact</a>
 </nav>
@@ -827,6 +844,19 @@
 </div>
 </div>
 </section>
+
+<!-- PUBLICATIONS -->
+<section class="alt" id="publications">
+<div class="wrap">
+<div class="section-head reveal" style="margin-bottom:0;">
+<span class="bar-head teal">Publications</span>
+<h2 style="margin-top:1rem;">Peer-reviewed research.</h2>
+<p>Selected articles from a body of work spanning environmental epidemiology, community health, and climate and health &mdash; from high-impact journals to border-focused regional science.</p>
+</div>
+<ol class="pub-list"><li class="pub reveal"><div class="pub-year">2025<span class="pub-venue">Nature Medicine</span></div><div><p class="pub-title"><a href="https://doi.org/10.1038/s41591-025-03777-6" target="_blank" rel="noopener">Immune impacts of fire smoke exposure</a></p><p class="pub-meta">Johnson MM, Kaushik A, &hellip; <span class="me">Aguilera J</span>, &hellip; Akdis CA, Nadeau KC.</p></div></li><li class="pub reveal"><div class="pub-year">2025<span class="pub-venue">Science Advances</span></div><div><p class="pub-title"><a href="https://doi.org/10.1126/sciadv.adp5227" target="_blank" rel="noopener">Impact of air pollution exposure on cytokines and histone modification profiles at single-cell levels during pregnancy</a></p><p class="pub-meta">Jung YS, <span class="me">Aguilera J</span>, Kaushik A, &hellip; Nadeau KC.</p></div></li><li class="pub reveal"><div class="pub-year">2025<span class="pub-venue">Atmosphere</span></div><div><p class="pub-title"><a href="https://doi.org/10.3390/atmos16020153" target="_blank" rel="noopener">Short-term associations of traffic-related air pollution with cardiorespiratory outcomes among low-income residents from a U.S.&ndash;Mexico border community</a></p><p class="pub-meta"><span class="me">Aguilera J</span>, Jeon S, Chavez M, Ibarra-Mejia G, Ferreira-Pinto J, Whigham LD, Li WW.</p></div></li><li class="pub reveal"><div class="pub-year">2025<span class="pub-venue">ISPRS Int. J. Geo-Information</span></div><div><p class="pub-title"><a href="https://doi.org/10.3390/ijgi14030105" target="_blank" rel="noopener">Spatial prediction of high-risk areas for asthma in metropolitan areas: a machine learning approach</a></p><p class="pub-meta">Mohammadi A, Pishgar E, <span class="me">Aguilera J</span>.</p></div></li><li class="pub reveal"><div class="pub-year">2025<span class="pub-venue">Journal of Public Health Research</span></div><div><p class="pub-title"><a href="https://doi.org/10.1177/2279903625" target="_blank" rel="noopener">The realities of data derived from electronic health records to evaluate produce prescription programs: a multiple case study evaluation</a></p><p class="pub-meta">Stotz SA, Seligman H, Yaroch AL, &hellip; <span class="me">Aguilera J</span>, Baker S.</p></div></li><li class="pub reveal"><div class="pub-year">2024<span class="pub-venue">Annual Review of Medicine</span></div><div><p class="pub-title"><a href="https://doi.org/10.1146/annurev-med-052422-020909" target="_blank" rel="noopener">Health effects of wildfire smoke exposure</a></p><p class="pub-meta">Gould CF, Heft-Neal S, Prunicki M, <span class="me">Aguilera J</span>, Burke M, Nadeau K.</p></div></li><li class="pub reveal"><div class="pub-year">2024<span class="pub-venue">Texas Public Health Journal</span></div><div><p class="pub-title">Personal exposure to polycyclic aromatic hydrocarbons: a pilot study of teachers in El Paso, Texas</p><p class="pub-meta">Uwak I, Shields M, Vallamsundar S, Ramani T, <span class="me">Aguilera J</span>, Li WW, Johnson NM.</p></div></li><li class="pub reveal"><div class="pub-year">2023<span class="pub-venue">Clinical Epigenetics</span></div><div><p class="pub-title"><a href="https://doi.org/10.1186/s13148-022-01254-2" target="_blank" rel="noopener">Increases in ambient air pollutants during pregnancy are linked to increases in methylation of IL4, IL10, and IFN&gamma;</a></p><p class="pub-meta"><span class="me">Aguilera J</span>, Han X, Cao S, &hellip; Prunicki M, Nadeau K.</p></div></li><li class="pub reveal"><div class="pub-year">2023<span class="pub-venue">Seminars in Perinatology</span></div><div><p class="pub-title"><a href="https://doi.org/10.1016/j.semperi.2023.151838" target="_blank" rel="noopener">Air pollution and pregnancy</a></p><p class="pub-meta"><span class="me">Aguilera J</span>, Konvinse K, Lee A, Maecker H, Prunicki M, Mahalingaiah S, &hellip; Nadeau KC.</p></div></li><li class="pub reveal"><div class="pub-year">2021<span class="pub-venue">Transportation Research Record</span></div><div><p class="pub-title"><a href="https://doi.org/10.1177/03611981211021853" target="_blank" rel="noopener">Land-use regression of long-term transportation data on metabolic syndrome risk factors in low-income communities</a></p><p class="pub-meta"><span class="me">Aguilera J</span>, Jeon S, Chavez M, Ibarra-Mejia G, Ferreira-Pinto J, Whigham L, Li WW.</p></div></li><li class="pub reveal"><div class="pub-year">2021<span class="pub-venue">Atmospheric Pollution Research</span></div><div><p class="pub-title"><a href="https://doi.org/10.1016/j.apr.2021.101304" target="_blank" rel="noopener">Assessment of traffic-related air pollution at two near-road schools and residence in El Paso, Texas</a></p><p class="pub-meta">Rangel A, Raysoni AU, Chavez MC, Jeon S, <span class="me">Aguilera J</span>, Whigham LD, Li WW.</p></div></li><li class="pub reveal"><div class="pub-year">2018<span class="pub-venue">Isotopes in Environmental &amp; Health Studies</span></div><div><p class="pub-title"><a href="https://doi.org/10.1080/10256016.2018.1531854" target="_blank" rel="noopener">Using the &sup1;&sup3;C/&sup1;&sup2;C carbon isotope ratio to characterise the emission sources of airborne particulate matter: a review</a></p><p class="pub-meta"><span class="me">Aguilera J</span>, Whigham LD.</p></div></li></ol>
+<div class="pub-cta reveal"><span class="pub-note">Selected from 24 peer-reviewed journal articles. Full list and citation metrics available on request.</span></div>
+</div>
+</section>
 <!-- GET INVOLVED -->
 <section class="alt" id="get-involved">
 <div class="wrap">
@@ -888,7 +918,7 @@
 <div class="wrap">
 <div><h5>CHIP</h5><p class="org">Community Health Impact Projects<br/>UTHealth Houston School of Public Health in El Paso</p></div>
 <div><h5>Contact</h5><p><a href="mailto:juan.aguilera@uth.tmc.edu">juan.aguilera@uth.tmc.edu</a><br/>5130 Gateway Blvd, Suite 110<br/>El Paso, TX 79905</p></div>
-<div><h5>Navigate</h5><p><a href="#research">Research</a> · <a href="#projects">Projects</a> · <a href="#people">People</a><br/><a href="#get-involved">Get Involved</a> · <a href="#contact">Contact</a><br/><a href="https://sph.uth.edu/campuses/el-paso">El Paso campus ↗</a></p></div>
+<div><h5>Navigate</h5><p><a href="#research">Research</a> · <a href="#projects">Projects</a> · <a href="#people">People</a><br/><a href="#publications">Publications</a> · <a href="#get-involved">Get Involved</a> · <a href="#contact">Contact</a><br/><a href="https://sph.uth.edu/campuses/el-paso">El Paso campus ↗</a></p></div>
 </div>
 <div class="legal"><div class="wrap"><span>© 2026 Community Health Impact Projects</span><span>UTHealth Houston School of Public Health in El Paso</span></div></div>
 </footer>
