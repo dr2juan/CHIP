@@ -697,26 +697,6 @@
   .ptag.t-status.s-analysis{ background:#efe9f5; color:#4b3a6b; border-color:#d9cfe6; }
   .ptag.t-status.s-eval{ background:#faf0e4; color:#8a5a2d; border-color:#ecd9c0; }
 
-  /* ===== Team groups & compact director ===== */
-  .team-group{ margin-top:2.1rem; }
-  .team-group > h3{ font-size:.8rem; font-family:var(--display); letter-spacing:.14em; text-transform:uppercase; color:var(--ink-soft); border-bottom:1px solid var(--line); padding-bottom:.5rem; }
-  .team-group .grid-3, .team-group .grid-4{ margin-top:1rem; }
-  .director-card{ display:flex; gap:1.6rem; align-items:flex-start; background:var(--white); border:1px solid var(--line); border-radius:16px; padding:1.5rem 1.6rem; margin-top:1rem; }
-  @media (max-width:680px){ .director-card{ flex-direction:column; } }
-  .director-card > img{ width:128px; height:128px; border-radius:50%; object-fit:cover; object-position:center 25%; border:4px solid var(--gulf); flex-shrink:0; box-shadow:0 6px 20px rgba(0,40,86,.15); }
-  .director-card h3{ font-size:1.3rem; }
-  .director-card .role{ font-family:var(--display); color:var(--orange); font-size:.88rem; font-weight:600; margin-top:.25rem; }
-  .director-card .bio{ margin-top:.7rem; color:var(--ink-soft); font-size:.94rem; }
-  .director-card .plinks{ margin-top:.6rem; font-size:.88rem; }
-  .director-card details{ margin-top:.9rem; border-top:1px solid var(--line); padding-top:.8rem; }
-  .director-card summary{ cursor:pointer; font-family:var(--display); font-weight:600; font-size:.86rem; color:var(--orange); list-style:none; }
-  .director-card summary::-webkit-details-marker{ display:none; }
-  .director-card summary::before{ content:"+ "; }
-  .director-card details[open] summary::before{ content:"− "; }
-  .director-card details .dl{ margin-top:.4rem; }
-  .director-card details .dl li{ padding:.5rem 0; font-size:.88rem; }
-  .director-card details .award-grid{ margin-top:1rem; }
-
   /* ===== From data to action ===== */
   .impact-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:1.3rem; margin-top:1.8rem; }
   @media (max-width:860px){ .impact-grid{ grid-template-columns:1fr; } }
@@ -730,17 +710,7 @@
   .pub.pub-extra.folded{ display:none; }
   .pub-toggle{ margin-top:1.2rem; }
 
-  /* ===== En español ===== */
-  .es-band{ background:linear-gradient(135deg, var(--gulf), var(--blue)); color:#fff; }
-  .es-band h2{ color:#fff; }
-  .es-band .section-head p{ color:#dbe3ec; }
-  .es-cards{ display:grid; grid-template-columns:repeat(3,1fr); gap:1.2rem; margin-top:1.8rem; }
-  @media (max-width:860px){ .es-cards{ grid-template-columns:1fr; } }
-  .es-card{ background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.2); border-radius:14px; padding:1.3rem; }
-  .es-card h3{ color:#fff; font-size:1.05rem; margin-bottom:.45rem; }
-  .es-card p{ font-size:.92rem; color:#dbe3ec; }
-  .es-band a{ color:var(--orange-br); }
-</style>
+  </style>
 </head>
 <body>
 <a class="skip-link" href="#top">Skip to main content</a>
@@ -760,7 +730,6 @@
 <a href="#people">People</a>
 <a href="#publications">Publications</a>
 <a href="#partner">Partner With Us</a>
-<a href="#en-espanol" lang="es">En español</a>
 <a href="#contact">Contact</a>
 </nav>
 </div>
@@ -794,7 +763,7 @@
 <!-- AUDIENCE PATHWAYS -->
 <nav aria-label="Audience pathways" class="pathways">
 <a class="pathway" href="#partner"><span class="who">Research &amp; funding partners</span><span class="go">Partner with CHIP &rarr;</span><span class="hint">Grant collaboration, contracted evaluation, and field infrastructure.</span></a>
-<a class="pathway" href="#en-espanol"><span class="who">Community members &amp; participants</span><span class="go">Participate or get screened &rarr;</span><span class="hint">Free bilingual health screenings and study opportunities. <span lang="es">Informaci&oacute;n en espa&ntilde;ol.</span></span></a>
+<a class="pathway" href="#air-heat-study"><span class="who">Community members &amp; participants</span><span class="go">Participate or get screened &rarr;</span><span class="hint">Free bilingual health screenings and study opportunities.</span></a>
 <a class="pathway" href="#partner"><span class="who">Students &amp; trainees</span><span class="go">Train with us &rarr;</span><span class="hint">Field research, evaluation, and analysis experience on the border.</span></a>
 </nav>
     <!-- OVERVIEW + VENN -->
@@ -822,20 +791,6 @@
 </div>
 </section>
 <!-- RESEARCH: three pillars with projects folded in -->
-<!-- CROSS-CUTTING METHODS -->
-<section class="alt" id="methods">
-<div class="wrap">
-<div class="methods-panel reveal">
-<span class="bar-head navy">Cross-cutting methods &amp; capabilities</span>
-<div class="grid-4" style="margin-top:1.2rem;">
-<div class="card method-card"><figure class="method-image"><img alt="Community health screening with fingerstick testing and health assessment materials." src="assets/method-screening.webp" width="640" height="640" loading="lazy" decoding="async"/></figure><h3 style="font-size:1.02rem;">Community engagement &amp; screening</h3><p>A trained, IRB-experienced bilingual community health worker network that stands up field data collection and screening events.</p></div>
-<div class="card method-card"><figure class="method-image"><img alt="Community group reviewing GIS maps, environmental layers, and local exposure information." src="assets/method-gis.webp" width="640" height="640" loading="lazy" decoding="async"/></figure><h3 style="font-size:1.02rem;">Geospatial &amp; environmental analysis</h3><p>Satellite remote sensing, land-use regression, and field sampling — linking geocoded participants to exposure models.</p></div>
-<div class="card method-card"><figure class="method-image"><img alt="Nutrition education activity with children preparing fresh foods in a classroom." src="assets/method-nutrition.webp" width="640" height="640" loading="lazy" decoding="async"/></figure><h3 style="font-size:1.02rem;">Program evaluation</h3><p>Mixed-methods evaluation designed with partners — from logic model through reporting to funders.</p></div>
-<div class="card method-card"><figure class="method-image"><img alt="Community planning workshop with residents reviewing environmental and program priorities." src="assets/method-planning.webp" width="640" height="640" loading="lazy" decoding="async"/></figure><h3 style="font-size:1.02rem;">Implementation &amp; capacity</h3><p>Training, technical assistance, and capacity building to bring evidence-based programs to new settings.</p></div>
-</div>
-</div>
-</div>
-</section>
 <section class="alt revised-research" id="research">
 <div class="wrap">
 <div class="section-head reveal" style="margin-bottom:2rem;">
@@ -915,6 +870,20 @@
 </div>
 </section>
 
+<!-- CROSS-CUTTING METHODS -->
+<section class="alt" id="methods">
+<div class="wrap">
+<div class="methods-panel reveal">
+<span class="bar-head navy">Cross-cutting methods &amp; capabilities</span>
+<div class="grid-4" style="margin-top:1.2rem;">
+<div class="card method-card"><figure class="method-image"><img alt="Community health screening with fingerstick testing and health assessment materials." src="assets/method-screening.webp" width="640" height="640" loading="lazy" decoding="async"/></figure><h3 style="font-size:1.02rem;">Community engagement &amp; screening</h3><p>A trained, IRB-experienced bilingual community health worker network that stands up field data collection and screening events.</p></div>
+<div class="card method-card"><figure class="method-image"><img alt="Community group reviewing GIS maps, environmental layers, and local exposure information." src="assets/method-gis.webp" width="640" height="640" loading="lazy" decoding="async"/></figure><h3 style="font-size:1.02rem;">Geospatial &amp; environmental analysis</h3><p>Satellite remote sensing, land-use regression, and field sampling — linking geocoded participants to exposure models.</p></div>
+<div class="card method-card"><figure class="method-image"><img alt="Nutrition education activity with children preparing fresh foods in a classroom." src="assets/method-nutrition.webp" width="640" height="640" loading="lazy" decoding="async"/></figure><h3 style="font-size:1.02rem;">Program evaluation</h3><p>Mixed-methods evaluation designed with partners — from logic model through reporting to funders.</p></div>
+<div class="card method-card"><figure class="method-image"><img alt="Community planning workshop with residents reviewing environmental and program priorities." src="assets/method-planning.webp" width="640" height="640" loading="lazy" decoding="async"/></figure><h3 style="font-size:1.02rem;">Implementation &amp; capacity</h3><p>Training, technical assistance, and capacity building to bring evidence-based programs to new settings.</p></div>
+</div>
+</div>
+</div>
+</section>
 <!-- FEATURED STUDY: AIR & HEAT SURVEY -->
 <section class="glance" id="air-heat-study">
 <div class="wrap">
@@ -1015,55 +984,35 @@
 <!-- PEOPLE -->
 <section id="people">
 <div class="wrap">
-<div class="section-head reveal" style="margin-bottom:0;">
-<span class="bar-head navy">Our team</span>
-<h2 style="margin-top:1rem;">The people behind the work.</h2>
-<p>CHIP is a distributed team of researchers, coordinators, community health workers, and trainees. The community health worker network is not support staff for the science &mdash; it is part of the scientific infrastructure itself.</p>
+<span class="bar-head navy reveal">Director</span>
+<div class="grid-2 reveal" style="gap:2.6rem; align-items:start; margin:1.3rem 0 2.6rem;">
+<div class="prose">
+<div style="margin-bottom:1.2rem;"><img src="assets/director.webp" alt="Juan Aguilera, MD, PhD, MPH" width="509" height="800" loading="lazy" decoding="async" style="width:160px;height:160px;border-radius:50%;object-fit:cover;object-position:center 25%;border:4px solid var(--gulf);box-shadow:0 6px 20px rgba(0,40,86,.15);display:block;"></div>
+<h2 style="font-size:1.6rem;">Juan Aguilera, MD, PhD, MPH</h2>
+<p style="font-family:var(--display); color:var(--orange); font-size:.92rem; margin-top:.4rem;">Director, Community Health Impact Projects · Assistant Professor, UTHealth Houston School of Public Health in El Paso</p>
+<p style="margin-top:1.1rem; color:var(--ink-soft);">Dr. Aguilera is a public health researcher whose work examines how environmental exposures, occupational conditions, and social determinants contribute to chronic disease risk in underserved populations, with a focus on the U.S.–Mexico border region. His program integrates environmental epidemiology, community-engaged research, implementation science, and applied program evaluation.</p>
 </div>
-<div class="team-group reveal">
-<h3>Leadership</h3>
-<div class="director-card">
-<img src="assets/director.webp" alt="Juan Aguilera, MD, PhD, MPH" width="509" height="800" loading="lazy" decoding="async"/>
-<div>
-<h3>Juan Aguilera, MD, PhD, MPH</h3>
-<p class="role">Director, Community Health Impact Projects &middot; Assistant Professor, UTHealth Houston School of Public Health in El Paso</p>
-<p class="bio">Dr. Aguilera studies how environmental exposures, occupational conditions, and social determinants contribute to chronic disease risk in underserved populations, with a focus on the U.S.&ndash;Mexico border region. He directs CHIP&rsquo;s integrated program of environmental epidemiology, community-engaged research, implementation science, and applied evaluation.</p>
-<p class="plinks"><a href="https://scholar.google.com/citations?user=PaWNrAMAAAAJ&amp;hl=en" target="_blank" rel="noopener">Google Scholar &#8599;</a> &middot; <a href="https://orcid.org/0000-0002-6451-0662" target="_blank" rel="noopener">ORCID &#8599;</a></p>
-<details>
-<summary>Credentials &amp; selected honors</summary>
 <ul class="dl">
+<li><span class="k">Role</span><span class="v">Director, CHIP &amp; Assistant Professor, UTHealth Houston SPH in El Paso</span></li>
 <li><span class="k">Affiliate</span><span class="v">Affiliate Faculty, Environmental Health, Harvard T.H. Chan School of Public Health</span></li>
 <li><span class="k">PhD</span><span class="v">Interdisciplinary Health Sciences, University of Texas at El Paso</span></li>
 <li><span class="k">MPH</span><span class="v">Public Health, University of Texas at El Paso</span></li>
-<li><span class="k">MD</span><span class="v">Universidad Aut&oacute;noma de Ciudad Ju&aacute;rez, M&eacute;xico</span></li>
+<li><span class="k">MD</span><span class="v">Universidad Autónoma de Ciudad Juárez, México</span></li>
+<li><span class="k">Profiles</span><span class="v"><a href="https://scholar.google.com/citations?user=PaWNrAMAAAAJ&amp;hl=en" target="_blank" rel="noopener">Google Scholar ↗</a> · <a href="https://orcid.org/0000-0002-6451-0662" target="_blank" rel="noopener">ORCID ↗</a></span></li>
 </ul>
+</div>
+<span class="bar-head crimson reveal">Selected honors</span>
 <div class="award-grid"><div class="award reveal"><span class="yr">2026</span><div><p class="aw-t">Award for Excellence in Community Service</p><p class="aw-o">UTHealth Houston School of Public Health &middot; student-nominated faculty award</p></div></div><div class="award reveal"><span class="yr">2026</span><div><p class="aw-t">ASPIRE Immersive Institute Fellow</p><p class="aw-o">National Science Foundation &middot; community-engaged geoscience research</p></div></div><div class="award reveal"><span class="yr">2026&ndash;27</span><div><p class="aw-t">HARP-BIO Scholar</p><p class="aw-o">NHLBI / Colorado PRIME, CU Anschutz &middot; AI &amp; data science for cardiopulmonary health</p></div></div><div class="award reveal"><span class="yr">2025&ndash;26</span><div><p class="aw-t">AIM-AHEAD Bridge2AI Scholar</p><p class="aw-o">National Institutes of Health &middot; AI/ML for clinical care</p></div></div><div class="award reveal"><span class="yr">2025</span><div><p class="aw-t">NIH Climate and Health Scholar</p><p class="aw-o">National Institutes of Health</p></div></div><div class="award reveal"><span class="yr">2025</span><div><p class="aw-t">ISEE Wartenberg Award</p><p class="aw-o">International Society for Environmental Epidemiology &middot; national fellowship</p></div></div><div class="award reveal"><span class="yr">2024&ndash;25</span><div><p class="aw-t">GeoCAF&Eacute; Scholar</p><p class="aw-o">National Science Foundation &middot; geosciences research network</p></div></div><div class="award reveal"><span class="yr">2023</span><div><p class="aw-t">Excellence in Climate Leadership Award</p><p class="aw-o">American Public Health Association &middot; competitive national award</p></div></div></div>
-</details>
-</div>
-</div>
-</div>
-<div class="team-group reveal">
-<h3>Research staff</h3>
-<div class="grid-3">
+<span class="bar-head teal reveal" style="margin-top:2.6rem; display:inline-block;">Our team</span>
+<div class="grid-4 reveal" style="margin-top:1.3rem;">
 <div class="member"><img class="av-photo" src="assets/team-denise.webp" alt="Denise Vazquez" width="320" height="320" loading="lazy" decoding="async"/><h4>Denise Vazquez</h4><div class="role">Research Coordinator</div><div class="focus">Health screenings; CHW coalition.</div></div>
-<div class="member"><img class="av-photo" src="assets/team-perla.webp" alt="Perla Alarcon" width="320" height="320" loading="lazy" decoding="async"/><h4>Perla Alarcon</h4><div class="role">Research Coordinator</div><div class="focus">Needs assessment, food systems.</div></div>
-</div>
-</div>
-<div class="team-group reveal">
-<h3>Community health workers</h3>
-<div class="grid-3">
-<div class="member"><img class="av-photo" src="assets/team-marisela.webp" alt="Marisela Gutierrez" width="320" height="320" loading="lazy" decoding="async"/><h4>Marisela Gutierrez</h4><div class="role">Community Health Worker</div><div class="focus">Health screenings; mental health.</div></div>
-<div class="member"><img class="av-photo" src="assets/team-matilde.webp" alt="Matilde Saenz" width="320" height="320" loading="lazy" decoding="async"/><h4>Matilde Saenz</h4><div class="role">Community Health Worker</div><div class="focus">Health screenings; cancer.</div></div>
-<div class="member"><img class="av-photo" src="assets/team-yadhira.webp" alt="Yadhira Trejo" width="320" height="320" loading="lazy" decoding="async"/><h4>Yadhira Trejo</h4><div class="role">Community Health Worker</div><div class="focus">Health screenings; lung function.</div></div>
-</div>
-</div>
-<div class="team-group reveal">
-<h3>Fellows &amp; trainees</h3>
-<div class="grid-3">
 <div class="member"><img class="av-photo" src="assets/team-abolore.webp" alt="Abolore Idris" width="320" height="320" loading="lazy" decoding="async"/><h4>Abolore Idris</h4><div class="role">Postdoctoral Fellow</div><div class="focus">Heat and occupational exposure.</div></div>
 <div class="member"><img class="av-photo" src="assets/team-karen.webp" alt="Karen Del Rio" width="320" height="320" loading="lazy" decoding="async"/><h4>Karen Del Rio</h4><div class="role">Doctoral Candidate</div><div class="focus">Acculturation, education, nutrition.</div></div>
 <div class="member"><img class="av-photo" src="assets/team-colby.webp" alt="Colby Griffin" width="320" height="320" loading="lazy" decoding="async"/><h4>Colby Griffin</h4><div class="role">Graduate Research Assistant</div><div class="focus">Program evaluation.</div></div>
-</div>
+<div class="member"><img class="av-photo" src="assets/team-marisela.webp" alt="Marisela Gutierrez" width="320" height="320" loading="lazy" decoding="async"/><h4>Marisela Gutierrez</h4><div class="role">Community Health Worker</div><div class="focus">Health screenings; mental health.</div></div>
+<div class="member"><img class="av-photo" src="assets/team-matilde.webp" alt="Matilde Saenz" width="320" height="320" loading="lazy" decoding="async"/><h4>Matilde Saenz</h4><div class="role">Community Health Worker</div><div class="focus">Health screenings; cancer.</div></div>
+<div class="member"><img class="av-photo" src="assets/team-yadhira.webp" alt="Yadhira Trejo" width="320" height="320" loading="lazy" decoding="async"/><h4>Yadhira Trejo</h4><div class="role">Community Health Worker</div><div class="focus">Health screenings; lung function.</div></div>
+<div class="member"><img class="av-photo" src="assets/team-perla.webp" alt="Perla Alarcon" width="320" height="320" loading="lazy" decoding="async"/><h4>Perla Alarcon</h4><div class="role">Research Coordinator</div><div class="focus">Needs assessment, food systems.</div></div>
 </div>
 </div>
 </section>
@@ -1132,30 +1081,6 @@
 </div>
 </div>
 </section>
-<!-- EN ESPAÑOL -->
-<section class="es-band" id="en-espanol" lang="es">
-<div class="wrap">
-<div class="section-head reveal">
-<span class="bar-head teal">En espa&ntilde;ol</span>
-<h2 style="margin-top:1rem;">Informaci&oacute;n para la comunidad.</h2>
-<p>CHIP (Proyectos de Impacto en la Salud Comunitaria) es un programa de investigaci&oacute;n y salud p&uacute;blica de la Escuela de Salud P&uacute;blica de UTHealth Houston en El Paso. Trabajamos con las comunidades de la frontera para estudiar la contaminaci&oacute;n del aire, el calor extremo, la alimentaci&oacute;n y las condiciones de trabajo &mdash; y para convertir los resultados en acci&oacute;n.</p>
-</div>
-<div class="es-cards">
-<div class="es-card reveal">
-<h3>Ex&aacute;menes de salud gratuitos</h3>
-<p>Ofrecemos ex&aacute;menes de salud gratuitos y biling&uuml;es en colonias, escuelas y ferias de salud: presi&oacute;n arterial, glucosa, colesterol y m&aacute;s. Usted recibe sus resultados el mismo d&iacute;a, con explicaci&oacute;n en espa&ntilde;ol y referencia m&eacute;dica si la necesita.</p>
-</div>
-<div class="es-card reveal">
-<h3>Participe en un estudio</h3>
-<p>Nuestros estudios sobre la calidad del aire, el calor y la nutrici&oacute;n buscan participantes de la regi&oacute;n. Participar siempre es voluntario: usted puede hacer preguntas, negarse o retirarse en cualquier momento, sin ninguna consecuencia.</p>
-</div>
-<div class="es-card reveal">
-<h3>Cont&aacute;ctenos</h3>
-<p>Escr&iacute;banos a <a href="mailto:juan.aguilera@uth.tmc.edu">juan.aguilera@uth.tmc.edu</a> o vis&iacute;tenos en 5130 Gateway Blvd, Suite 110, El Paso, TX 79905. Nuestro equipo &mdash; incluyendo promotoras de salud de la comunidad &mdash; le atiende en espa&ntilde;ol.</p>
-</div>
-</div>
-</div>
-</section>
 <!-- CONTACT -->
 <section id="contact">
 <div class="wrap">
@@ -1180,7 +1105,7 @@
 <div class="wrap">
 <div><h5>CHIP</h5><p class="org">Community Health Impact Projects<br/>UTHealth Houston School of Public Health in El Paso</p></div>
 <div><h5>Contact</h5><p><a href="mailto:juan.aguilera@uth.tmc.edu">juan.aguilera@uth.tmc.edu</a><br/>5130 Gateway Blvd, Suite 110<br/>El Paso, TX 79905</p></div>
-<div><h5>Navigate</h5><p><a href="#air-heat-study">Air &amp; Heat Study</a> · <a href="#research">Research</a> · <a href="#projects">Projects</a> · <a href="#people">People</a><br/><a href="#publications">Publications</a> · <a href="#partner">Partner With Us</a> · <a href="#en-espanol" lang="es">En español</a> · <a href="#contact">Contact</a><br/><a href="https://sph.uth.edu/campuses/el-paso">El Paso campus ↗</a></p></div>
+<div><h5>Navigate</h5><p><a href="#air-heat-study">Air &amp; Heat Study</a> · <a href="#research">Research</a> · <a href="#projects">Projects</a> · <a href="#people">People</a><br/><a href="#publications">Publications</a> · <a href="#partner">Partner With Us</a> · <a href="#contact">Contact</a><br/><a href="https://sph.uth.edu/campuses/el-paso">El Paso campus ↗</a></p></div>
 </div>
 <div class="legal"><div class="wrap"><span>© 2026 Community Health Impact Projects</span><span>UTHealth Houston School of Public Health in El Paso</span></div></div>
 </footer>
