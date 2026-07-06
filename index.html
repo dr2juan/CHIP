@@ -710,39 +710,39 @@
   .pub.pub-extra.folded{ display:none; }
   .pub-toggle{ margin-top:1.2rem; }
 
-  /* ===== CHIP project ecosystem ===== */
+  /* ===== CHIP project ecosystem — constellation map ===== */
   .vh{ position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; border:0; }
   html.js .eco-fallback{ display:none; }
   html:not(.js) .eco-canvas, html:not(.js) .eco-mobile, html:not(.js) .eco-legend{ display:none; }
   .eco-fallback{ margin-top:1.4rem; color:var(--ink-soft); font-size:.95rem; }
-  .eco-canvas{ position:relative; max-width:880px; margin:2.4rem auto 0; aspect-ratio:10/9; }
+  .eco-canvas{ position:relative; max-width:880px; margin:2.6rem auto 0; aspect-ratio:10/9; }
   .eco-lines{ position:absolute; inset:0; width:100%; height:100%; overflow:visible; }
-  .eco-lines line{ stroke-width:1.3; vector-effect:non-scaling-stroke; transition:opacity .35s ease; }
-  .eco-lines line.l-core{ stroke:var(--gulf); opacity:.26; stroke-dasharray:3 4; }
-  .eco-lines line.l-enviro{ stroke:var(--enviro); opacity:.38; }
-  .eco-lines line.l-cardio{ stroke:var(--cardio); opacity:.38; }
-  .eco-lines line.l-food{ stroke:var(--food); opacity:.38; }
-  .eco-lines line.dim{ opacity:.07; }
-  .eco-core{ position:absolute; transform:translate(-50%,-50%); width:clamp(120px,19%,168px); aspect-ratio:1; border-radius:50%; background:linear-gradient(135deg,var(--gulf),var(--enviro)); color:#fff; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding:1rem; box-shadow:0 14px 34px rgba(0,40,86,.22); z-index:3; transition:opacity .6s ease, transform .6s ease; }
-  .eco-core span{ font-family:var(--display); font-size:.58rem; font-weight:600; letter-spacing:.12em; text-transform:uppercase; color:#cfe9e6; margin-bottom:.3rem; }
-  .eco-core strong{ font-family:var(--display); font-weight:600; font-size:.88rem; line-height:1.25; color:#fff; }
-  .eco-pillar{ position:absolute; transform:translate(-50%,-50%); z-index:3; width:min(190px,24%); border:1px solid var(--line); border-radius:14px; background:var(--white); padding:.7rem .8rem .75rem; text-align:center; cursor:pointer; font-family:var(--display); box-shadow:0 10px 26px rgba(0,40,86,.08); transition:opacity .5s ease, transform .5s ease, box-shadow .15s ease, border-color .15s ease; }
+  .eco-lines line{ stroke-width:1.1; vector-effect:non-scaling-stroke; transition:opacity .3s ease; }
+  .eco-lines line.l-core{ stroke:var(--gulf); opacity:.24; stroke-dasharray:3 4; }
+  .eco-lines line.l-enviro{ stroke:var(--enviro); opacity:.32; }
+  .eco-lines line.l-cardio{ stroke:var(--cardio); opacity:.32; }
+  .eco-lines line.l-food{ stroke:var(--food); opacity:.32; }
+  .eco-lines line.hl{ opacity:.95; }
+  .eco-zone{ fill:var(--zc,var(--gulf)); fill-opacity:.055; stroke:var(--zc,var(--gulf)); stroke-opacity:.22; stroke-width:1; stroke-dasharray:2 3; vector-effect:non-scaling-stroke; transition:opacity .6s ease; }
+  .eco-zone.z-enviro{ --zc:var(--enviro); }
+  .eco-zone.z-cardio{ --zc:var(--cardio); }
+  .eco-zone.z-food{ --zc:var(--food); }
+  .eco-pillar{ position:absolute; transform:translate(-50%,-50%); z-index:2; width:190px; text-align:center; pointer-events:none; transition:opacity .6s ease; }
+  .eco-pillar .pl-name{ display:block; font-family:var(--display); font-weight:600; font-size:.88rem; line-height:1.3; color:var(--gulf); text-shadow:0 0 5px var(--sand-tint), 0 0 5px var(--sand-tint), 0 1px 6px var(--sand-tint); }
+  .eco-pillar::after{ content:""; display:block; width:36px; height:4px; border-radius:2px; margin:.4rem auto 0; background:var(--pz,var(--gulf)); }
   .eco-pillar.pz-enviro{ --pz:var(--enviro); }
   .eco-pillar.pz-cardio{ --pz:var(--cardio); }
   .eco-pillar.pz-food{ --pz:var(--food); }
-  .eco-pillar::before{ content:""; display:block; width:34px; height:5px; border-radius:3px; margin:0 auto .5rem; background:var(--pz,var(--gulf)); }
-  .eco-pillar .pl-name{ display:block; font-weight:600; font-size:.8rem; line-height:1.25; color:var(--gulf); }
-  .eco-pillar .pl-count{ display:block; margin-top:.3rem; font-size:.64rem; font-weight:600; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-soft); }
-  .eco-pillar:hover{ border-color:var(--sand); box-shadow:0 14px 32px rgba(0,40,86,.14); }
-  .eco-pillar[aria-pressed="true"]{ border-color:var(--pz); box-shadow:0 0 0 2px var(--pz), 0 14px 32px rgba(0,40,86,.12); }
-  .eco-pillar.dim{ opacity:.45; }
-  .eco-node{ position:absolute; transform:translate(-50%,-50%); z-index:4; display:inline-flex; align-items:center; gap:.38rem; max-width:172px; background:var(--white); border:1px solid var(--line); border-radius:999px; padding:.34rem .72rem; font-family:var(--display); font-weight:600; font-size:.72rem; line-height:1.2; color:var(--ink); cursor:pointer; box-shadow:0 6px 18px rgba(0,40,86,.07); transition:opacity .5s ease, transform .5s ease, border-color .15s ease, box-shadow .15s ease; text-align:left; }
-  .eco-node .nd{ flex-shrink:0; width:8px; height:8px; border-radius:50%; }
-  .eco-node .nd.d-enviro{ background:var(--enviro); }
-  .eco-node .nd.d-cardio{ background:var(--cardio); }
-  .eco-node .nd.d-food{ background:var(--food); }
-  .eco-node:hover,.eco-node:focus-visible{ border-color:var(--orange); box-shadow:0 10px 24px rgba(0,40,86,.16); z-index:6; }
-  .eco-node.dim{ opacity:.28; }
+  .eco-core{ position:absolute; transform:translate(-50%,-50%); width:clamp(110px,17%,150px); aspect-ratio:1; border-radius:50%; background:linear-gradient(135deg,var(--gulf),var(--enviro)); color:#fff; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding:.9rem; box-shadow:0 14px 34px rgba(0,40,86,.22); z-index:3; transition:opacity .6s ease, transform .6s ease; }
+  .eco-core span{ font-family:var(--display); font-size:.56rem; font-weight:600; letter-spacing:.12em; text-transform:uppercase; color:#cfe9e6; margin-bottom:.28rem; }
+  .eco-core strong{ font-family:var(--display); font-weight:600; font-size:.84rem; line-height:1.25; color:#fff; }
+  .eco-node{ position:absolute; transform:translate(-50%,-8px); z-index:4; display:flex; flex-direction:column; align-items:center; gap:.32rem; max-width:112px; background:none; border:0; padding:0; cursor:pointer; font-family:var(--display); transition:opacity .5s ease; }
+  .eco-node .nd{ position:relative; flex-shrink:0; width:14px; height:14px; border-radius:50%; background:var(--nc,var(--gulf)); border:2px solid var(--white); box-shadow:0 1px 5px rgba(0,40,86,.3); transition:transform .15s ease; }
+  .eco-node .nd.split{ background:linear-gradient(135deg, var(--nc,var(--gulf)) 0 50%, var(--nc2,var(--gulf)) 50% 100%); }
+  .eco-node.collab .nd::after{ content:""; position:absolute; inset:-6px; border-radius:50%; border:1.5px dashed var(--nc,var(--gulf)); opacity:.75; }
+  .eco-node .nl{ font-weight:600; font-size:.68rem; line-height:1.25; color:var(--ink); text-align:center; text-shadow:0 0 5px var(--sand-tint), 0 0 5px var(--sand-tint), 0 0 6px var(--sand-tint); }
+  .eco-node:hover .nd,.eco-node:focus-visible .nd{ transform:scale(1.3); }
+  .eco-node:hover .nl,.eco-node:focus-visible .nl{ color:var(--gulf); }
   .eco-tip{ position:absolute; z-index:8; width:min(250px,60vw); background:var(--gulf); color:#fff; border-radius:10px; padding:.8rem .9rem; font-size:.8rem; line-height:1.45; box-shadow:0 14px 34px rgba(0,40,86,.3); pointer-events:none; opacity:0; visibility:hidden; transition:opacity .18s ease, visibility .18s; }
   .eco-tip.show{ opacity:1; visibility:visible; }
   .eco-tip strong{ display:block; font-family:var(--display); font-size:.84rem; line-height:1.3; margin-bottom:.25rem; color:#fff; }
@@ -750,41 +750,41 @@
   .eco-tip .tip-tags{ display:flex; flex-wrap:wrap; gap:.3rem; margin-top:.5rem; }
   .eco-tip .tip-tags span{ font-family:var(--display); font-weight:600; font-size:.58rem; letter-spacing:.08em; text-transform:uppercase; padding:.18rem .45rem; border-radius:4px; background:rgba(255,255,255,.16); color:#eaf2f6; }
   .eco-tip .tip-go{ display:block; margin-top:.5rem; font-family:var(--display); font-weight:600; font-size:.62rem; letter-spacing:.08em; text-transform:uppercase; color:var(--orange-br); }
-  .eco-legend{ display:flex; flex-wrap:wrap; gap:.6rem 1.4rem; justify-content:center; margin:1.6rem 0 0; font-size:.78rem; color:var(--ink-soft); }
+  .eco-legend{ display:flex; flex-wrap:wrap; gap:.6rem 1.4rem; justify-content:center; margin:1.7rem 0 0; font-size:.78rem; color:var(--ink-soft); }
   .eco-legend .lg{ display:inline-flex; align-items:center; gap:.45rem; font-family:var(--display); font-weight:600; }
   .eco-legend .lg i{ width:9px; height:9px; border-radius:50%; display:inline-block; }
-  /* staggered reveal: core, then pillars, then lines and project nodes */
+  .eco-legend .lg i.ring{ width:11px; height:11px; background:transparent; border:1.5px dashed var(--gulf); }
+  /* staggered reveal: core, then pillar zones, then connections and project nodes */
   @media (prefers-reduced-motion: no-preference){
-    html.js .eco-canvas:not(.eco-in) .eco-core,
+    html.js .eco-canvas:not(.eco-in) .eco-core{ opacity:0; transform:translate(-50%,-46%); }
     html.js .eco-canvas:not(.eco-in) .eco-pillar,
-    html.js .eco-canvas:not(.eco-in) .eco-node{ opacity:0; transform:translate(-50%,-44%); }
+    html.js .eco-canvas:not(.eco-in) .eco-node,
+    html.js .eco-canvas:not(.eco-in) .eco-zone,
     html.js .eco-canvas:not(.eco-in) .eco-lines line{ opacity:0; }
-    .eco-canvas:not(.eco-done) .eco-pillar{ transition-delay:.25s; }
+    .eco-canvas:not(.eco-done) .eco-pillar,
+    .eco-canvas:not(.eco-done) .eco-zone{ transition-delay:.25s; }
     .eco-canvas:not(.eco-done) .eco-lines line{ transition-delay:.5s; }
   }
-  /* mobile: simplified core + tabs + card list */
+  /* mobile: simplified relationship map — spine, pillar anchors, intersection zones, project chips */
   .eco-mobile{ display:none; }
   @media (max-width:819px){
     .eco-canvas,.eco-legend{ display:none; }
-    html.js .eco-mobile{ display:block; margin-top:1.8rem; }
+    html.js .eco-mobile{ display:block; position:relative; margin-top:1.9rem; padding-left:30px; }
   }
-  .eco-m-core{ border-radius:14px; background:linear-gradient(135deg,var(--gulf),var(--enviro)); color:#fff; padding:1.05rem 1.2rem; }
-  .eco-m-core span{ display:block; font-family:var(--display); font-size:.68rem; font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:#cfe9e6; margin-bottom:.25rem; }
-  .eco-m-core strong{ font-family:var(--display); font-weight:600; font-size:1rem; line-height:1.35; color:#fff; }
-  .eco-m-tabs{ margin:1.1rem 0 1.1rem; }
-  .eco-m-list{ list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:.7rem; }
-  .eco-m-item button{ position:relative; overflow:hidden; width:100%; text-align:left; background:var(--white); border:1px solid var(--line); border-radius:12px; padding:.95rem 1rem .95rem 1.25rem; cursor:pointer; font-family:var(--body); transition:opacity .25s ease, border-color .15s ease; }
-  .eco-m-item button::before{ content:""; position:absolute; inset:0 auto 0 0; width:6px; background:var(--pz,var(--gulf)); }
-  .eco-m-item.m-enviro button{ --pz:var(--enviro); }
-  .eco-m-item.m-cardio button{ --pz:var(--cardio); }
-  .eco-m-item.m-food button{ --pz:var(--food); }
-  .eco-m-item button:hover{ border-color:var(--sand); }
-  .eco-m-item strong{ display:block; font-family:var(--display); font-weight:600; font-size:.95rem; line-height:1.3; color:var(--gulf); }
-  .eco-m-item .m-desc{ display:block; margin-top:.3rem; font-size:.84rem; line-height:1.5; color:var(--ink-soft); }
-  .eco-m-item .ptags{ display:flex; flex-wrap:wrap; gap:.4rem; margin-top:.55rem; }
-  .eco-m-item .m-go{ display:inline-block; margin-top:.55rem; font-family:var(--display); font-weight:600; font-size:.66rem; letter-spacing:.1em; text-transform:uppercase; color:var(--orange); }
-  .eco-m-item.hide{ display:none; }
-  .eco-m-item.fading button{ opacity:0; }
+  .eco-mobile::before{ content:""; position:absolute; left:9px; top:16px; bottom:8px; border-left:2px dashed var(--sand); }
+  .eco-m-core{ position:relative; display:inline-flex; margin:0; border-radius:999px; background:linear-gradient(135deg,var(--gulf),var(--enviro)); color:#fff; padding:.55rem 1.1rem; font-family:var(--display); font-weight:600; font-size:.86rem; line-height:1.3; box-shadow:0 8px 22px rgba(0,40,86,.18); }
+  .eco-m-core::before{ content:""; position:absolute; left:-21px; top:50%; width:20px; border-top:2px dashed var(--sand); }
+  .eco-m-zone{ position:relative; margin-top:1.5rem; }
+  .eco-m-zone::before{ content:""; position:absolute; left:-27px; top:.1rem; width:12px; height:12px; border-radius:50%; background:var(--zc,var(--gulf)); border:2px solid var(--bg); box-shadow:0 0 0 1px var(--line); }
+  .eco-m-zone.zx::before{ background:linear-gradient(135deg, var(--zc,var(--gulf)) 0 50%, var(--zc2,var(--gulf)) 50% 100%); }
+  .eco-m-zone .zl{ margin:0 0 .6rem; font-family:var(--display); font-weight:600; font-size:.76rem; letter-spacing:.09em; text-transform:uppercase; color:var(--zc,var(--gulf)); }
+  .eco-m-zone.zx .zl{ color:var(--ink-soft); }
+  .eco-chips{ list-style:none; margin:0; padding:0; display:flex; flex-wrap:wrap; gap:.45rem; }
+  .eco-chip{ display:inline-flex; align-items:center; gap:.42rem; background:var(--white); border:1px solid var(--line); border-radius:999px; padding:.36rem .75rem; font-family:var(--display); font-weight:600; font-size:.72rem; line-height:1.2; color:var(--ink); cursor:pointer; transition:border-color .15s ease; }
+  .eco-chip:hover{ border-color:var(--sand); }
+  .eco-chip .nd{ position:relative; flex-shrink:0; width:9px; height:9px; border-radius:50%; background:var(--nc,var(--gulf)); }
+  .eco-chip .nd.split{ background:linear-gradient(135deg, var(--nc,var(--gulf)) 0 50%, var(--nc2,var(--gulf)) 50% 100%); }
+  .eco-chip.collab .nd::after{ content:""; position:absolute; inset:-3.5px; border-radius:50%; border:1px dashed var(--nc,var(--gulf)); }
   /* from measurement to action */
   .eco-flow{ margin-top:2.6rem; border-top:1px solid var(--line); padding-top:1.6rem; }
   .flow-steps{ list-style:none; display:flex; flex-wrap:wrap; align-items:center; gap:.55rem .1rem; margin:.35rem 0 0; padding:0; }
@@ -892,16 +892,15 @@
 <div class="wrap">
 <div class="section-head reveal" style="margin-bottom:0;">
 <span class="bar-head navy">Project ecosystem</span>
-<h2 id="ecosystem-title" style="margin-top:1rem;">Twelve projects, three pillars, one core.</h2>
-<p>Every active CHIP project draws on the same community-engaged core and connects to one or more research pillars. Select a pillar to highlight its projects, or select any project to jump to its full description below.</p>
+<h2 id="ecosystem-title" style="margin-top:1rem;">CHIP projects are not isolated studies.</h2>
+<p>They form a connected portfolio linking environmental exposure, chronic disease risk, food systems, and community-engaged action. Hover over or focus any project to see how it connects; select it to jump to the full project card below.</p>
 </div>
 <p class="eco-fallback">This interactive map requires JavaScript. You can <a href="#projects">browse the full list of current projects</a> instead.</p>
-<div class="eco-canvas" data-eco role="group" aria-label="Interactive map of the twelve active CHIP projects across three research pillars and a community-engaged core">
+<div class="eco-canvas" data-eco role="group" aria-label="Relationship map of the twelve active CHIP projects, three research pillars, and the community-engaged core">
 <svg class="eco-lines" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true" focusable="false"></svg>
 </div>
-<p class="eco-legend"><span class="lg"><i style="background:var(--enviro);"></i>Environmental &amp; occupational</span><span class="lg"><i style="background:var(--cardio);"></i>Cardiometabolic</span><span class="lg"><i style="background:var(--food);"></i>Food &amp; nutrition</span><span>Hover or focus a project for details &middot; select it to jump to the project card</span></p>
-<div class="eco-mobile" data-eco-mobile></div>
-<span class="vh" aria-live="polite" data-eco-live></span>
+<p class="eco-legend"><span class="lg"><i style="background:var(--enviro);"></i>Environmental &amp; occupational</span><span class="lg"><i style="background:var(--cardio);"></i>Cardiometabolic</span><span class="lg"><i style="background:var(--food);"></i>Food &amp; nutrition</span><span class="lg"><i class="ring"></i>Cross-institution collaboration</span><span>Hover or focus a project for details &middot; select it to jump to the project card</span></p>
+<div class="eco-mobile reveal" data-eco-mobile></div>
 <div class="eco-flow reveal" aria-label="From measurement to action">
 <span class="glance-eyebrow">From measurement to action</span>
 <ol class="flow-steps">
@@ -1303,78 +1302,67 @@ if(ticking)return;ticking=true;
 requestAnimationFrame(function(){btn.classList.toggle('show',window.scrollY>700);ticking=false;});
 },{passive:true});
 })();
-/* project ecosystem map */
+/* project ecosystem: constellation map of projects, pillars, and the core */
 (function(){
 var canvas=document.querySelector('[data-eco]');if(!canvas)return;
 var svg=canvas.querySelector('.eco-lines');
 var mobile=document.querySelector('[data-eco-mobile]');
-var live=document.querySelector('[data-eco-live]');
 var prm=window.matchMedia?matchMedia('(prefers-reduced-motion: reduce)'):{matches:false};
 var PILLARS={
-enviro:{name:'Environmental & occupational health',tag:'Environmental',x:50,y:16},
-cardio:{name:'Cardiometabolic & chronic disease',tag:'Cardiometabolic',x:21,y:70},
-food:{name:'Food systems & nutrition',tag:'Food & nutrition',x:79,y:70}
+enviro:{name:'Environmental & occupational health',tag:'Environmental & occupational',x:50,y:16},
+cardio:{name:'Cardiometabolic & chronic disease',tag:'Cardiometabolic',x:20,y:72},
+food:{name:'Food systems & nutrition',tag:'Food & nutrition',x:80,y:72}
 };
 var CORE={x:50,y:52};
 var PROJECTS=[
-{id:'proj-air-heat',label:'Heat & air pollution screening',title:'Health impacts of heat & air pollution in at-risk populations',desc:'On-site screenings in colonias, schools, and health fairs, paired with NASA satellite exposure estimates.',p:['enviro','cardio'],x:22,y:41},
-{id:'proj-wearable',label:'Wearable heat monitoring',title:'Wearable heat-stress monitoring for outdoor workers',desc:'A pilot placing wearable physiological monitors on outdoor workers to detect and prevent heat illness.',p:['enviro'],x:12,y:22},
-{id:'proj-heat-ozone',label:'Heat & ozone co-exposure',title:'Heat & ozone co-exposure and chronic disease',desc:'Personal heat and air-pollution monitoring across work shifts, linked to cardiometabolic indicators.',p:['enviro'],x:30,y:6},
-{id:'proj-asthma-gis',label:'Asthma GIS mapping',title:'Air pollution & asthma GIS mapping',desc:'Spatial analysis mapping asthma and respiratory illness against traffic and industrial exposure layers.',p:['enviro'],x:50,y:4},
-{id:'proj-bota',label:'BOTA assessment',title:'BOTA environmental health impact assessment',desc:'Community-engaged risk assessment near the Bridge of the Americas, with air, soil, and water sampling.',p:['enviro'],collab:true,x:70,y:6},
-{id:'proj-firefighter',label:'Firefighter cancer study',title:'Texas Firefighter Cancer Study',desc:'Statewide collaboration examining occupational cancer risk among Texas firefighters.',p:['enviro'],collab:true,x:88,y:22},
-{id:'proj-vale',label:'VALE+Tu Salud',title:'VALE+Tu Salud',desc:'Corner-based randomized trial testing a health and safety program with Latino day laborers.',p:['enviro'],collab:true,x:93,y:42},
-{id:'proj-raise-bar',label:'Raise the Bar',title:'Raise the Bar',desc:'Evaluation of physical activity and wellness programming for military-connected students in El Paso schools.',p:['cardio'],x:11,y:88},
-{id:'proj-school-meals',label:'School meals education',title:'Bilingual nutrition education in school meals',desc:'How culture, perception, and communication shape food acceptance in a predominantly Latino elementary school.',p:['food'],x:52,y:92},
-{id:'proj-cultivating',label:'Cultivating Health',title:'Cultivating Health: veggie scripts & gardening',desc:'Evaluation of produce prescription and gardening programs supporting healthy food access among SNAP participants.',p:['food'],x:76,y:93},
-{id:'proj-swfbc',label:'SW Food Business Center',title:'Southwest Regional Food Business Center evaluation',desc:'Multi-state evaluation of food-business support and supply-chain capacity across Texas and New Mexico.',p:['food'],x:93,y:82},
-{id:'proj-needs',label:'Healthy Eating needs assessment',title:'Healthy Eating regional needs assessment',desc:'An epidemiological scan and nutrition-assets assessment guiding healthy-eating investment across the Paso del Norte region.',p:['food'],x:93,y:59}
+{id:'proj-air-heat',label:'Air & Heat Study',title:'Health impacts of heat & air pollution in at-risk populations',desc:'On-site screenings in colonias, schools, and health fairs, paired with NASA satellite exposure estimates.',p:['enviro','cardio'],x:36,y:42},
+{id:'proj-heat-ozone',label:'Heat & ozone co-exposure',title:'Heat & ozone co-exposure and chronic disease',desc:'Personal heat and air-pollution monitoring across work shifts, linked to cardiometabolic indicators.',p:['enviro','cardio'],x:19,y:27},
+{id:'proj-asthma-gis',label:'Asthma GIS mapping',title:'Air pollution & asthma GIS mapping',desc:'Spatial analysis mapping asthma and respiratory illness against traffic and industrial exposure layers.',p:['enviro','cardio'],x:10,y:46},
+{id:'proj-wearable',label:'Wearable heat monitoring',title:'Wearable heat-stress monitoring for outdoor workers',desc:'A pilot placing wearable physiological monitors on outdoor workers to detect and prevent heat illness.',p:['enviro'],x:27,y:8},
+{id:'proj-bota',label:'BOTA impact assessment',title:'BOTA environmental health impact assessment',desc:'Community-engaged risk assessment near the Bridge of the Americas, with air, soil, and water sampling.',p:['enviro'],collab:true,x:50,y:5},
+{id:'proj-firefighter',label:'Firefighter cancer study',title:'Texas Firefighter Cancer Study',desc:'Statewide collaboration examining occupational cancer risk among Texas firefighters.',p:['enviro'],collab:true,x:73,y:8},
+{id:'proj-vale',label:'VALE+Tu Salud',title:'VALE+Tu Salud',desc:'Corner-based randomized trial testing a health and safety program with Latino day laborers.',p:['enviro'],collab:true,x:67,y:33},
+{id:'proj-raise-bar',label:'Raise the Bar',title:'Raise the Bar',desc:'Evaluation of physical activity and wellness programming for military-connected students in El Paso schools.',p:['cardio'],x:13,y:89},
+{id:'proj-cultivating',label:'Cultivating Health',title:'Cultivating Health: veggie scripts & gardening',desc:'Evaluation of produce prescription and gardening programs supporting healthy food access among SNAP participants.',p:['food','cardio'],x:50,y:83},
+{id:'proj-swfbc',label:'SW Food Business Center',title:'Southwest Regional Food Business Center evaluation',desc:'Multi-state evaluation of food-business support and supply-chain capacity across Texas and New Mexico.',p:['food'],collab:true,x:91,y:86},
+{id:'proj-needs',label:'Healthy Eating needs assessment',title:'Healthy Eating regional needs assessment',desc:'An epidemiological scan and nutrition-assets assessment guiding healthy-eating investment across the Paso del Norte region.',p:['food'],x:80,y:50},
+{id:'proj-school-meals',label:'School meals education',title:'Bilingual nutrition education in school meals',desc:'How culture, perception, and communication shape food acceptance in a predominantly Latino elementary school.',p:['food'],x:66,y:91}
 ];
 var NS='http://www.w3.org/2000/svg';
-function line(x1,y1,x2,y2,cls){var l=document.createElementNS(NS,'line');l.setAttribute('x1',x1);l.setAttribute('y1',y1);l.setAttribute('x2',x2);l.setAttribute('y2',y2);l.setAttribute('class',cls);svg.appendChild(l);return l;}
+function mk(t,attrs){var e=document.createElementNS(NS,t);for(var k in attrs)e.setAttribute(k,attrs[k]);svg.appendChild(e);return e;}
+Object.keys(PILLARS).forEach(function(k){var p=PILLARS[k];mk('ellipse',{cx:p.x,cy:p.y,rx:15,ry:12,'class':'eco-zone z-'+k});});
+function line(x1,y1,x2,y2,cls){return mk('line',{x1:x1,y1:y1,x2:x2,y2:y2,'class':cls});}
 Object.keys(PILLARS).forEach(function(k){var p=PILLARS[k];line(CORE.x,CORE.y,p.x,p.y,'l-core');});
-var lines=[];
-PROJECTS.forEach(function(pr){pr.p.forEach(function(k){var pz=PILLARS[k];lines.push({el:line(pr.x,pr.y,pz.x,pz.y,'l-'+k),pillar:k});});});
+PROJECTS.forEach(function(pr){pr.lines=pr.p.map(function(k){return line(pr.x,pr.y,PILLARS[k].x,PILLARS[k].y,'l-'+k);});});
 var core=document.createElement('div');
 core.className='eco-core';core.style.left=CORE.x+'%';core.style.top=CORE.y+'%';
 core.innerHTML='<span>Shared foundation</span><strong>Community-engaged core</strong>';
 canvas.appendChild(core);
-var filter=null,pillarBtns={},nodes=[];
-function announce(t){if(live)live.textContent=t;}
-function setFilter(k){
-filter=k;
-Object.keys(pillarBtns).forEach(function(key){
-pillarBtns[key].setAttribute('aria-pressed',key===k?'true':'false');
-pillarBtns[key].classList.toggle('dim',!!k&&key!==k);
-});
-nodes.forEach(function(n){n.el.classList.toggle('dim',!!k&&n.p.indexOf(k)===-1);});
-lines.forEach(function(l){l.el.classList.toggle('dim',!!k&&l.pillar!==k);});
-announce(k?'Highlighting '+PILLARS[k].name+' projects':'Showing all projects');
-}
 Object.keys(PILLARS).forEach(function(k){var p=PILLARS[k];
-var n=PROJECTS.filter(function(pr){return pr.p.indexOf(k)>-1;}).length;
-var b=document.createElement('button');
-b.type='button';b.className='eco-pillar pz-'+k;b.style.left=p.x+'%';b.style.top=p.y+'%';
-b.setAttribute('aria-pressed','false');
-b.setAttribute('aria-label','Highlight '+p.name+' projects');
-b.innerHTML='<span class="pl-name">'+p.name+'</span><span class="pl-count">'+n+' projects</span>';
-b.addEventListener('click',function(){setFilter(filter===k?null:k);});
-canvas.appendChild(b);pillarBtns[k]=b;
+var d=document.createElement('div');
+d.className='eco-pillar pz-'+k;d.style.left=p.x+'%';d.style.top=p.y+'%';
+d.innerHTML='<span class="pl-name">'+p.name+'</span>';
+canvas.appendChild(d);
 });
-var tip=document.createElement('div');tip.className='eco-tip';tip.setAttribute('aria-hidden','true');canvas.appendChild(tip);
-var tipFor=null;
-function showTip(node,pr){
-tipFor=node;
+function makeTip(container){var t=document.createElement('div');t.className='eco-tip';t.setAttribute('aria-hidden','true');container.appendChild(t);return t;}
+var tipD=makeTip(canvas),tipM=mobile?makeTip(mobile):null;
+var tipFor=null,tipEl=null;
+function showTip(tip,container,anchor,pr){
+tipFor=anchor;tipEl=tip;
 tip.innerHTML='<strong>'+pr.title+'</strong><p>'+pr.desc+'</p><div class="tip-tags">'+pr.p.map(function(k){return '<span>'+PILLARS[k].tag+'</span>';}).join('')+(pr.collab?'<span>Collaboration</span>':'')+'</div><span class="tip-go">Select to view project ↓</span>';
-tip.style.left=pr.x+'%';tip.style.top=pr.y+'%';tip.style.marginLeft='0';
-tip.style.transform=pr.y<34?'translate(-50%,22px)':'translate(-50%,calc(-100% - 20px))';
+var cr=container.getBoundingClientRect(),ar=anchor.getBoundingClientRect();
+var below=(ar.top-cr.top)<cr.height*.34;
+tip.style.left=(ar.left-cr.left+ar.width/2)+'px';
+tip.style.top=(below?(ar.bottom-cr.top+10):(ar.top-cr.top-10))+'px';
+tip.style.transform=below?'translate(-50%,0)':'translate(-50%,-100%)';
+tip.style.marginLeft='0';
 tip.classList.add('show');
-var cr=canvas.getBoundingClientRect(),tr=tip.getBoundingClientRect(),shift=0;
+var tr=tip.getBoundingClientRect(),shift=0;
 if(tr.left<cr.left+4)shift=(cr.left+4)-tr.left;
 else if(tr.right>cr.right-4)shift=(cr.right-4)-tr.right;
 if(shift)tip.style.marginLeft=shift+'px';
 }
-function hideTip(){tipFor=null;tip.classList.remove('show');}
+function hideTip(){if(tipEl)tipEl.classList.remove('show');tipFor=null;tipEl=null;}
 function goToProject(id){
 var card=document.getElementById(id);if(!card)return;
 if(card.classList.contains('hide')){var all=document.querySelector('#projects .pfilter button[data-f="all"]');if(all)all.click();}
@@ -1384,77 +1372,84 @@ card.focus({preventScroll:true});
 card.classList.add('flash');
 setTimeout(function(){card.classList.remove('flash');},1600);
 }
-PROJECTS.forEach(function(pr,i){
-var b=document.createElement('button');
-b.type='button';b.className='eco-node';
-b.style.left=pr.x+'%';b.style.top=pr.y+'%';
-if(!prm.matches)b.style.transitionDelay=(0.55+i*0.05)+'s';
-b.innerHTML=pr.p.map(function(k){return '<span class="nd d-'+k+'" aria-hidden="true"></span>';}).join('')+'<span class="nl">'+pr.label+'</span>';
-b.setAttribute('aria-label',pr.title+'. '+pr.desc+' Pillar'+(pr.p.length>1?'s':'')+': '+pr.p.map(function(k){return PILLARS[k].name;}).join(', ')+'. Activate to jump to the full project card.');
-b.addEventListener('mouseenter',function(){showTip(b,pr);});
-b.addEventListener('mouseleave',function(){if(tipFor===b)hideTip();});
-b.addEventListener('focus',function(){showTip(b,pr);});
-b.addEventListener('blur',function(){if(tipFor===b)hideTip();});
+function dotHTML(pr){
+var c1='var(--'+pr.p[0]+')',c2=pr.p[1]?'var(--'+pr.p[1]+')':null;
+return '<span class="nd'+(c2?' split':'')+'" style="--nc:'+c1+(c2?';--nc2:'+c2:'')+'" aria-hidden="true"></span>';
+}
+function ariaFor(pr){
+return pr.title+'. '+pr.desc+' Connected to: '+pr.p.map(function(k){return PILLARS[k].name;}).join(' and ')+(pr.collab?'. Cross-institution collaboration':'')+'. Activate to jump to the full project card.';
+}
+function bindNode(b,pr,tip,container,onHover){
+function over(){showTip(tip,container,b,pr);if(onHover)onHover(true);}
+function out(){if(tipFor===b)hideTip();if(onHover)onHover(false);}
+b.addEventListener('mouseenter',over);
+b.addEventListener('mouseleave',out);
+b.addEventListener('focus',over);
+b.addEventListener('blur',out);
 b.addEventListener('pointerdown',function(e){b._pt=e.pointerType;b._hadTip=(tipFor===b);});
 b.addEventListener('click',function(){
-if(b._pt==='touch'&&!b._hadTip){showTip(b,pr);return;}
-hideTip();goToProject(pr.id);
+if(b._pt==='touch'&&!b._hadTip){over();return;}
+hideTip();if(onHover)onHover(false);goToProject(pr.id);
 });
-canvas.appendChild(b);
-nodes.push({el:b,p:pr.p});
+}
+var nodes=[];
+PROJECTS.forEach(function(pr,i){
+var b=document.createElement('button');
+b.type='button';b.className='eco-node'+(pr.collab?' collab':'');
+b.style.left=pr.x+'%';b.style.top=pr.y+'%';
+if(!prm.matches)b.style.transitionDelay=(0.55+i*0.05)+'s';
+b.innerHTML=dotHTML(pr)+'<span class="nl">'+pr.label+'</span>';
+b.setAttribute('aria-label',ariaFor(pr));
+bindNode(b,pr,tipD,canvas,function(on){pr.lines.forEach(function(l){l.classList.toggle('hl',on);});});
+canvas.appendChild(b);nodes.push(b);
 });
-document.addEventListener('pointerdown',function(e){if(tipFor&&!canvas.contains(e.target))hideTip();});
+document.addEventListener('pointerdown',function(e){if(tipFor&&!canvas.contains(e.target)&&!(mobile&&mobile.contains(e.target)))hideTip();});
 document.addEventListener('keydown',function(e){if(e.key==='Escape')hideTip();});
-function finishReveal(){canvas.classList.add('eco-done');nodes.forEach(function(n){n.el.style.transitionDelay='';});}
+function finishReveal(){canvas.classList.add('eco-done');nodes.forEach(function(n){n.style.transitionDelay='';});}
 if('IntersectionObserver' in window&&!prm.matches){
 var io=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){canvas.classList.add('eco-in');io.disconnect();setTimeout(finishReveal,1800);}});},{threshold:.15});
 io.observe(canvas);
 }else{canvas.classList.add('eco-in');finishReveal();}
-/* simplified mobile layout: core, pillar tabs, project cards */
+/* mobile: spine map — core, pillar anchors, intersection zones, compact chips */
 if(mobile){
-var coreB=document.createElement('div');coreB.className='eco-m-core';
-coreB.innerHTML='<span>Community-engaged core</span><strong>All twelve projects share one community-engaged core and a unified methodological toolkit.</strong>';
-var tabs=document.createElement('div');tabs.className='pfilter eco-m-tabs';tabs.setAttribute('role','group');tabs.setAttribute('aria-label','Filter ecosystem projects by pillar');
-var list=document.createElement('ul');list.className='eco-m-list';
-var items=[];
-function applyMobile(f){
-var shown=0;
-items.forEach(function(it){
-var show=f==='all'||it.p.indexOf(f)>-1;
-if(show)shown++;
-if(it._ft){clearTimeout(it._ft);it._ft=null;}
-if(prm.matches){it.li.classList.toggle('hide',!show);it.li.classList.remove('fading');return;}
-if(!show){
-if(!it.li.classList.contains('hide')){it.li.classList.add('fading');it._ft=setTimeout(function(){it.li.classList.add('hide');},190);}
-}else if(it.li.classList.contains('hide')){
-it.li.classList.remove('hide');it.li.classList.add('fading');
-requestAnimationFrame(function(){requestAnimationFrame(function(){it.li.classList.remove('fading');});});
-}else{it.li.classList.remove('fading');}
-});
-announce('Showing '+shown+' of '+items.length+' projects');
+var coreM=document.createElement('p');coreM.className='eco-m-core';coreM.textContent='Community-engaged core';mobile.appendChild(coreM);
+var MZONES=[
+{t:'p',k:'enviro'},
+{t:'x',ks:['enviro','cardio'],label:'Environmental × Cardiometabolic'},
+{t:'p',k:'cardio'},
+{t:'x',ks:['cardio','food'],label:'Cardiometabolic × Food systems'},
+{t:'p',k:'food'}
+];
+function zkey(pr){return pr.p.length>1?pr.p.slice().sort().join('+'):pr.p[0];}
+MZONES.forEach(function(z){
+var key=z.t==='p'?z.k:z.ks.slice().sort().join('+');
+var prs=PROJECTS.filter(function(pr){return zkey(pr)===key;});
+if(!prs.length)return;
+var zone=document.createElement('div');
+var h=document.createElement('h3');h.className='zl';
+if(z.t==='p'){
+zone.className='eco-m-zone';
+zone.style.setProperty('--zc','var(--'+z.k+')');
+h.textContent=PILLARS[z.k].name;
+}else{
+zone.className='eco-m-zone zx';
+zone.style.setProperty('--zc','var(--'+z.ks[0]+')');
+zone.style.setProperty('--zc2','var(--'+z.ks[1]+')');
+h.textContent=z.label;
 }
-var defs=[['all','All projects'],['enviro','Environmental & occupational'],['cardio','Cardiometabolic'],['food','Food & nutrition']];
-var tabBtns=[];
-defs.forEach(function(d){
+zone.appendChild(h);
+var ul=document.createElement('ul');ul.className='eco-chips';
+prs.forEach(function(pr){
+var li=document.createElement('li');
 var b=document.createElement('button');
-b.type='button';b.setAttribute('data-t',d[0]);b.textContent=d[1];
-b.setAttribute('aria-pressed',d[0]==='all'?'true':'false');
-if(d[0]==='all')b.className='on';
-b.addEventListener('click',function(){
-tabBtns.forEach(function(x){x.classList.remove('on');x.setAttribute('aria-pressed','false');});
-b.classList.add('on');b.setAttribute('aria-pressed','true');
-applyMobile(d[0]);
+b.type='button';b.className='eco-chip'+(pr.collab?' collab':'');
+b.innerHTML=dotHTML(pr)+pr.label;
+b.setAttribute('aria-label',ariaFor(pr));
+bindNode(b,pr,tipM,mobile,null);
+li.appendChild(b);ul.appendChild(li);
 });
-tabs.appendChild(b);tabBtns.push(b);
+zone.appendChild(ul);mobile.appendChild(zone);
 });
-PROJECTS.forEach(function(pr){
-var li=document.createElement('li');li.className='eco-m-item m-'+pr.p[0];
-var b=document.createElement('button');b.type='button';
-b.innerHTML='<strong>'+pr.title+'</strong><span class="m-desc">'+pr.desc+'</span><span class="ptags">'+pr.p.map(function(k){return '<span class="ptag t-'+k+'">'+PILLARS[k].tag+'</span>';}).join('')+(pr.collab?'<span class="ptag t-collab">Collaboration</span>':'')+'</span><span class="m-go">View project ↓</span>';
-b.addEventListener('click',function(){goToProject(pr.id);});
-li.appendChild(b);list.appendChild(li);items.push({li:li,p:pr.p});
-});
-mobile.appendChild(coreB);mobile.appendChild(tabs);mobile.appendChild(list);
 }
 })();
 /* one-time count-up for the homepage metric strip */
