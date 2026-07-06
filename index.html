@@ -710,6 +710,103 @@
   .pub.pub-extra.folded{ display:none; }
   .pub-toggle{ margin-top:1.2rem; }
 
+  /* ===== CHIP project ecosystem ===== */
+  .vh{ position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; border:0; }
+  html.js .eco-fallback{ display:none; }
+  html:not(.js) .eco-canvas, html:not(.js) .eco-mobile, html:not(.js) .eco-legend{ display:none; }
+  .eco-fallback{ margin-top:1.4rem; color:var(--ink-soft); font-size:.95rem; }
+  .eco-canvas{ position:relative; max-width:880px; margin:2.4rem auto 0; aspect-ratio:10/9; }
+  .eco-lines{ position:absolute; inset:0; width:100%; height:100%; overflow:visible; }
+  .eco-lines line{ stroke-width:1.3; vector-effect:non-scaling-stroke; transition:opacity .35s ease; }
+  .eco-lines line.l-core{ stroke:var(--gulf); opacity:.26; stroke-dasharray:3 4; }
+  .eco-lines line.l-enviro{ stroke:var(--enviro); opacity:.38; }
+  .eco-lines line.l-cardio{ stroke:var(--cardio); opacity:.38; }
+  .eco-lines line.l-food{ stroke:var(--food); opacity:.38; }
+  .eco-lines line.dim{ opacity:.07; }
+  .eco-core{ position:absolute; transform:translate(-50%,-50%); width:clamp(120px,19%,168px); aspect-ratio:1; border-radius:50%; background:linear-gradient(135deg,var(--gulf),var(--enviro)); color:#fff; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding:1rem; box-shadow:0 14px 34px rgba(0,40,86,.22); z-index:3; transition:opacity .6s ease, transform .6s ease; }
+  .eco-core span{ font-family:var(--display); font-size:.58rem; font-weight:600; letter-spacing:.12em; text-transform:uppercase; color:#cfe9e6; margin-bottom:.3rem; }
+  .eco-core strong{ font-family:var(--display); font-weight:600; font-size:.88rem; line-height:1.25; color:#fff; }
+  .eco-pillar{ position:absolute; transform:translate(-50%,-50%); z-index:3; width:min(190px,24%); border:1px solid var(--line); border-radius:14px; background:var(--white); padding:.7rem .8rem .75rem; text-align:center; cursor:pointer; font-family:var(--display); box-shadow:0 10px 26px rgba(0,40,86,.08); transition:opacity .5s ease, transform .5s ease, box-shadow .15s ease, border-color .15s ease; }
+  .eco-pillar.pz-enviro{ --pz:var(--enviro); }
+  .eco-pillar.pz-cardio{ --pz:var(--cardio); }
+  .eco-pillar.pz-food{ --pz:var(--food); }
+  .eco-pillar::before{ content:""; display:block; width:34px; height:5px; border-radius:3px; margin:0 auto .5rem; background:var(--pz,var(--gulf)); }
+  .eco-pillar .pl-name{ display:block; font-weight:600; font-size:.8rem; line-height:1.25; color:var(--gulf); }
+  .eco-pillar .pl-count{ display:block; margin-top:.3rem; font-size:.64rem; font-weight:600; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-soft); }
+  .eco-pillar:hover{ border-color:var(--sand); box-shadow:0 14px 32px rgba(0,40,86,.14); }
+  .eco-pillar[aria-pressed="true"]{ border-color:var(--pz); box-shadow:0 0 0 2px var(--pz), 0 14px 32px rgba(0,40,86,.12); }
+  .eco-pillar.dim{ opacity:.45; }
+  .eco-node{ position:absolute; transform:translate(-50%,-50%); z-index:4; display:inline-flex; align-items:center; gap:.38rem; max-width:172px; background:var(--white); border:1px solid var(--line); border-radius:999px; padding:.34rem .72rem; font-family:var(--display); font-weight:600; font-size:.72rem; line-height:1.2; color:var(--ink); cursor:pointer; box-shadow:0 6px 18px rgba(0,40,86,.07); transition:opacity .5s ease, transform .5s ease, border-color .15s ease, box-shadow .15s ease; text-align:left; }
+  .eco-node .nd{ flex-shrink:0; width:8px; height:8px; border-radius:50%; }
+  .eco-node .nd.d-enviro{ background:var(--enviro); }
+  .eco-node .nd.d-cardio{ background:var(--cardio); }
+  .eco-node .nd.d-food{ background:var(--food); }
+  .eco-node:hover,.eco-node:focus-visible{ border-color:var(--orange); box-shadow:0 10px 24px rgba(0,40,86,.16); z-index:6; }
+  .eco-node.dim{ opacity:.28; }
+  .eco-tip{ position:absolute; z-index:8; width:min(250px,60vw); background:var(--gulf); color:#fff; border-radius:10px; padding:.8rem .9rem; font-size:.8rem; line-height:1.45; box-shadow:0 14px 34px rgba(0,40,86,.3); pointer-events:none; opacity:0; visibility:hidden; transition:opacity .18s ease, visibility .18s; }
+  .eco-tip.show{ opacity:1; visibility:visible; }
+  .eco-tip strong{ display:block; font-family:var(--display); font-size:.84rem; line-height:1.3; margin-bottom:.25rem; color:#fff; }
+  .eco-tip p{ color:#dbe6ee; font-size:.78rem; }
+  .eco-tip .tip-tags{ display:flex; flex-wrap:wrap; gap:.3rem; margin-top:.5rem; }
+  .eco-tip .tip-tags span{ font-family:var(--display); font-weight:600; font-size:.58rem; letter-spacing:.08em; text-transform:uppercase; padding:.18rem .45rem; border-radius:4px; background:rgba(255,255,255,.16); color:#eaf2f6; }
+  .eco-tip .tip-go{ display:block; margin-top:.5rem; font-family:var(--display); font-weight:600; font-size:.62rem; letter-spacing:.08em; text-transform:uppercase; color:var(--orange-br); }
+  .eco-legend{ display:flex; flex-wrap:wrap; gap:.6rem 1.4rem; justify-content:center; margin:1.6rem 0 0; font-size:.78rem; color:var(--ink-soft); }
+  .eco-legend .lg{ display:inline-flex; align-items:center; gap:.45rem; font-family:var(--display); font-weight:600; }
+  .eco-legend .lg i{ width:9px; height:9px; border-radius:50%; display:inline-block; }
+  /* staggered reveal: core, then pillars, then lines and project nodes */
+  @media (prefers-reduced-motion: no-preference){
+    html.js .eco-canvas:not(.eco-in) .eco-core,
+    html.js .eco-canvas:not(.eco-in) .eco-pillar,
+    html.js .eco-canvas:not(.eco-in) .eco-node{ opacity:0; transform:translate(-50%,-44%); }
+    html.js .eco-canvas:not(.eco-in) .eco-lines line{ opacity:0; }
+    .eco-canvas:not(.eco-done) .eco-pillar{ transition-delay:.25s; }
+    .eco-canvas:not(.eco-done) .eco-lines line{ transition-delay:.5s; }
+  }
+  /* mobile: simplified core + tabs + card list */
+  .eco-mobile{ display:none; }
+  @media (max-width:819px){
+    .eco-canvas,.eco-legend{ display:none; }
+    html.js .eco-mobile{ display:block; margin-top:1.8rem; }
+  }
+  .eco-m-core{ border-radius:14px; background:linear-gradient(135deg,var(--gulf),var(--enviro)); color:#fff; padding:1.05rem 1.2rem; }
+  .eco-m-core span{ display:block; font-family:var(--display); font-size:.68rem; font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:#cfe9e6; margin-bottom:.25rem; }
+  .eco-m-core strong{ font-family:var(--display); font-weight:600; font-size:1rem; line-height:1.35; color:#fff; }
+  .eco-m-tabs{ margin:1.1rem 0 1.1rem; }
+  .eco-m-list{ list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:.7rem; }
+  .eco-m-item button{ position:relative; overflow:hidden; width:100%; text-align:left; background:var(--white); border:1px solid var(--line); border-radius:12px; padding:.95rem 1rem .95rem 1.25rem; cursor:pointer; font-family:var(--body); transition:opacity .25s ease, border-color .15s ease; }
+  .eco-m-item button::before{ content:""; position:absolute; inset:0 auto 0 0; width:6px; background:var(--pz,var(--gulf)); }
+  .eco-m-item.m-enviro button{ --pz:var(--enviro); }
+  .eco-m-item.m-cardio button{ --pz:var(--cardio); }
+  .eco-m-item.m-food button{ --pz:var(--food); }
+  .eco-m-item button:hover{ border-color:var(--sand); }
+  .eco-m-item strong{ display:block; font-family:var(--display); font-weight:600; font-size:.95rem; line-height:1.3; color:var(--gulf); }
+  .eco-m-item .m-desc{ display:block; margin-top:.3rem; font-size:.84rem; line-height:1.5; color:var(--ink-soft); }
+  .eco-m-item .ptags{ display:flex; flex-wrap:wrap; gap:.4rem; margin-top:.55rem; }
+  .eco-m-item .m-go{ display:inline-block; margin-top:.55rem; font-family:var(--display); font-weight:600; font-size:.66rem; letter-spacing:.1em; text-transform:uppercase; color:var(--orange); }
+  .eco-m-item.hide{ display:none; }
+  .eco-m-item.fading button{ opacity:0; }
+  /* from measurement to action */
+  .eco-flow{ margin-top:2.6rem; border-top:1px solid var(--line); padding-top:1.6rem; }
+  .flow-steps{ list-style:none; display:flex; flex-wrap:wrap; align-items:center; gap:.55rem .1rem; margin:.35rem 0 0; padding:0; }
+  .flow-steps li{ display:flex; align-items:center; }
+  .flow-steps .step{ font-family:var(--display); font-weight:600; font-size:.8rem; color:var(--gulf); background:var(--white); border:1px solid var(--line); border-radius:999px; padding:.42rem .85rem; white-space:nowrap; }
+  .flow-steps .step.last{ background:var(--gulf); border-color:var(--gulf); color:#fff; }
+  .flow-steps li:not(:last-child)::after{ content:"→"; margin:0 .55rem; color:var(--orange); font-family:var(--display); font-weight:600; }
+  @media (prefers-reduced-motion: no-preference){
+    html.js .eco-flow .flow-steps li{ opacity:0; transition:opacity .45s ease; }
+    html.js .eco-flow.in .flow-steps li{ opacity:1; }
+    .eco-flow .flow-steps li:nth-child(1){ transition-delay:.05s; }
+    .eco-flow .flow-steps li:nth-child(2){ transition-delay:.22s; }
+    .eco-flow .flow-steps li:nth-child(3){ transition-delay:.39s; }
+    .eco-flow .flow-steps li:nth-child(4){ transition-delay:.56s; }
+    .eco-flow .flow-steps li:nth-child(5){ transition-delay:.73s; }
+  }
+  /* project filter: smooth fade + target highlight */
+  .pcard{ transition:border-color .15s ease, transform .18s ease, box-shadow .15s ease, opacity .18s ease; }
+  .pcard.fading{ opacity:0; transform:scale(.97); }
+  .pcard.flash{ border-color:var(--orange); box-shadow:0 0 0 3px rgba(174,96,66,.28); outline:none; }
+  .pcard[id]{ scroll-margin-top:90px; }
+
   </style>
 </head>
 <body>
@@ -787,6 +884,33 @@
 <div class="funder-group"><h4>State</h4><ul><li>State of Texas Legislature</li><li>UTHealth Houston PRIME</li></ul></div>
 <div class="funder-group"><h4>Local &amp; Foundation</h4><ul><li>El Paso County</li><li>Paso del Norte Health Foundation</li><li>La Semilla Food Center</li></ul></div>
 </div>
+</div>
+</div>
+</section>
+<!-- PROJECT ECOSYSTEM (interactive map) -->
+<section class="glance" id="ecosystem" aria-labelledby="ecosystem-title">
+<div class="wrap">
+<div class="section-head reveal" style="margin-bottom:0;">
+<span class="bar-head navy">Project ecosystem</span>
+<h2 id="ecosystem-title" style="margin-top:1rem;">Twelve projects, three pillars, one core.</h2>
+<p>Every active CHIP project draws on the same community-engaged core and connects to one or more research pillars. Select a pillar to highlight its projects, or select any project to jump to its full description below.</p>
+</div>
+<p class="eco-fallback">This interactive map requires JavaScript. You can <a href="#projects">browse the full list of current projects</a> instead.</p>
+<div class="eco-canvas" data-eco role="group" aria-label="Interactive map of the twelve active CHIP projects across three research pillars and a community-engaged core">
+<svg class="eco-lines" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true" focusable="false"></svg>
+</div>
+<p class="eco-legend"><span class="lg"><i style="background:var(--enviro);"></i>Environmental &amp; occupational</span><span class="lg"><i style="background:var(--cardio);"></i>Cardiometabolic</span><span class="lg"><i style="background:var(--food);"></i>Food &amp; nutrition</span><span>Hover or focus a project for details &middot; select it to jump to the project card</span></p>
+<div class="eco-mobile" data-eco-mobile></div>
+<span class="vh" aria-live="polite" data-eco-live></span>
+<div class="eco-flow reveal" aria-label="From measurement to action">
+<span class="glance-eyebrow">From measurement to action</span>
+<ol class="flow-steps">
+<li><span class="step">Screening</span></li>
+<li><span class="step">GIS &amp; exposure modeling</span></li>
+<li><span class="step">Biospecimens</span></li>
+<li><span class="step">Analysis</span></li>
+<li><span class="step last">Partner action</span></li>
+</ol>
 </div>
 </div>
 </section>
@@ -939,19 +1063,19 @@
 <h2 style="margin-top:1rem;">One program, twelve active projects.</h2>
 <p>Every CHIP project pairs rigorous measurement with a community partner. Filter by pillar to see how the work fits together.</p>
 </div>
-<div class="pfilter reveal" role="group" aria-label="Filter projects by pillar"><button class="on" data-f="all">All</button><button data-f="enviro">Environmental &amp; occupational</button><button data-f="cardio">Cardiometabolic</button><button data-f="food">Food &amp; nutrition</button><button data-f="collab">Collaborations</button></div>
-<div class="pgrid"><div class="pcard p-enviro reveal" data-p="cardio enviro"><h3>Health impacts of heat &amp; air pollution in at-risk populations</h3><p>On-site screenings in colonias, schools, and health fairs paired with NASA satellite exposure estimates &mdash; 400+ residents screened, ~300 swabs biobanked.</p><div class="ptags"><span class="ptag t-status s-field">In the field</span><span class="ptag t-enviro">Environmental</span><span class="ptag t-cardio">Cardiometabolic</span><span class="ptag t-funder">UTHealth PRIME</span></div></div>
-<div class="pcard p-enviro reveal" data-p="enviro"><h3>Wearable heat-stress monitoring for outdoor workers</h3><p>Pilot of wearable physiological monitoring to prevent heat illness among day laborers and construction, landscaping, and agricultural workers.</p><div class="ptags"><span class="ptag t-status s-field">Pilot underway</span><span class="ptag t-enviro">Environmental</span></div></div>
-<div class="pcard p-enviro reveal" data-p="enviro"><h3>Heat &amp; ozone co-exposure and chronic disease</h3><p>Personal air-pollution and heat monitoring across work shifts, linked to blood pressure, respiratory symptoms, and cardiometabolic indicators.</p><div class="ptags"><span class="ptag t-status s-field">Data collection</span><span class="ptag t-enviro">Environmental</span></div></div>
-<div class="pcard p-enviro reveal" data-p="collab enviro"><h3>BOTA environmental health impact assessment</h3><p>Community-engaged risk assessment near the Bridge of the Americas port of entry: air, soil, and water sampling with cumulative-risk mapping.</p><div class="ptags"><span class="ptag t-status s-field">Data collection</span><span class="ptag t-enviro">Environmental</span><span class="ptag t-collab">Collaboration</span></div></div>
-<div class="pcard p-enviro reveal" data-p="enviro"><h3>Air pollution &amp; asthma GIS mapping</h3><p>Spatial analysis of de-identified health records mapping asthma and respiratory illness against traffic and industrial exposure layers.</p><div class="ptags"><span class="ptag t-status s-analysis">Analysis</span><span class="ptag t-enviro">Environmental</span></div></div>
-<div class="pcard p-enviro reveal" data-p="collab enviro"><h3>Texas Firefighter Cancer Study</h3><p>Statewide collaboration examining occupational cancer risk among Texas firefighters.</p><div class="ptags"><span class="ptag t-status">Active</span><span class="ptag t-enviro">Environmental</span><span class="ptag t-collab">Collaboration</span></div></div>
-<div class="pcard p-enviro reveal" data-p="collab enviro"><h3>VALE+Tu Salud</h3><p>Corner-based randomized trial testing a health and safety program with Latino day laborers.</p><div class="ptags"><span class="ptag t-status">Active</span><span class="ptag t-enviro">Environmental</span><span class="ptag t-collab">Collaboration</span></div></div>
-<div class="pcard p-cardio reveal" data-p="cardio"><h3>Raise the Bar</h3><p>Evaluation of physical activity and wellness programming for military-connected students in El Paso schools.</p><div class="ptags"><span class="ptag t-status s-eval">Evaluation underway</span><span class="ptag t-cardio">Cardiometabolic</span><span class="ptag t-funder">DoDEA</span></div></div>
-<div class="pcard p-food reveal" data-p="food"><h3>Cultivating Health: veggie scripts &amp; gardening</h3><p>Evaluation of produce prescription and gardening programs supporting healthy food access among SNAP participants.</p><div class="ptags"><span class="ptag t-status s-eval">Evaluation underway</span><span class="ptag t-food">Food &amp; nutrition</span><span class="ptag t-funder">USDA GusNIP</span></div></div>
-<div class="pcard p-food reveal" data-p="food"><h3>Southwest Regional Food Business Center evaluation</h3><p>Multi-state evaluation of food-business support and supply-chain capacity across Texas, New Mexico, and colonia communities.</p><div class="ptags"><span class="ptag t-status s-eval">Evaluation underway</span><span class="ptag t-food">Food &amp; nutrition</span><span class="ptag t-funder">USDA</span></div></div>
-<div class="pcard p-food reveal" data-p="food"><h3>Healthy Eating regional needs assessment</h3><p>Epidemiological scan, nutrition assets and workforce assessment, and coalition framework guiding healthy-eating investment across the Paso del Norte region.</p><div class="ptags"><span class="ptag t-status s-analysis">Reporting</span><span class="ptag t-food">Food &amp; nutrition</span><span class="ptag t-funder">PdNHF</span></div></div>
-<div class="pcard p-food reveal" data-p="food"><h3>Bilingual nutrition education in school meals</h3><p>How culture, perception, and communication shape food acceptance in a predominantly Latino elementary school &mdash; co-developing culturally meaningful nutrition tools.</p><div class="ptags"><span class="ptag t-status s-field">In the field</span><span class="ptag t-food">Food &amp; nutrition</span></div></div></div>
+<div class="pfilter reveal" role="group" aria-label="Filter projects by pillar"><button class="on" data-f="all" aria-pressed="true">All</button><button data-f="enviro" aria-pressed="false">Environmental &amp; occupational</button><button data-f="cardio" aria-pressed="false">Cardiometabolic</button><button data-f="food" aria-pressed="false">Food &amp; nutrition</button><button data-f="collab" aria-pressed="false">Collaborations</button></div>
+<div class="pgrid"><div id="proj-air-heat" class="pcard p-enviro reveal" data-p="cardio enviro"><h3>Health impacts of heat &amp; air pollution in at-risk populations</h3><p>On-site screenings in colonias, schools, and health fairs paired with NASA satellite exposure estimates &mdash; 400+ residents screened, ~300 swabs biobanked.</p><div class="ptags"><span class="ptag t-status s-field">In the field</span><span class="ptag t-enviro">Environmental</span><span class="ptag t-cardio">Cardiometabolic</span><span class="ptag t-funder">UTHealth PRIME</span></div></div>
+<div id="proj-wearable" class="pcard p-enviro reveal" data-p="enviro"><h3>Wearable heat-stress monitoring for outdoor workers</h3><p>Pilot of wearable physiological monitoring to prevent heat illness among day laborers and construction, landscaping, and agricultural workers.</p><div class="ptags"><span class="ptag t-status s-field">Pilot underway</span><span class="ptag t-enviro">Environmental</span></div></div>
+<div id="proj-heat-ozone" class="pcard p-enviro reveal" data-p="enviro"><h3>Heat &amp; ozone co-exposure and chronic disease</h3><p>Personal air-pollution and heat monitoring across work shifts, linked to blood pressure, respiratory symptoms, and cardiometabolic indicators.</p><div class="ptags"><span class="ptag t-status s-field">Data collection</span><span class="ptag t-enviro">Environmental</span></div></div>
+<div id="proj-bota" class="pcard p-enviro reveal" data-p="collab enviro"><h3>BOTA environmental health impact assessment</h3><p>Community-engaged risk assessment near the Bridge of the Americas port of entry: air, soil, and water sampling with cumulative-risk mapping.</p><div class="ptags"><span class="ptag t-status s-field">Data collection</span><span class="ptag t-enviro">Environmental</span><span class="ptag t-collab">Collaboration</span></div></div>
+<div id="proj-asthma-gis" class="pcard p-enviro reveal" data-p="enviro"><h3>Air pollution &amp; asthma GIS mapping</h3><p>Spatial analysis of de-identified health records mapping asthma and respiratory illness against traffic and industrial exposure layers.</p><div class="ptags"><span class="ptag t-status s-analysis">Analysis</span><span class="ptag t-enviro">Environmental</span></div></div>
+<div id="proj-firefighter" class="pcard p-enviro reveal" data-p="collab enviro"><h3>Texas Firefighter Cancer Study</h3><p>Statewide collaboration examining occupational cancer risk among Texas firefighters.</p><div class="ptags"><span class="ptag t-status">Active</span><span class="ptag t-enviro">Environmental</span><span class="ptag t-collab">Collaboration</span></div></div>
+<div id="proj-vale" class="pcard p-enviro reveal" data-p="collab enviro"><h3>VALE+Tu Salud</h3><p>Corner-based randomized trial testing a health and safety program with Latino day laborers.</p><div class="ptags"><span class="ptag t-status">Active</span><span class="ptag t-enviro">Environmental</span><span class="ptag t-collab">Collaboration</span></div></div>
+<div id="proj-raise-bar" class="pcard p-cardio reveal" data-p="cardio"><h3>Raise the Bar</h3><p>Evaluation of physical activity and wellness programming for military-connected students in El Paso schools.</p><div class="ptags"><span class="ptag t-status s-eval">Evaluation underway</span><span class="ptag t-cardio">Cardiometabolic</span><span class="ptag t-funder">DoDEA</span></div></div>
+<div id="proj-cultivating" class="pcard p-food reveal" data-p="food"><h3>Cultivating Health: veggie scripts &amp; gardening</h3><p>Evaluation of produce prescription and gardening programs supporting healthy food access among SNAP participants.</p><div class="ptags"><span class="ptag t-status s-eval">Evaluation underway</span><span class="ptag t-food">Food &amp; nutrition</span><span class="ptag t-funder">USDA GusNIP</span></div></div>
+<div id="proj-swfbc" class="pcard p-food reveal" data-p="food"><h3>Southwest Regional Food Business Center evaluation</h3><p>Multi-state evaluation of food-business support and supply-chain capacity across Texas, New Mexico, and colonia communities.</p><div class="ptags"><span class="ptag t-status s-eval">Evaluation underway</span><span class="ptag t-food">Food &amp; nutrition</span><span class="ptag t-funder">USDA</span></div></div>
+<div id="proj-needs" class="pcard p-food reveal" data-p="food"><h3>Healthy Eating regional needs assessment</h3><p>Epidemiological scan, nutrition assets and workforce assessment, and coalition framework guiding healthy-eating investment across the Paso del Norte region.</p><div class="ptags"><span class="ptag t-status s-analysis">Reporting</span><span class="ptag t-food">Food &amp; nutrition</span><span class="ptag t-funder">PdNHF</span></div></div>
+<div id="proj-school-meals" class="pcard p-food reveal" data-p="food"><h3>Bilingual nutrition education in school meals</h3><p>How culture, perception, and communication shape food acceptance in a predominantly Latino elementary school &mdash; co-developing culturally meaningful nutrition tools.</p><div class="ptags"><span class="ptag t-status s-field">In the field</span><span class="ptag t-food">Food &amp; nutrition</span></div></div></div>
 </div>
 </section>
 <!-- FROM DATA TO ACTION -->
@@ -1131,16 +1255,31 @@ if(map[current])map[current].classList.add('active');}});
 },{rootMargin:'-35% 0px -55% 0px'});
 sections.forEach(function(s){io.observe(s);});
 })();
-/* project filter */
+/* project filter: smooth fade, aria-pressed state, live count for screen readers */
 (function(){
-var btns=document.querySelectorAll('.pfilter button'),cards=document.querySelectorAll('.pcard');
+var btns=document.querySelectorAll('#projects .pfilter button'),cards=document.querySelectorAll('.pcard');
+var grid=document.querySelector('.pgrid');
+var prm=window.matchMedia?matchMedia('(prefers-reduced-motion: reduce)'):{matches:false};
+var live=document.createElement('span');live.className='vh';live.setAttribute('aria-live','polite');
+if(grid&&grid.parentNode)grid.parentNode.insertBefore(live,grid);
 btns.forEach(function(b){b.addEventListener('click',function(){
-btns.forEach(function(x){x.classList.remove('on');});b.classList.add('on');
-var f=b.getAttribute('data-f');
+btns.forEach(function(x){x.classList.remove('on');x.setAttribute('aria-pressed','false');});
+b.classList.add('on');b.setAttribute('aria-pressed','true');
+var f=b.getAttribute('data-f'),shown=0;
 cards.forEach(function(c){
 var show=f==='all'||(c.getAttribute('data-p')||'').split(' ').indexOf(f)>-1;
-c.classList.toggle('hide',!show);
-});});});
+if(show)shown++;
+if(c._ft){clearTimeout(c._ft);c._ft=null;}
+if(prm.matches){c.classList.toggle('hide',!show);c.classList.remove('fading');return;}
+if(!show){
+if(!c.classList.contains('hide')){c.classList.add('fading');c._ft=setTimeout(function(){c.classList.add('hide');},190);}
+}else if(c.classList.contains('hide')){
+c.classList.remove('hide');c.classList.add('fading');
+requestAnimationFrame(function(){requestAnimationFrame(function(){c.classList.remove('fading');});});
+}else{c.classList.remove('fading');}
+});
+live.textContent='Showing '+shown+' of '+cards.length+' projects';
+});});
 })();
 /* publications show-more */
 (function(){
@@ -1163,6 +1302,182 @@ window.addEventListener('scroll',function(){
 if(ticking)return;ticking=true;
 requestAnimationFrame(function(){btn.classList.toggle('show',window.scrollY>700);ticking=false;});
 },{passive:true});
+})();
+/* project ecosystem map */
+(function(){
+var canvas=document.querySelector('[data-eco]');if(!canvas)return;
+var svg=canvas.querySelector('.eco-lines');
+var mobile=document.querySelector('[data-eco-mobile]');
+var live=document.querySelector('[data-eco-live]');
+var prm=window.matchMedia?matchMedia('(prefers-reduced-motion: reduce)'):{matches:false};
+var PILLARS={
+enviro:{name:'Environmental & occupational health',tag:'Environmental',x:50,y:16},
+cardio:{name:'Cardiometabolic & chronic disease',tag:'Cardiometabolic',x:21,y:70},
+food:{name:'Food systems & nutrition',tag:'Food & nutrition',x:79,y:70}
+};
+var CORE={x:50,y:52};
+var PROJECTS=[
+{id:'proj-air-heat',label:'Heat & air pollution screening',title:'Health impacts of heat & air pollution in at-risk populations',desc:'On-site screenings in colonias, schools, and health fairs, paired with NASA satellite exposure estimates.',p:['enviro','cardio'],x:22,y:41},
+{id:'proj-wearable',label:'Wearable heat monitoring',title:'Wearable heat-stress monitoring for outdoor workers',desc:'A pilot placing wearable physiological monitors on outdoor workers to detect and prevent heat illness.',p:['enviro'],x:12,y:22},
+{id:'proj-heat-ozone',label:'Heat & ozone co-exposure',title:'Heat & ozone co-exposure and chronic disease',desc:'Personal heat and air-pollution monitoring across work shifts, linked to cardiometabolic indicators.',p:['enviro'],x:30,y:6},
+{id:'proj-asthma-gis',label:'Asthma GIS mapping',title:'Air pollution & asthma GIS mapping',desc:'Spatial analysis mapping asthma and respiratory illness against traffic and industrial exposure layers.',p:['enviro'],x:50,y:4},
+{id:'proj-bota',label:'BOTA assessment',title:'BOTA environmental health impact assessment',desc:'Community-engaged risk assessment near the Bridge of the Americas, with air, soil, and water sampling.',p:['enviro'],collab:true,x:70,y:6},
+{id:'proj-firefighter',label:'Firefighter cancer study',title:'Texas Firefighter Cancer Study',desc:'Statewide collaboration examining occupational cancer risk among Texas firefighters.',p:['enviro'],collab:true,x:88,y:22},
+{id:'proj-vale',label:'VALE+Tu Salud',title:'VALE+Tu Salud',desc:'Corner-based randomized trial testing a health and safety program with Latino day laborers.',p:['enviro'],collab:true,x:93,y:42},
+{id:'proj-raise-bar',label:'Raise the Bar',title:'Raise the Bar',desc:'Evaluation of physical activity and wellness programming for military-connected students in El Paso schools.',p:['cardio'],x:11,y:88},
+{id:'proj-school-meals',label:'School meals education',title:'Bilingual nutrition education in school meals',desc:'How culture, perception, and communication shape food acceptance in a predominantly Latino elementary school.',p:['food'],x:52,y:92},
+{id:'proj-cultivating',label:'Cultivating Health',title:'Cultivating Health: veggie scripts & gardening',desc:'Evaluation of produce prescription and gardening programs supporting healthy food access among SNAP participants.',p:['food'],x:76,y:93},
+{id:'proj-swfbc',label:'SW Food Business Center',title:'Southwest Regional Food Business Center evaluation',desc:'Multi-state evaluation of food-business support and supply-chain capacity across Texas and New Mexico.',p:['food'],x:93,y:82},
+{id:'proj-needs',label:'Healthy Eating needs assessment',title:'Healthy Eating regional needs assessment',desc:'An epidemiological scan and nutrition-assets assessment guiding healthy-eating investment across the Paso del Norte region.',p:['food'],x:93,y:59}
+];
+var NS='http://www.w3.org/2000/svg';
+function line(x1,y1,x2,y2,cls){var l=document.createElementNS(NS,'line');l.setAttribute('x1',x1);l.setAttribute('y1',y1);l.setAttribute('x2',x2);l.setAttribute('y2',y2);l.setAttribute('class',cls);svg.appendChild(l);return l;}
+Object.keys(PILLARS).forEach(function(k){var p=PILLARS[k];line(CORE.x,CORE.y,p.x,p.y,'l-core');});
+var lines=[];
+PROJECTS.forEach(function(pr){pr.p.forEach(function(k){var pz=PILLARS[k];lines.push({el:line(pr.x,pr.y,pz.x,pz.y,'l-'+k),pillar:k});});});
+var core=document.createElement('div');
+core.className='eco-core';core.style.left=CORE.x+'%';core.style.top=CORE.y+'%';
+core.innerHTML='<span>Shared foundation</span><strong>Community-engaged core</strong>';
+canvas.appendChild(core);
+var filter=null,pillarBtns={},nodes=[];
+function announce(t){if(live)live.textContent=t;}
+function setFilter(k){
+filter=k;
+Object.keys(pillarBtns).forEach(function(key){
+pillarBtns[key].setAttribute('aria-pressed',key===k?'true':'false');
+pillarBtns[key].classList.toggle('dim',!!k&&key!==k);
+});
+nodes.forEach(function(n){n.el.classList.toggle('dim',!!k&&n.p.indexOf(k)===-1);});
+lines.forEach(function(l){l.el.classList.toggle('dim',!!k&&l.pillar!==k);});
+announce(k?'Highlighting '+PILLARS[k].name+' projects':'Showing all projects');
+}
+Object.keys(PILLARS).forEach(function(k){var p=PILLARS[k];
+var n=PROJECTS.filter(function(pr){return pr.p.indexOf(k)>-1;}).length;
+var b=document.createElement('button');
+b.type='button';b.className='eco-pillar pz-'+k;b.style.left=p.x+'%';b.style.top=p.y+'%';
+b.setAttribute('aria-pressed','false');
+b.setAttribute('aria-label','Highlight '+p.name+' projects');
+b.innerHTML='<span class="pl-name">'+p.name+'</span><span class="pl-count">'+n+' projects</span>';
+b.addEventListener('click',function(){setFilter(filter===k?null:k);});
+canvas.appendChild(b);pillarBtns[k]=b;
+});
+var tip=document.createElement('div');tip.className='eco-tip';tip.setAttribute('aria-hidden','true');canvas.appendChild(tip);
+var tipFor=null;
+function showTip(node,pr){
+tipFor=node;
+tip.innerHTML='<strong>'+pr.title+'</strong><p>'+pr.desc+'</p><div class="tip-tags">'+pr.p.map(function(k){return '<span>'+PILLARS[k].tag+'</span>';}).join('')+(pr.collab?'<span>Collaboration</span>':'')+'</div><span class="tip-go">Select to view project ↓</span>';
+tip.style.left=pr.x+'%';tip.style.top=pr.y+'%';tip.style.marginLeft='0';
+tip.style.transform=pr.y<34?'translate(-50%,22px)':'translate(-50%,calc(-100% - 20px))';
+tip.classList.add('show');
+var cr=canvas.getBoundingClientRect(),tr=tip.getBoundingClientRect(),shift=0;
+if(tr.left<cr.left+4)shift=(cr.left+4)-tr.left;
+else if(tr.right>cr.right-4)shift=(cr.right-4)-tr.right;
+if(shift)tip.style.marginLeft=shift+'px';
+}
+function hideTip(){tipFor=null;tip.classList.remove('show');}
+function goToProject(id){
+var card=document.getElementById(id);if(!card)return;
+if(card.classList.contains('hide')){var all=document.querySelector('#projects .pfilter button[data-f="all"]');if(all)all.click();}
+card.scrollIntoView({behavior:prm.matches?'auto':'smooth',block:'center'});
+if(!card.hasAttribute('tabindex'))card.setAttribute('tabindex','-1');
+card.focus({preventScroll:true});
+card.classList.add('flash');
+setTimeout(function(){card.classList.remove('flash');},1600);
+}
+PROJECTS.forEach(function(pr,i){
+var b=document.createElement('button');
+b.type='button';b.className='eco-node';
+b.style.left=pr.x+'%';b.style.top=pr.y+'%';
+if(!prm.matches)b.style.transitionDelay=(0.55+i*0.05)+'s';
+b.innerHTML=pr.p.map(function(k){return '<span class="nd d-'+k+'" aria-hidden="true"></span>';}).join('')+'<span class="nl">'+pr.label+'</span>';
+b.setAttribute('aria-label',pr.title+'. '+pr.desc+' Pillar'+(pr.p.length>1?'s':'')+': '+pr.p.map(function(k){return PILLARS[k].name;}).join(', ')+'. Activate to jump to the full project card.');
+b.addEventListener('mouseenter',function(){showTip(b,pr);});
+b.addEventListener('mouseleave',function(){if(tipFor===b)hideTip();});
+b.addEventListener('focus',function(){showTip(b,pr);});
+b.addEventListener('blur',function(){if(tipFor===b)hideTip();});
+b.addEventListener('pointerdown',function(e){b._pt=e.pointerType;b._hadTip=(tipFor===b);});
+b.addEventListener('click',function(){
+if(b._pt==='touch'&&!b._hadTip){showTip(b,pr);return;}
+hideTip();goToProject(pr.id);
+});
+canvas.appendChild(b);
+nodes.push({el:b,p:pr.p});
+});
+document.addEventListener('pointerdown',function(e){if(tipFor&&!canvas.contains(e.target))hideTip();});
+document.addEventListener('keydown',function(e){if(e.key==='Escape')hideTip();});
+function finishReveal(){canvas.classList.add('eco-done');nodes.forEach(function(n){n.el.style.transitionDelay='';});}
+if('IntersectionObserver' in window&&!prm.matches){
+var io=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){canvas.classList.add('eco-in');io.disconnect();setTimeout(finishReveal,1800);}});},{threshold:.15});
+io.observe(canvas);
+}else{canvas.classList.add('eco-in');finishReveal();}
+/* simplified mobile layout: core, pillar tabs, project cards */
+if(mobile){
+var coreB=document.createElement('div');coreB.className='eco-m-core';
+coreB.innerHTML='<span>Community-engaged core</span><strong>All twelve projects share one community-engaged core and a unified methodological toolkit.</strong>';
+var tabs=document.createElement('div');tabs.className='pfilter eco-m-tabs';tabs.setAttribute('role','group');tabs.setAttribute('aria-label','Filter ecosystem projects by pillar');
+var list=document.createElement('ul');list.className='eco-m-list';
+var items=[];
+function applyMobile(f){
+var shown=0;
+items.forEach(function(it){
+var show=f==='all'||it.p.indexOf(f)>-1;
+if(show)shown++;
+if(it._ft){clearTimeout(it._ft);it._ft=null;}
+if(prm.matches){it.li.classList.toggle('hide',!show);it.li.classList.remove('fading');return;}
+if(!show){
+if(!it.li.classList.contains('hide')){it.li.classList.add('fading');it._ft=setTimeout(function(){it.li.classList.add('hide');},190);}
+}else if(it.li.classList.contains('hide')){
+it.li.classList.remove('hide');it.li.classList.add('fading');
+requestAnimationFrame(function(){requestAnimationFrame(function(){it.li.classList.remove('fading');});});
+}else{it.li.classList.remove('fading');}
+});
+announce('Showing '+shown+' of '+items.length+' projects');
+}
+var defs=[['all','All projects'],['enviro','Environmental & occupational'],['cardio','Cardiometabolic'],['food','Food & nutrition']];
+var tabBtns=[];
+defs.forEach(function(d){
+var b=document.createElement('button');
+b.type='button';b.setAttribute('data-t',d[0]);b.textContent=d[1];
+b.setAttribute('aria-pressed',d[0]==='all'?'true':'false');
+if(d[0]==='all')b.className='on';
+b.addEventListener('click',function(){
+tabBtns.forEach(function(x){x.classList.remove('on');x.setAttribute('aria-pressed','false');});
+b.classList.add('on');b.setAttribute('aria-pressed','true');
+applyMobile(d[0]);
+});
+tabs.appendChild(b);tabBtns.push(b);
+});
+PROJECTS.forEach(function(pr){
+var li=document.createElement('li');li.className='eco-m-item m-'+pr.p[0];
+var b=document.createElement('button');b.type='button';
+b.innerHTML='<strong>'+pr.title+'</strong><span class="m-desc">'+pr.desc+'</span><span class="ptags">'+pr.p.map(function(k){return '<span class="ptag t-'+k+'">'+PILLARS[k].tag+'</span>';}).join('')+(pr.collab?'<span class="ptag t-collab">Collaboration</span>':'')+'</span><span class="m-go">View project ↓</span>';
+b.addEventListener('click',function(){goToProject(pr.id);});
+li.appendChild(b);list.appendChild(li);items.push({li:li,p:pr.p});
+});
+mobile.appendChild(coreB);mobile.appendChild(tabs);mobile.appendChild(list);
+}
+})();
+/* one-time count-up for the homepage metric strip */
+(function(){
+if(!('IntersectionObserver' in window))return;
+if(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+document.querySelectorAll('.metric-strip .metric strong').forEach(function(el){
+var m=/^([~≈]?)([1-9][\d,]*)$/.exec(el.textContent.trim());
+if(!m)return;
+var prefix=m[1],target=parseInt(m[2].replace(/,/g,''),10),final=el.textContent;
+var io=new IntersectionObserver(function(es){es.forEach(function(en){
+if(!en.isIntersecting)return;io.disconnect();
+var t0=null,dur=900;
+function step(ts){
+if(t0===null)t0=ts;
+var p=Math.min(1,(ts-t0)/dur),e=1-Math.pow(1-p,3);
+el.textContent=prefix+Math.round(target*e).toLocaleString('en-US');
+if(p<1)requestAnimationFrame(step);else el.textContent=final;
+}
+requestAnimationFrame(step);
+});},{threshold:.4});
+io.observe(el);
+});
 })();
 </script>
 </body>
