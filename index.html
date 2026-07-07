@@ -1511,9 +1511,8 @@ if(delta>Math.PI)delta-=2*Math.PI;if(delta<-Math.PI)delta+=2*Math.PI;
 if(Math.abs(delta)<0.001)return;
 hideTip();
 nodes.forEach(function(n){n.style.transitionDelay='';});
-if(prm.matches){curA=target;render(curA);return;}
 if(animId)cancelAnimationFrame(animId);
-var from=curA,t0=null,DUR=1050;
+var from=curA,t0=null,DUR=prm.matches?450:1600;
 function ease(t){return t<.5?4*t*t*t:1-Math.pow(-2*t+2,3)/2;}
 function step(ts){
 if(t0===null)t0=ts;
