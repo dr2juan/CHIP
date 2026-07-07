@@ -683,27 +683,6 @@
   .to-top.show{ opacity:1; visibility:visible; transform:none; }
   .to-top:hover{ background:var(--orange); }
 
-  /* ===== Interactive ecosystem model ===== */
-  .ecm-fig svg{ width:100%; height:auto; display:block; }
-  #ecm-spin, .ecm-keep{ transition:transform .7s cubic-bezier(.4,.1,.2,1); }
-  @media (prefers-reduced-motion: reduce){ #ecm-spin, .ecm-keep{ transition:none; } }
-  .ecm-pillar{ cursor:pointer; transition:fill-opacity .2s ease; }
-  .ecm-pillar:focus, .ecm-badge:focus{ outline:none; }
-  .ecm-pillar:hover, .ecm-pillar:focus-visible{ fill-opacity:.26; }
-  .ecm-pillar:focus-visible{ stroke-width:4; }
-  .ecm-lab{ font-family:var(--display); font-size:17px; font-weight:600; pointer-events:none; }
-  .ecm-core{ font-family:var(--display); font-size:16px; font-weight:600; }
-  .ecm-core-sub{ font-family:var(--body); font-size:9.5px; }
-  .ecm-badge{ cursor:pointer; }
-  .ecm-badge:focus-visible circle{ stroke:var(--orange); stroke-width:3; }
-  .ecm-badge:hover circle{ stroke:var(--orange); }
-  .ecm-num{ font-family:var(--display); font-size:15px; font-weight:700; fill:#163356; pointer-events:none; }
-  .ecm-cap{ margin-top:.9rem; }
-  .ecm-live{ font-size:.9rem; color:var(--ink); min-height:2.6em; }
-  .ecm-legend{ list-style:none; margin:.6rem 0 0; padding:0; display:flex; flex-direction:column; gap:.35rem; }
-  .ecm-legend li{ font-size:.8rem; color:var(--ink-soft); display:flex; gap:.5rem; align-items:baseline; padding:.15rem .35rem; border-radius:6px; transition:background .2s ease; }
-  .ecm-legend li.hot{ background:var(--sand-tint); color:var(--ink); }
-  .ecm-key{ flex-shrink:0; display:inline-flex; align-items:center; justify-content:center; width:1.15rem; height:1.15rem; border-radius:50%; border:2px solid; font-family:var(--display); font-weight:700; font-size:.68rem; }
   /* ===== Audience pathways (who is this site for) ===== */
   .pathways{ max-width:var(--maxw); margin:1.4rem auto 0; padding:0 var(--gutter); display:grid; grid-template-columns:repeat(3,1fr); gap:1rem; position:relative; z-index:5; }
   @media (max-width:760px){ .pathways{ grid-template-columns:1fr; } }
@@ -833,7 +812,17 @@
   .pcard.flash{ border-color:var(--orange); box-shadow:0 0 0 3px rgba(174,96,66,.28); outline:none; }
   .pcard[id]{ scroll-margin-top:90px; }
 
-  </style>
+  
+  /* constellation pillar-tap rotation */
+  .eco-canvas .eco-node, .eco-canvas .eco-pillar{ transition:opacity .5s ease, left .78s cubic-bezier(.45,.08,.2,1), top .78s cubic-bezier(.45,.08,.2,1); }
+  .eco-canvas .eco-lines{ pointer-events:none; }
+  .eco-canvas .eco-pillar{ cursor:pointer; pointer-events:auto; }
+  .eco-canvas .eco-pillar:focus{ outline:none; }
+  .eco-canvas .eco-pillar:focus-visible{ outline:2px solid var(--orange); outline-offset:4px; border-radius:10px; }
+  .eco-lines line, .eco-zone{ transition:opacity .3s ease; }
+  .eco-canvas.eco-rotating .eco-lines line, .eco-canvas.eco-rotating .eco-zone{ opacity:0 !important; }
+  @media (prefers-reduced-motion: reduce){ .eco-canvas .eco-node, .eco-canvas .eco-pillar{ transition:opacity .5s ease; } }
+</style>
 </head>
 <body>
 <a class="skip-link" href="#top">Skip to main content</a>
@@ -898,42 +887,8 @@
 <h2 style="font-size:clamp(1.6rem,3.2vw,2.3rem); margin:1rem 0 1rem;">Three pillars, one community-engaged core.</h2>
 <p class="prose" style="color:var(--ink-soft);">CHIP joins environmental epidemiology, community-engaged research, implementation science, and applied evaluation. Our work is organized around three research pillars that share a common community-engaged core and a unified methodological toolkit. Rather than operating separately, the pillars overlap: environmental exposures drive cardiometabolic risk, food environments shape metabolic health, and occupational conditions cut across all three — allowing us to study cumulative, place-based risk and respond with the communities most affected.</p>
 </div>
-<figure aria-label="Interactive CHIP ecosystem model: three research pillars around a community-engaged core. Tap a pillar to rotate it to the top." class="chip-venn-model ecm-fig reveal">
-<svg viewBox="60 10 600 580" role="img" aria-label="Three overlapping pillar circles — cardiometabolic and chronic disease, environmental and occupational health, food systems and nutrition — around a community-engaged core, with numbered badges where pillars intersect.">
-<g transform="translate(360,325)">
-<g id="ecm-spin">
-<g transform="translate(0,-115)">
-<circle class="ecm-pillar" data-pillar="cardio" data-desc="Cardiometabolic &amp; chronic disease — meets the environment in the Air &amp; Heat Study (1), and food systems in the Healthy Eating needs assessment (2)." r="165" fill="#8b1a38" fill-opacity=".14" stroke="#8b1a38" stroke-width="2.5" role="button" tabindex="0" aria-label="Bring the cardiometabolic and chronic disease pillar to the top"/>
-</g><g transform="translate(99.6,57.5)">
-<circle class="ecm-pillar" data-pillar="food" data-desc="Food systems &amp; nutrition — connects to chronic disease through Healthy Eating (2), and to occupational health through Protein in School Meals (3)." r="165" fill="#3e5f24" fill-opacity=".14" stroke="#3e5f24" stroke-width="2.5" role="button" tabindex="0" aria-label="Bring the food systems and nutrition pillar to the top"/>
-</g><g transform="translate(-99.6,57.5)">
-<circle class="ecm-pillar" data-pillar="enviro" data-desc="Environmental &amp; occupational health — drives cardiometabolic risk (1), and reaches nutrition where schools are workplaces (3)." r="165" fill="#0c6874" fill-opacity=".14" stroke="#0c6874" stroke-width="2.5" role="button" tabindex="0" aria-label="Bring the environmental and occupational health pillar to the top"/>
-</g>
-<!-- pillar labels (counter-rotated so they stay upright) -->
-<g transform="translate(0,-182)"><g class="ecm-keep"><text class="ecm-lab" fill="#8b1a38" text-anchor="middle"><tspan x="0" dy="0">Cardiometabolic</tspan><tspan x="0" dy="1.25em">&amp; chronic disease</tspan></text></g></g>
-<g transform="translate(150,102)"><g class="ecm-keep"><text class="ecm-lab" fill="#3e5f24" text-anchor="middle"><tspan x="0" dy="0">Food systems</tspan><tspan x="0" dy="1.25em">&amp; nutrition</tspan></text></g></g>
-<g transform="translate(-150,102)"><g class="ecm-keep"><text class="ecm-lab" fill="#0c6874" text-anchor="middle"><tspan x="0" dy="0">Environmental &amp;</tspan><tspan x="0" dy="1.25em">occupational health</tspan></text></g></g>
-<!-- intersection badges -->
-<g transform="translate(-90.9,-52.5)"><g class="ecm-keep"><g class="ecm-badge" data-x="1" role="button" tabindex="0" aria-label="Intersection 1: the Air and Heat Study — environment and cardiometabolic risk"><circle r="15" fill="#fdfcfa" stroke="#163356" stroke-width="2"/><text class="ecm-num" text-anchor="middle" dy=".34em">1</text></g></g></g>
-<g transform="translate(90.9,-52.5)"><g class="ecm-keep"><g class="ecm-badge" data-x="2" role="button" tabindex="0" aria-label="Intersection 2: Healthy Eating to Prevent or Manage Disease — chronic disease and nutrition"><circle r="15" fill="#fdfcfa" stroke="#163356" stroke-width="2"/><text class="ecm-num" text-anchor="middle" dy=".34em">2</text></g></g></g>
-<g transform="translate(0,105)"><g class="ecm-keep"><g class="ecm-badge" data-x="3" role="button" tabindex="0" aria-label="Intersection 3: Protein in School Meals — nutrition and occupational health"><circle r="15" fill="#fdfcfa" stroke="#163356" stroke-width="2"/><text class="ecm-num" text-anchor="middle" dy=".34em">3</text></g></g></g>
-</g>
-<!-- non-rotating core -->
-<g pointer-events="none">
-<circle r="72" fill="#002856"/>
-<text class="ecm-core" fill="#fff" text-anchor="middle"><tspan x="0" dy="-.5em">Community-</tspan><tspan x="0" dy="1.2em">engaged core</tspan></text>
-<text class="ecm-core-sub" fill="#c9d5e2" text-anchor="middle" y="32">CHWs &middot; screening</text>
-</g>
-</g>
-</svg>
-<figcaption class="ecm-cap">
-<p class="ecm-live" id="ecm-live" aria-live="polite">Tap a pillar to bring it to the top &mdash; the numbered badges mark where the pillars meet.</p>
-<ul class="ecm-legend">
-<li data-x="1"><span class="ecm-key" style="border-color:#8b1a38;color:#0c6874;">1</span> The Air &amp; Heat Study &mdash; environment &times; cardiometabolic risk</li>
-<li data-x="2"><span class="ecm-key" style="border-color:#8b1a38;color:#3e5f24;">2</span> Healthy Eating to Prevent or Manage Disease &mdash; chronic disease &times; nutrition</li>
-<li data-x="3"><span class="ecm-key" style="border-color:#0c6874;color:#3e5f24;">3</span> Protein in School Meals &amp; bilingual nutrition communication &mdash; nutrition &times; occupational health (schools are workplaces)</li>
-</ul>
-</figcaption>
+<figure aria-label="CHIP integrated themes and methods model" class="chip-venn-model reveal">
+<img alt="Three-pillar CHIP model showing Environmental and Occupational Health, Cardiometabolic and Chronic Disease, and Food Systems and Nutrition with key intersection areas." src="assets/model-integrated.webp" width="1100" height="959" loading="lazy" decoding="async"/>
 </figure>
 </div>
 <div class="reveal" style="margin-top:2.6rem; border-top:1px solid var(--line); padding-top:1.9rem;">
@@ -954,7 +909,7 @@
 <div class="section-head reveal" style="margin-bottom:0;">
 <span class="bar-head navy">Project ecosystem</span>
 <h2 id="ecosystem-title" style="margin-top:1rem;">CHIP projects are not isolated studies.</h2>
-<p>They form a connected portfolio linking environmental exposure, chronic disease risk, food systems, and community-engaged action. Hover over or focus any project to see how it connects; select it to jump to the full project card below.</p>
+<p>They form a connected portfolio linking environmental exposure, chronic disease risk, food systems, and community-engaged action. Hover over or focus any project to see how it connects; select it to jump to the full project card below. Tap a pillar to rotate it to the top of the map.</p>
 </div>
 <div class="eco-canvas" data-eco role="group" aria-label="Relationship map of the twelve active CHIP projects, three research pillars, and the community-engaged core">
 <svg class="eco-lines" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true" focusable="false"></svg>
@@ -1399,31 +1354,6 @@ extra.forEach(function(li){li.classList.toggle('folded',open);});
 t.setAttribute('aria-expanded',open?'false':'true');
 t.textContent=open?'Show 6 more publications':'Show fewer publications';
 });})();
-/* interactive ecosystem model */
-(function(){
-var spin=document.getElementById('ecm-spin');if(!spin)return;
-var keeps=document.querySelectorAll('.ecm-keep');
-var A=0;var homes={cardio:0,food:1,enviro:2};
-function setA(a){A=a;spin.style.transform='rotate('+A+'deg)';keeps.forEach(function(k){k.style.transform='rotate('+(-A)+'deg)';});}
-document.querySelectorAll('.ecm-pillar').forEach(function(p){
-function act(){
-var target=120*((3-homes[p.getAttribute('data-pillar')])%3);
-var delta=((target-A)%360+360)%360;if(delta>180)delta-=360;
-setA(A+delta);
-document.getElementById('ecm-live').innerHTML=p.getAttribute('data-desc');
-}
-p.addEventListener('click',act);
-p.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();act();}});
-});
-document.querySelectorAll('.ecm-badge').forEach(function(b){
-function pick(){
-var x=b.getAttribute('data-x');
-document.querySelectorAll('.ecm-legend li').forEach(function(li){li.classList.toggle('hot',li.getAttribute('data-x')===x);});
-}
-b.addEventListener('click',pick);
-b.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();pick();}});
-});
-})();
 /* back-to-top button */
 (function(){
 var btn=document.createElement('button');
@@ -1545,6 +1475,57 @@ if('IntersectionObserver' in window&&!prm.matches){
 var io=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){canvas.classList.add('eco-in');io.disconnect();setTimeout(finishReveal,1800);}});},{threshold:.15});
 io.observe(canvas);
 }else{canvas.classList.add('eco-in');finishReveal();}
+/* pillar rotation: tap a pillar to bring it to the top of the map */
+var GX=50,GY=160/3;
+function rotk(p,k){var x=p.x-GX,y=p.y-GY,i,nx,ny;for(i=0;i<k;i++){nx=-0.5*x-0.803571*y;ny=0.933333*x-0.5*y;x=nx;y=ny;}return {x:GX+x,y:GY+y};}
+function clampP(p){return {x:Math.min(94,Math.max(6,p.x)),y:Math.min(95,Math.max(4,p.y))};}
+var TARGETK={enviro:0,cardio:1,food:2},curK=0,rotating=false;
+function applyPositions(k){
+Object.keys(PILLARS).forEach(function(key){
+var p=clampP(rotk(PILLARS[key],k)),d=canvas.querySelector('.pz-'+key);
+d.style.left=p.x+'%';d.style.top=p.y+'%';
+});
+PROJECTS.forEach(function(pr,i){
+var p=clampP(rotk(pr,k));
+nodes[i].style.left=p.x+'%';nodes[i].style.top=p.y+'%';
+});
+}
+function applyLines(k){
+var keys=Object.keys(PILLARS);
+keys.forEach(function(key){
+var p=clampP(rotk(PILLARS[key],k)),z=svg.querySelector('.z-'+key);
+z.setAttribute('cx',p.x);z.setAttribute('cy',p.y);
+});
+svg.querySelectorAll('.l-core').forEach(function(l,i){
+var p=clampP(rotk(PILLARS[keys[i]],k));
+l.setAttribute('x2',p.x);l.setAttribute('y2',p.y);
+});
+PROJECTS.forEach(function(pr){
+var np=clampP(rotk(pr,k));
+pr.p.forEach(function(key,i){
+var pp=clampP(rotk(PILLARS[key],k)),l=pr.lines[i];
+l.setAttribute('x1',np.x);l.setAttribute('y1',np.y);
+l.setAttribute('x2',pp.x);l.setAttribute('y2',pp.y);
+});
+});
+}
+function rotateTo(k){
+if(rotating||k===curK)return;
+rotating=true;hideTip();
+nodes.forEach(function(n){n.style.transitionDelay='';});
+if(prm.matches){curK=k;applyPositions(k);applyLines(k);rotating=false;return;}
+canvas.classList.add('eco-rotating');
+applyPositions(k);
+setTimeout(function(){applyLines(k);canvas.classList.remove('eco-rotating');curK=k;rotating=false;},800);
+}
+Object.keys(PILLARS).forEach(function(key){
+var d=canvas.querySelector('.pz-'+key);
+d.setAttribute('role','button');d.setAttribute('tabindex','0');
+d.setAttribute('aria-label','Bring '+PILLARS[key].name+' to the top of the map');
+function act(){var k=TARGETK[key];rotateTo(k===curK?(curK+1)%3:k);}
+d.addEventListener('click',act);
+d.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();act();}});
+});
 /* mobile map is static semantic HTML; enhance its chips with tooltip + two-tap behavior */
 if(mobile){
 mobile.querySelectorAll('.eco-chip').forEach(function(b){
