@@ -1474,7 +1474,8 @@ io.observe(canvas);
 }else{canvas.classList.add('eco-in');finishReveal();}
 /* pillar rotation with optional 3D depth projection (?depth=1 camera-move, ?depth=2 always angled) */
 var GX=50,GY=160/3;
-var DM=null;try{DM=new URLSearchParams(location.search).get('depth');}catch(e){}
+var DM='2';try{var _q=new URLSearchParams(location.search).get('depth');if(_q!==null)DM=_q;}catch(e){}
+if(DM==='0')DM=null;
 var DEG=Math.PI/180;
 var PHI_REST=DM==='2'?38*DEG:(DM==='1'?12*DEG:0);
 var PHI_MAX=DM?38*DEG:0;
@@ -1488,13 +1489,13 @@ return {rx:c*wx-s*wy,ry:s*wx+c*wy};
 function project(w,phi){
 var sph=Math.sin(phi),cph=Math.cos(phi);
 var k=1-0.2436*sph;
-var s=1/(1+w.rx*sph*DSTR);
+var s=1/(1-w.rx*sph*DSTR);
 return {
 x:GX+34.641*w.ry*s*k,
 y:GY-37.3333*w.rx*cph*s*k,
 s:s,
-op:1-Math.max(0,w.rx)*sph*0.45,
-zi:Math.max(2,Math.round(4.5-w.rx*1.8)),
+op:1-Math.max(0,-w.rx)*sph*0.45,
+zi:Math.max(2,Math.round(4.5+w.rx*1.8)),
 sph:sph,cph:cph
 };
 }
