@@ -769,8 +769,15 @@
   /* mobile: simplified relationship map — spine, pillar anchors, intersection zones, project chips */
   .eco-mobile{ display:none; }
   @media (max-width:819px){
-    .eco-canvas{ display:none; }
-    html.js .eco-mobile{ display:block; position:relative; margin-top:1.9rem; padding-left:30px; }
+    .eco-canvas{ aspect-ratio:10/12.5; margin-top:1.4rem; }
+    .eco-node{ max-width:78px; gap:.22rem; }
+    .eco-node .nl{ font-size:.55rem; line-height:1.2; }
+    .eco-node .nd{ width:11px; height:11px; }
+    .eco-pillar{ width:118px; }
+    .eco-pillar .pl-name{ font-size:.66rem; }
+    .eco-core{ width:clamp(82px,16%,110px); padding:.5rem; }
+    .eco-core span{ font-size:.44rem; margin-bottom:.15rem; }
+    .eco-core strong{ font-size:.6rem; }
   }
   .eco-mobile::before{ content:""; position:absolute; left:9px; top:16px; bottom:8px; border-left:2px dashed var(--sand); }
   .eco-m-core{ position:relative; display:inline-flex; margin:0; border-radius:999px; background:linear-gradient(135deg,var(--gulf),var(--enviro)); color:#fff; padding:.55rem 1.1rem; font-family:var(--display); font-weight:600; font-size:.86rem; line-height:1.3; box-shadow:0 8px 22px rgba(0,40,86,.18); }
@@ -1380,13 +1387,13 @@ var PROJECTS=[
 {id:'proj-heat-ozone',label:'Heat & ozone co-exposure',title:'Heat & ozone co-exposure and chronic disease',desc:'Personal heat and air-pollution monitoring across work shifts, linked to cardiometabolic indicators.',p:['enviro','cardio'],x:19,y:27},
 {id:'proj-asthma-gis',label:'Asthma GIS mapping',title:'Air pollution & asthma GIS mapping',desc:'Spatial analysis mapping asthma and respiratory illness against traffic and industrial exposure layers.',p:['enviro','cardio'],x:10,y:46},
 {id:'proj-wearable',label:'Wearable heat monitoring',title:'Wearable heat-stress monitoring for outdoor workers',desc:'A pilot placing wearable physiological monitors on outdoor workers to detect and prevent heat illness.',p:['enviro'],x:27,y:8},
-{id:'proj-bota',label:'BOTA impact assessment',title:'BOTA environmental health impact assessment',desc:'Community-engaged risk assessment near the Bridge of the Americas, with air, soil, and water sampling.',p:['enviro'],collab:true,x:50,y:5},
+{id:'proj-bota',label:'BOTA impact assessment',title:'BOTA environmental health impact assessment',desc:'Community-engaged risk assessment near the Bridge of the Americas, with air, soil, and water sampling.',p:['enviro'],collab:true,x:50,y:3},
 {id:'proj-firefighter',label:'Firefighter cancer study',title:'Texas Firefighter Cancer Study',desc:'Statewide collaboration examining occupational cancer risk among Texas firefighters.',p:['enviro'],collab:true,x:73,y:8},
 {id:'proj-vale',label:'VALE+Tu Salud',title:'VALE+Tu Salud',desc:'Corner-based randomized trial testing a health and safety program with Latino day laborers.',p:['enviro'],collab:true,x:67,y:33},
 {id:'proj-raise-bar',label:'Raise the Bar',title:'Raise the Bar',desc:'Evaluation of physical activity and wellness programming for military-connected students in El Paso schools.',p:['cardio'],x:13,y:89},
-{id:'proj-cultivating',label:'Cultivating Health',title:'Cultivating Health: veggie scripts & gardening',desc:'Evaluation of produce prescription and gardening programs supporting healthy food access among SNAP participants.',p:['food','cardio'],x:46,y:86},
-{id:'proj-swfbc',label:'SW Food Business Center',title:'Southwest Regional Food Business Center evaluation',desc:'Multi-state evaluation of food-business support and supply-chain capacity across Texas and New Mexico.',p:['food'],collab:true,x:91,y:86},
-{id:'proj-needs',label:'Healthy Eating needs assessment',title:'Healthy Eating to Prevent or Manage Disease \u2014 regional needs assessment',desc:'An epidemiological scan and nutrition-assets assessment guiding investment where food systems meet chronic disease across the Paso del Norte region.',p:['food','cardio'],x:62,y:81},
+{id:'proj-cultivating',label:'Cultivating Health',title:'Cultivating Health: veggie scripts & gardening',desc:'Evaluation of produce prescription and gardening programs supporting healthy food access among SNAP participants.',p:['food','cardio'],x:42,y:87},
+{id:'proj-swfbc',label:'SW Food Business Center',title:'Southwest Regional Food Business Center evaluation',desc:'Multi-state evaluation of food-business support and supply-chain capacity across Texas and New Mexico.',p:['food'],collab:true,x:88,y:85},
+{id:'proj-needs',label:'Healthy Eating needs assessment',title:'Healthy Eating to Prevent or Manage Disease \u2014 regional needs assessment',desc:'An epidemiological scan and nutrition-assets assessment guiding investment where food systems meet chronic disease across the Paso del Norte region.',p:['food','cardio'],x:66,y:81},
 {id:'proj-school-meals',label:'Protein in school meals',title:'Protein in school meals & bilingual nutrition communication',desc:'How culture, perception, and communication shape food acceptance in border-region schools \u2014 schools are also workplaces, linking nutrition with occupational health.',p:['food','enviro'],x:82,y:36}
 ];
 var NS='http://www.w3.org/2000/svg';
@@ -1508,7 +1515,7 @@ function render(ang,phi){
 pKeys.forEach(function(k,i){
 var w=wOf(PILLARS[k],ang),p=clampP(project(w,phi));
 var d=pillarEls[k];
-d.style.left=p.x+'%';d.style.top=(p.y+Math.max(0,w.rx)*2.4)+'%';
+d.style.left=p.x+'%';d.style.top=p.y+'%';
 if(DM){d.style.transform='translate(-50%,-50%) scale('+p.s.toFixed(3)+')';d.style.opacity=p.op.toFixed(3);d.style.zIndex=p.zi;}
 zoneEls[k].setAttribute('cx',p.x);zoneEls[k].setAttribute('cy',p.y);
 zoneEls[k].setAttribute('rx',(15*p.s).toFixed(2));zoneEls[k].setAttribute('ry',(12*p.s*p.cph).toFixed(2));
