@@ -715,7 +715,7 @@
   .vh{ position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; border:0; }
   html:not(.js) .eco-canvas{ display:none; }
   html:not(.js) .eco-mobile{ display:block; position:relative; margin-top:1.9rem; padding-left:30px; }
-  .eco-canvas{ position:relative; max-width:880px; margin:2.6rem auto 0; aspect-ratio:10/9; }
+  .eco-canvas{ position:relative; max-width:880px; margin:2.6rem auto 0; aspect-ratio:10/7.4; }
   .eco-lines{ position:absolute; inset:0; width:100%; height:100%; overflow:visible; }
   .eco-lines line{ stroke-width:1.1; vector-effect:non-scaling-stroke; transition:opacity .3s ease; }
   .eco-lines line.l-core{ stroke:var(--gulf); opacity:.24; stroke-dasharray:3 4; }
@@ -1477,9 +1477,9 @@ var GX=50,GY=160/3;
 var DM='2';try{var _q=new URLSearchParams(location.search).get('depth');if(_q!==null)DM=_q;}catch(e){}
 if(DM==='0')DM=null;
 var DEG=Math.PI/180;
-var PHI_REST=DM==='2'?44*DEG:(DM==='1'?12*DEG:0);
-var PHI_MAX=DM?44*DEG:0;
-var DSTR=0.34;
+var PHI_REST=DM==='2'?45*DEG:(DM==='1'?12*DEG:0);
+var PHI_MAX=DM?45*DEG:0;
+var DSTR=0.12;
 function wOf(p,ang){
 var vx=p.x-GX,vy=p.y-GY;
 var wx=-0.0267857*vy,wy=0.0288675*vx;
@@ -1488,13 +1488,13 @@ return {rx:c*wx-s*wy,ry:s*wx+c*wy};
 }
 function project(w,phi){
 var sph=Math.sin(phi),cph=Math.cos(phi);
-var k=1-0.2436*sph;
+var k=1-0.12*sph;
 var s=1/(1-w.rx*sph*DSTR);
 return {
 x:GX+34.641*w.ry*s*k,
 y:GY+(DM?5:0)-37.3333*w.rx*cph*s*k,
 s:s,
-op:1-Math.max(0,-w.rx)*sph*0.55,
+op:1-Math.max(0,-w.rx)*sph*0.12,
 zi:Math.max(2,Math.round(4.5+w.rx*1.8)),
 sph:sph,cph:cph
 };
@@ -1509,7 +1509,7 @@ function render(ang,phi){
 pKeys.forEach(function(k,i){
 var w=wOf(PILLARS[k],ang),p=clampP(project(w,phi));
 var d=pillarEls[k];
-d.style.left=p.x+'%';d.style.top=p.y+'%';
+d.style.left=p.x+'%';d.style.top=(p.y+Math.max(0,w.rx)*2.4)+'%';
 if(DM){d.style.transform='translate(-50%,-50%) scale('+p.s.toFixed(3)+')';d.style.opacity=p.op.toFixed(3);d.style.zIndex=p.zi;}
 zoneEls[k].setAttribute('cx',p.x);zoneEls[k].setAttribute('cy',p.y);
 zoneEls[k].setAttribute('rx',(15*p.s).toFixed(2));zoneEls[k].setAttribute('ry',(12*p.s*p.cph).toFixed(2));
