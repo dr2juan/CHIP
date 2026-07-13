@@ -822,6 +822,8 @@
   .pcard[id]{ scroll-margin-top:90px; }
 
   
+  .eco-node .nd.solo{ background:var(--gulf); }
+  .eco-legend .lg i.solo{ width:11px; height:11px; background:var(--gulf); border:1.5px dashed var(--gulf); box-shadow:0 0 0 2px var(--bg),0 0 0 3.5px var(--gulf); }
   /* constellation pillar-tap rotation */
   .eco-canvas .eco-lines{ pointer-events:none; }
   .eco-canvas .eco-zone{ pointer-events:auto; cursor:pointer; }
@@ -895,7 +897,7 @@
 <div class="eco-canvas" data-eco role="group" aria-label="Relationship map of the twelve active CHIP projects, three research pillars, and the community-engaged core">
 <svg class="eco-lines" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true" focusable="false"></svg>
 </div>
-<p class="eco-legend"><span class="lg"><i style="background:var(--enviro);"></i>Environmental &amp; occupational</span><span class="lg"><i style="background:var(--cardio);"></i>Cardiometabolic</span><span class="lg"><i style="background:var(--food);"></i>Food &amp; nutrition</span><span class="lg"><i class="duo"></i>Two-color dot: bridges two pillars</span><span class="lg"><i class="ring"></i>Dotted ring: cross-institution collaboration</span><span>Hover or tap a project for details &middot; select it to open its full project card</span></p>
+<p class="eco-legend"><span class="lg"><i style="background:var(--enviro);"></i>Environmental &amp; occupational</span><span class="lg"><i style="background:var(--cardio);"></i>Cardiometabolic</span><span class="lg"><i style="background:var(--food);"></i>Food &amp; nutrition</span><span class="lg"><i class="duo"></i>Two-color dot: bridges two pillars</span><span class="lg"><i class="ring"></i>Dotted ring: cross-institution collaboration</span><span class="lg"><i class="solo"></i>Unlinked node: independent national collaboration</span><span>Hover or tap a project for details &middot; select it to open its full project card</span></p>
 <div class="eco-mobile reveal" data-eco-mobile>
 <p class="eco-m-core">Community-engaged core</p>
 <div class="eco-m-zone" style="--zc:var(--enviro);">
@@ -938,6 +940,12 @@
 <h3 class="zl">Food systems &amp; nutrition</h3>
 <ul class="eco-chips">
 <li><a class="eco-chip collab" href="#proj-swfbc"><span class="nd" style="--nc:var(--food);" aria-hidden="true"></span>SW Food Business Center</a></li>
+</ul>
+</div>
+<div class="eco-m-zone" style="--zc:var(--gulf);">
+<h3 class="zl">Independent national collaboration</h3>
+<ul class="eco-chips">
+<li><span class="eco-chip solo"><span class="nd" style="--nc:var(--gulf);" aria-hidden="true"></span>Coma-recovery AI (AIM-AHEAD)</span></li>
 </ul>
 </div>
 </div>
@@ -1368,6 +1376,7 @@ food:{name:'Food systems & nutrition',tag:'Food & nutrition',x:80,y:72}
 };
 var CORE={x:50,y:52};
 var PROJECTS=[
+{id:'proj-coma-ai',label:'Coma-recovery AI (AIM-AHEAD)',title:'Predicting early coma recovery from EHR data',desc:'An AIM-AHEAD Bridge2AI national collaboration applying machine learning to intensive-care electronic health records to predict early recovery of consciousness. CHIP contributes data-science expertise \u2014 independent of the three pillars.',p:[],collab:true,independent:true,x:7,y:55},
 {id:'proj-air-heat',label:'Air & Heat Study',title:'Health impacts of heat & air pollution in at-risk populations',desc:'On-site screenings in colonias, schools, and health fairs, paired with NASA satellite exposure estimates.',p:['enviro','cardio'],x:33,y:37},
 {id:'proj-heat-ozone',label:'Heat & ozone co-exposure',title:'Heat & ozone co-exposure and chronic disease',desc:'Personal heat and air-pollution monitoring across work shifts, linked to cardiometabolic indicators.',p:['enviro','cardio'],x:19,y:27},
 {id:'proj-asthma-gis',label:'Asthma GIS mapping',title:'Air pollution & asthma GIS mapping',desc:'Spatial analysis mapping asthma and respiratory illness against traffic and industrial exposure layers.',p:['enviro','cardio'],x:10,y:46},
@@ -1402,7 +1411,7 @@ var tipD=makeTip(canvas),tipM=mobile?makeTip(mobile):null;
 var tipFor=null,tipEl=null;
 function showTip(tip,container,anchor,pr){
 tipFor=anchor;tipEl=tip;
-tip.innerHTML='<strong>'+pr.title+'</strong><p>'+pr.desc+'</p><div class="tip-tags">'+pr.p.map(function(k){return '<span>'+PILLARS[k].tag+'</span>';}).join('')+(pr.collab?'<span>Collaboration</span>':'')+'</div><span class="tip-go">Select to view project ↓</span>';
+tip.innerHTML='<strong>'+pr.title+'</strong><p>'+pr.desc+'</p><div class="tip-tags">'+(pr.independent?'<span>AIM-AHEAD Bridge2AI</span><span>National collaboration</span><span>AI / ML</span>':pr.p.map(function(k){return '<span>'+PILLARS[k].tag+'</span>';}).join('')+(pr.collab?'<span>Collaboration</span>':''))+'</div>'+(pr.independent?'':'<span class="tip-go">Select to view project ↓</span>');
 var cr=container.getBoundingClientRect(),ar=anchor.getBoundingClientRect();
 var below=(ar.top-cr.top)<cr.height*.34;
 tip.style.left=(ar.left-cr.left+ar.width/2)+'px';
@@ -1426,10 +1435,12 @@ card.classList.add('flash');
 setTimeout(function(){card.classList.remove('flash');},1600);
 }
 function dotHTML(pr){
+if(!pr.p.length){return '<span class="nd solo" style="--nc:var(--gulf)" aria-hidden="true"></span>';}
 var c1='var(--'+pr.p[0]+')',c2=pr.p[1]?'var(--'+pr.p[1]+')':null;
 return '<span class="nd'+(c2?' split':'')+'" style="--nc:'+c1+(c2?';--nc2:'+c2:'')+'" aria-hidden="true"></span>';
 }
 function ariaFor(pr){
+if(pr.independent){return pr.title+'. '+pr.desc+' Independent national collaboration, not tied to a single pillar.';}
 return pr.title+'. '+pr.desc+' Connected to: '+pr.p.map(function(k){return PILLARS[k].name;}).join(' and ')+(pr.collab?'. Cross-institution collaboration':'')+'. Activate to jump to the full project card.';
 }
 function bindNode(b,pr,tip,container,onHover){
