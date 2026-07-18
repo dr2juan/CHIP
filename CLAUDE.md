@@ -113,6 +113,17 @@ pre-proposal docs (`proposals/`).
   titles/gender (Abolore Idris, Colby Griffin flagged as guesses).
 - Optional: strip the `?depth=` flags; consider a custom domain; project detail
   pages.
+- **`evidence-library/` is publicly reachable** on the live site (everything on
+  `main` is served by Pages, e.g. `/CHIP/evidence-library/full-tracker.md`).
+  `robots.txt` can't help while on github.io (project pages don't control the
+  domain root). Decide: either that's acceptable, or move the folder to a
+  non-deployed branch.
+- SEO files added 2026-07-18: `sitemap.xml` (submit to Google Search Console
+  for indexing — robots.txt discovery doesn't work on a project page),
+  `404.html` (bilingual), `robots.txt` (dormant until a custom domain).
+  **If a custom domain is ever added:** update absolute URLs in `sitemap.xml`,
+  `robots.txt`, the canonical/hreflang/og tags in both `index.html` files,
+  and the `/CHIP/`-rooted links in `404.html`.
 
 ## How to work here (the standard this project was built to)
 

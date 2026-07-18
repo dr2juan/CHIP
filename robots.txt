@@ -1,0 +1,14 @@
+# CHIP — Community Health Impact Projects
+#
+# NOTE: while the site lives at dr2juan.github.io/CHIP/ (a GitHub project
+# page), crawlers only read robots.txt from the domain root, so this file
+# is dormant. It becomes active automatically if the site moves to a custom
+# domain (repo root = domain root). Keep paths domain-root-relative for
+# that future; update the Sitemap URL when the domain changes.
+
+User-agent: *
+Disallow: /evidence-library/
+Disallow: /CLAUDE.md
+Allow: /
+
+Sitemap: https://dr2juan.github.io/CHIP/sitemap.xml
