@@ -3,6 +3,33 @@
 Continuing work on the CHIP (Community Health Impact Projects) website. Read
 this first; it's the operating context for the repo.
 
+## Session start check — do this BEFORE any edit
+
+A session can be handed a work branch cut from an **old snapshot** of this repo.
+On 2026-07-18 that actually happened: a session started on a June-era branch
+(no `CLAUDE.md`, images still inline base64), spent the day re-optimizing an
+obsolete version of the site, and nearly shipped a regression. Don't repeat it.
+
+1. First command of the session:
+   `git fetch origin main && git merge-base --is-ancestor origin/main HEAD && echo BASE-OK`
+2. If it does **not** print `BASE-OK`, your branch predates current `main`.
+   Stop and rebase your work (or reset the branch if it has no commits of its
+   own): `git checkout -B <your-branch> origin/main`, then re-apply anything
+   worth keeping.
+3. Stale-snapshot red flags, any one of which means you are NOT on the real
+   site: no `CLAUDE.md`; no `assets/` directory; no `es/`; `index.html`
+   megabytes big with `data:image/...;base64` URIs; a `.github/workflows`
+   Pages deploy (main has none — deploy is Pages' built-in "from branch").
+4. Before claiming a change is (or will be) live, re-derive it: the live site
+   is `main` only — check the latest `pages-build-deployment` run's `head_sha`
+   equals the `main` tip.
+
+Branch hygiene, so stale snapshots stop accumulating: when a work branch's
+commits are all contained in `main` (`git rev-list --count origin/main..<branch>`
+is 0), delete the branch. Exceptions currently kept on purpose:
+`claude/precision-nutrition-womens-health-r0yjd7` carries two unmerged grant
+pre-proposal docs (`proposals/`).
+
 ## What this is & where it lives
 
 - Repo: `dr2juan/CHIP`. This is a **hand-written static site — no framework, no
