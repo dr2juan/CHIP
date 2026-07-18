@@ -99,8 +99,15 @@ pre-proposal docs (`proposals/`).
 
 ## Open threads (to-dos, not yet done)
 
-- The 12 project **status labels** ("In the field," "Analysis," …) were
-  *inferred* — the director needs to confirm them.
+- ~~The 12 project status labels were inferred~~ — **confirmed by the director
+  2026-07-18**, with one correction applied: "Southwest Regional Food Business
+  Center" is properly the **Rio Grande Colonias Regional Food Business Center**
+  (USDA RFBC led by Texas A&M AgriLife El Paso; CHIP's center is a core
+  partner). The federal program was terminated in 2025; the partnership
+  continues and a paper is in preparation — status now "Publication in
+  preparation." (Director described the termination as "by executive order";
+  public sources say USDA announced the program's termination, so the site
+  uses the neutral "federal program was terminated in 2025.")
 - Decide whether the held-back co-exposure effect estimates ever go public.
 - **Spanish page needs native-speaker review** — especially team role
   titles/gender (Abolore Idris, Colby Griffin flagged as guesses).
