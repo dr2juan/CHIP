@@ -125,6 +125,19 @@ pre-proposal docs (`proposals/`).
   `robots.txt`, the canonical/hreflang/og tags in both `index.html` files,
   and the `/CHIP/`-rooted links in `404.html`.
 
+## News section workflow (added 2026-07-18)
+
+`#news` ("News & field updates") sits between the Featured Study and Projects
+sections in both files. When the director sends a social post / link / blurb
+with words like "news item," turn it into a card: `.card.top-rule` with a
+`.tag` eyebrow of the form `Type · date` (types used so far: Program update,
+Field milestone, Publications, Now in the field), a short `h3`, and 1–2
+sentences. Translate for `es/index.html`. Keep the four newest cards visible —
+remove the oldest when adding. Content rules apply: real, verifiable claims
+only; link the original post when there is one. Automated feed-pulling from
+LinkedIn/Facebook was investigated and is not possible (APIs closed, scraping
+against ToS); don't re-attempt it.
+
 ## How to work here (the standard this project was built to)
 
 - Read what's actually being asked, beneath the literal words. A "let's discuss"
