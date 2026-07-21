@@ -134,22 +134,35 @@ a `.tag` eyebrow of the form `Type · date`, an `h3`, and 1–2 sentences).
 Types used so far: Field note, Recognition, Program milestone, Partnership,
 Conference, Award, Field research, Community engagement (plus older: Program
 update, Field milestone, Publications, Now in the field). The section currently
-holds **eight cards (two rows of four)**, newest-first; when adding, drop the
-oldest to stay at eight. Translate for `es/index.html` (Spanish `img src` uses
-`../assets/`). Content rules apply:
-real, verifiable claims only.
+holds **ten cards**, newest-first (a ragged last row is fine); if it grows past
+~twelve, add a "show more" fold like the Publications section rather than an
+endless wall, and drop the stalest cards. Translate for `es/index.html`
+(Spanish `img src` uses `../assets/`). Content rules apply: real, verifiable
+claims only. Cards can feature **any CHIP team member**, not just the director
+(the heat/ozone pilot and APHA-2024 cards feature Dr. Idris).
 
-Source of the current four cards: a **LinkedIn export** the director provided
-(2026-07-18, `.docx` with post text + images). That is the practical pipeline:
-the director forwards a post (screenshot, pasted text, or a LinkedIn data
-export) and a session turns it into a bilingual card, adding the photo to
-`assets/` as right-sized WebP (news photos: ~760px long side, q80; see the
-`news-*.webp` files). **Automated feed-pulling from LinkedIn/Facebook is not
-possible** (personal-profile APIs are closed, profile + post permalinks return
-HTTP 403 to anonymous fetchers, scraping is against ToS) — verified 2026-07-18;
-don't re-attempt it. The section CTA links to the director's LinkedIn profile
-for the live feed. Per-card deep links aren't stored (the export doesn't carry
-post permalinks); add them only if given a real URL.
+Source: **LinkedIn exports** the director/team provide (`.docx` with post text +
+images) — e.g. the director's own (2026-07-18) and Dr. Idris's (2026-07-21).
+That is the practical pipeline: someone forwards a post (screenshot, pasted
+text, or a LinkedIn data export) and a session turns it into a bilingual card,
+adding the photo to `assets/` as right-sized WebP (news photos: ~760px long
+side, q80; see the `news-*.webp` files). **Automated feed-pulling from
+LinkedIn/Facebook is not possible** (personal-profile APIs are closed, profile +
+post permalinks return HTTP 403 to anonymous fetchers, scraping is against ToS)
+— verified 2026-07-18; don't re-attempt it. The section CTA links to the
+director's LinkedIn profile for the live feed. Per-card deep links aren't stored
+(exports don't carry post permalinks); add them only if given a real URL.
+
+The **Publications section** is now CHIP-team-wide (not director-only): it
+carries Dr. Idris's occupational-heat papers too, with `.me` bolding whichever
+CHIP author appears (Idris and/or Aguilera). The closing note was changed from
+Aguilera's "Selected from 24…" to a neutral team line, and the Scholar button
+relabeled "Dr. Aguilera on Google Scholar" (his profile won't list team-mates'
+papers). Titles stay in their published language (English). If a paper has no
+verifiable DOI (e.g. the JEOH systematic review), list it **without** a link —
+there is precedent (the Texas Public Health Journal entry). The `.pub-toggle`
+label text lives in **two** places that must stay in sync: the button and the
+JS reset string near the bottom of each file.
 
 ## How to work here (the standard this project was built to)
 
