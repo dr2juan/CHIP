@@ -133,16 +133,17 @@ sections in both files. Current cards are **photo cards** (`.card.top-rule
 a `.tag` eyebrow of the form `Type · date`, an `h3`, and 1–2 sentences).
 Types used so far: Field note, Recognition, Program milestone, Partnership,
 Conference, Award, Field research, Community engagement (plus older: Program
-update, Field milestone, Publications, Now in the field). The section currently
-holds **ten cards**, newest-first (a ragged last row is fine); if it grows past
-~twelve, add a "show more" fold like the Publications section rather than an
-endless wall, and drop the stalest cards. Translate for `es/index.html`
+update, Field milestone, Publications, Now in the field, New book). The section
+currently holds **twelve cards (three rows of four)**, newest-first — this is
+the sensible cap. To add more without an endless wall, add a "show more" fold
+like the Publications section (or drop the stalest card to stay at twelve). Translate for `es/index.html`
 (Spanish `img src` uses `../assets/`). Content rules apply: real, verifiable
 claims only. Cards can feature **any CHIP team member**, not just the director
 (the heat/ozone pilot and APHA-2024 cards feature Dr. Idris).
 
 Source: **LinkedIn exports** the director/team provide (`.docx` with post text +
-images) — e.g. the director's own (2026-07-18) and Dr. Idris's (2026-07-21).
+images) — e.g. the director's own (2026-07-18), Dr. Idris's (2026-07-21), and a
+Karen Del Rio PhD + GIS-book export (2026-07-21).
 That is the practical pipeline: someone forwards a post (screenshot, pasted
 text, or a LinkedIn data export) and a session turns it into a bilingual card,
 adding the photo to `assets/` as right-sized WebP (news photos: ~760px long
