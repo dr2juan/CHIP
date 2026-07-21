@@ -128,15 +128,26 @@ pre-proposal docs (`proposals/`).
 ## News section workflow (added 2026-07-18)
 
 `#news` ("News & field updates") sits between the Featured Study and Projects
-sections in both files. When the director sends a social post / link / blurb
-with words like "news item," turn it into a card: `.card.top-rule` with a
-`.tag` eyebrow of the form `Type · date` (types used so far: Program update,
-Field milestone, Publications, Now in the field), a short `h3`, and 1–2
-sentences. Translate for `es/index.html`. Keep the four newest cards visible —
-remove the oldest when adding. Content rules apply: real, verifiable claims
-only; link the original post when there is one. Automated feed-pulling from
-LinkedIn/Facebook was investigated and is not possible (APIs closed, scraping
-against ToS); don't re-attempt it.
+sections in both files. Current cards are **photo cards** (`.card.top-rule
+.news-card`: a `.news-photo` figure with a lazy WebP, then a `.news-body` with
+a `.tag` eyebrow of the form `Type · date`, an `h3`, and 1–2 sentences).
+Types used so far: Field note, Recognition, Program milestone, Conference,
+Program update, Field milestone, Publications, Now in the field. Keep the four
+newest cards visible — remove the oldest when adding. Translate for
+`es/index.html` (Spanish `img src` uses `../assets/`). Content rules apply:
+real, verifiable claims only.
+
+Source of the current four cards: a **LinkedIn export** the director provided
+(2026-07-18, `.docx` with post text + images). That is the practical pipeline:
+the director forwards a post (screenshot, pasted text, or a LinkedIn data
+export) and a session turns it into a bilingual card, adding the photo to
+`assets/` as right-sized WebP (news photos: ~760px long side, q80; see the
+`news-*.webp` files). **Automated feed-pulling from LinkedIn/Facebook is not
+possible** (personal-profile APIs are closed, profile + post permalinks return
+HTTP 403 to anonymous fetchers, scraping is against ToS) — verified 2026-07-18;
+don't re-attempt it. The section CTA links to the director's LinkedIn profile
+for the live feed. Per-card deep links aren't stored (the export doesn't carry
+post permalinks); add them only if given a real URL.
 
 ## How to work here (the standard this project was built to)
 

@@ -239,6 +239,15 @@
   .illus-pair{ display:grid; grid-template-columns:1fr 1fr; gap:1.4rem; align-items:stretch; }
   @media (max-width:760px){ .illus-pair{ grid-template-columns:1fr; } }
   .illus-card{ background:var(--white); border:1px solid var(--line); border-radius:4px; overflow:hidden; display:flex; flex-direction:column; }
+
+  /* News & field updates — photo cards */
+  .news-card{ padding:0; overflow:hidden; display:flex; flex-direction:column; }
+  .news-card .news-photo{ aspect-ratio:16/10; overflow:hidden; background:#e7ebe4; }
+  .news-card .news-photo img{ width:100%; height:100%; object-fit:cover; display:block; }
+  .news-card .news-body{ padding:1.15rem 1.2rem 1.3rem; display:flex; flex-direction:column; flex:1 0 auto; }
+  .news-card h3{ font-size:1.04rem; margin:.45rem 0 .5rem; line-height:1.25; }
+  .news-card p{ font-size:.9rem; color:var(--ink-soft); }
+
   .illus-card .ph{ aspect-ratio:5/4; overflow:hidden; background:#efe7da; }
   .illus-card .ph img{ width:100%; height:100%; object-fit:cover; }
   .illus-card .cap{ padding:1.1rem 1.2rem; }
@@ -1122,10 +1131,10 @@
 <p>Actualizaciones desde el campo, nuevas publicaciones y noticias del programa. Para el d&iacute;a a d&iacute;a, s&iacute;ganos en LinkedIn.</p>
 </div>
 <div class="grid-4 reveal">
-<div class="card top-rule"><span class="tag">Actualizaci&oacute;n del programa &middot; Julio 2026</span><h3 style="margin-top:.5rem;">Los hallazgos de Rio Grande Colonias avanzan hacia su publicaci&oacute;n</h3><p>Tras la cancelaci&oacute;n del programa federal en 2025, la colaboraci&oacute;n regional de negocios alimentarios contin&uacute;a, y los hallazgos de la evaluaci&oacute;n se preparan para publicaci&oacute;n.</p></div>
-<div class="card top-rule"><span class="tag">En campo &middot; 2025&ndash;26</span><h3 style="margin-top:.5rem;">El Estudio de Aire y Calor est&aacute; en marcha</h3><p>Ex&aacute;menes comunitarios en sitio, combinados con estimaciones de exposici&oacute;n satelital de la NASA, avanzan en colonias, escuelas y ferias de salud de El Paso.</p></div>
-<div class="card top-rule"><span class="tag">Hito de campo &middot; 2025</span><h3 style="margin-top:.5rem;">M&aacute;s de 400 personas examinadas</h3><p>Los equipos biling&uuml;es de CHIP brindaron pruebas biom&eacute;tricas, educaci&oacute;n y referencia cl&iacute;nica a m&aacute;s de 400 residentes a principios de 2025.</p></div>
-<div class="card top-rule"><span class="tag">Publicaciones &middot; 2025</span><h3 style="margin-top:.5rem;">Nuevos art&iacute;culos en <em>Nature Medicine</em> y <em>Science Advances</em></h3><p>Investigaci&oacute;n afiliada a CHIP sobre los efectos inmunol&oacute;gicos del humo de incendios y los efectos epigen&eacute;ticos de la contaminaci&oacute;n del aire en el embarazo apareci&oacute; en dos revistas l&iacute;deres.</p></div>
+<div class="card top-rule news-card"><figure class="news-photo"><img src="../assets/news-alaska.webp" width="608" height="760" loading="lazy" decoding="async" style="object-position:center 28%;" alt="El Dr. Juan Aguilera en el glaciar Mendenhall durante el ASPIRE Immersive Institute en Juneau, Alaska."/></figure><div class="news-body"><span class="tag">Nota de campo &middot; Verano 2026</span><h3>Investigaci&oacute;n comunitaria en Juneau, Alaska</h3><p>El Dr. Aguilera particip&oacute; en el ASPIRE Immersive Institute, financiado por la NSF, aprendiendo investigaci&oacute;n basada en el lugar del Sealaska Heritage Institute &mdash; lecciones que hoy dan forma a las alianzas fronterizas de CHIP.</p></div></div>
+<div class="card top-rule news-card"><figure class="news-photo"><img src="../assets/news-biotech.webp" width="760" height="497" loading="lazy" decoding="async" alt="El Dr. Aguilera con otros cuatro ponentes en el Biotech Showcase de la Medical Center of the Americas Foundation."/></figure><div class="news-body"><span class="tag">Reconocimiento &middot; Primavera 2026</span><h3>Ponente seleccionado en el Biotech Showcase de MCA</h3><p>Uno de cinco ponentes elegidos en el showcase de la Medical Center of the Americas Foundation, presentando el trabajo SIG de CHIP sobre c&oacute;mo el tr&aacute;fico, la contaminaci&oacute;n del aire y el calor se superponen en los sitios de contrataci&oacute;n de jornaleros.</p></div></div>
+<div class="card top-rule news-card"><figure class="news-photo"><img src="../assets/news-bridge2ai.webp" width="760" height="570" loading="lazy" decoding="async" alt="El equipo del proyecto AIM-AHEAD Bridge2AI junto a su cartel de investigaci&oacute;n."/></figure><div class="news-body"><span class="tag">Hito del programa &middot; 2026</span><h3>Ingreso al programa AIM-AHEAD Bridge2AI for Clinical Care</h3><p>El trabajo de ciencia de datos de CHIP ahora incluye un proyecto AIM-AHEAD Bridge2AI que predice la recuperaci&oacute;n temprana de la consciencia a partir de registros de UCI &mdash; el eje independiente de IA para la atenci&oacute;n cl&iacute;nica en nuestro mapa.</p></div></div>
+<div class="card top-rule news-card"><figure class="news-photo"><img src="../assets/news-apha.webp" width="760" height="570" loading="lazy" decoding="async" alt="El Dr. Aguilera presentando un mapa SIG de exposici&oacute;n en la reuni&oacute;n anual de APHA 2025."/></figure><div class="news-body"><span class="tag">Congreso &middot; Oto&ntilde;o 2025</span><h3>Salud ambiental fronteriza en APHA 2025</h3><p>CHIP present&oacute; investigaci&oacute;n en salud ambiental y psicosocial para comunidades latinas en la reuni&oacute;n anual de la American Public Health Association, con ponencias del equipo sobre mapeo SIG y salud de jornaleros.</p></div></div>
 </div>
 <div class="cta-row reveal" style="margin-top:1.6rem;">
 <a class="btn btn-outline" href="https://www.linkedin.com/in/drjaguilera" target="_blank" rel="noopener">Siga al director de CHIP en LinkedIn &#8599;</a>

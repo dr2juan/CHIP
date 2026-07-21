@@ -239,6 +239,15 @@
   .illus-pair{ display:grid; grid-template-columns:1fr 1fr; gap:1.4rem; align-items:stretch; }
   @media (max-width:760px){ .illus-pair{ grid-template-columns:1fr; } }
   .illus-card{ background:var(--white); border:1px solid var(--line); border-radius:4px; overflow:hidden; display:flex; flex-direction:column; }
+
+  /* News & field updates — photo cards */
+  .news-card{ padding:0; overflow:hidden; display:flex; flex-direction:column; }
+  .news-card .news-photo{ aspect-ratio:16/10; overflow:hidden; background:#e7ebe4; }
+  .news-card .news-photo img{ width:100%; height:100%; object-fit:cover; display:block; }
+  .news-card .news-body{ padding:1.15rem 1.2rem 1.3rem; display:flex; flex-direction:column; flex:1 0 auto; }
+  .news-card h3{ font-size:1.04rem; margin:.45rem 0 .5rem; line-height:1.25; }
+  .news-card p{ font-size:.9rem; color:var(--ink-soft); }
+
   .illus-card .ph{ aspect-ratio:5/4; overflow:hidden; background:#efe7da; }
   .illus-card .ph img{ width:100%; height:100%; object-fit:cover; }
   .illus-card .cap{ padding:1.1rem 1.2rem; }
@@ -1122,10 +1131,10 @@
 <p>Updates from the field, new publications, and program news. For the day-to-day, follow along on LinkedIn.</p>
 </div>
 <div class="grid-4 reveal">
-<div class="card top-rule"><span class="tag">Program update &middot; July 2026</span><h3 style="margin-top:.5rem;">Rio Grande Colonias findings head toward publication</h3><p>After the federal program&rsquo;s termination in 2025, the regional food-business partnership continues &mdash; and evaluation findings are being prepared for publication.</p></div>
-<div class="card top-rule"><span class="tag">Now in the field &middot; 2025&ndash;26</span><h3 style="margin-top:.5rem;">The Air &amp; Heat Study is under way</h3><p>On-site community screenings paired with NASA satellite exposure estimates are running across colonias, schools, and health fairs in El Paso.</p></div>
-<div class="card top-rule"><span class="tag">Field milestone &middot; 2025</span><h3 style="margin-top:.5rem;">400+ community members screened</h3><p>CHIP&rsquo;s bilingual teams delivered biometric screening, education, and clinical referral to more than 400 residents in early 2025.</p></div>
-<div class="card top-rule"><span class="tag">Publications &middot; 2025</span><h3 style="margin-top:.5rem;">New papers in <em>Nature Medicine</em> and <em>Science Advances</em></h3><p>CHIP-affiliated research on the immune impacts of fire smoke and on air pollution&rsquo;s epigenetic effects in pregnancy appeared in two leading journals.</p></div>
+<div class="card top-rule news-card"><figure class="news-photo"><img src="assets/news-alaska.webp" width="608" height="760" loading="lazy" decoding="async" style="object-position:center 28%;" alt="Dr. Juan Aguilera at Mendenhall Glacier during the ASPIRE Immersive Institute in Juneau, Alaska."/></figure><div class="news-body"><span class="tag">Field note &middot; Summer 2026</span><h3>Community-engaged research in Juneau, Alaska</h3><p>Dr. Aguilera joined the NSF-funded ASPIRE Immersive Institute, learning place-based research from the Sealaska Heritage Institute &mdash; lessons now shaping CHIP&rsquo;s border partnerships.</p></div></div>
+<div class="card top-rule news-card"><figure class="news-photo"><img src="assets/news-biotech.webp" width="760" height="497" loading="lazy" decoding="async" alt="Dr. Aguilera with four other presenters at the Medical Center of the Americas Foundation Biotech Showcase."/></figure><div class="news-body"><span class="tag">Recognition &middot; Spring 2026</span><h3>Selected oral presenter at the MCA Biotech Showcase</h3><p>One of five presenters chosen at the Medical Center of the Americas Foundation showcase, presenting CHIP&rsquo;s GIS work on how traffic, air pollution, and heat overlap at day-laborer hiring sites.</p></div></div>
+<div class="card top-rule news-card"><figure class="news-photo"><img src="assets/news-bridge2ai.webp" width="760" height="570" loading="lazy" decoding="async" alt="The AIM-AHEAD Bridge2AI project team beside their research poster."/></figure><div class="news-body"><span class="tag">Program milestone &middot; 2026</span><h3>Joining the AIM-AHEAD Bridge2AI for Clinical Care program</h3><p>CHIP&rsquo;s data-science work now includes an AIM-AHEAD Bridge2AI project predicting early recovery of consciousness from ICU records &mdash; the independent AI-for-clinical-care thread on our map.</p></div></div>
+<div class="card top-rule news-card"><figure class="news-photo"><img src="assets/news-apha.webp" width="760" height="570" loading="lazy" decoding="async" alt="Dr. Aguilera presenting a GIS exposure map at the APHA 2025 annual meeting."/></figure><div class="news-body"><span class="tag">Conference &middot; Fall 2025</span><h3>Border environmental health at APHA 2025</h3><p>CHIP showcased environmental and psychosocial health research for Latino communities at the American Public Health Association annual meeting, with team presentations on GIS mapping and day-laborer health.</p></div></div>
 </div>
 <div class="cta-row reveal" style="margin-top:1.6rem;">
 <a class="btn btn-outline" href="https://www.linkedin.com/in/drjaguilera" target="_blank" rel="noopener">Follow CHIP&rsquo;s director on LinkedIn &#8599;</a>
