@@ -131,10 +131,12 @@ pre-proposal docs (`proposals/`).
 sections in both files. Current cards are **photo cards** (`.card.top-rule
 .news-card`: a `.news-photo` figure with a lazy WebP, then a `.news-body` with
 a `.tag` eyebrow of the form `Type · date`, an `h3`, and 1–2 sentences).
-Types used so far: Field note, Recognition, Program milestone, Conference,
-Program update, Field milestone, Publications, Now in the field. Keep the four
-newest cards visible — remove the oldest when adding. Translate for
-`es/index.html` (Spanish `img src` uses `../assets/`). Content rules apply:
+Types used so far: Field note, Recognition, Program milestone, Partnership,
+Conference, Award, Field research, Community engagement (plus older: Program
+update, Field milestone, Publications, Now in the field). The section currently
+holds **eight cards (two rows of four)**, newest-first; when adding, drop the
+oldest to stay at eight. Translate for `es/index.html` (Spanish `img src` uses
+`../assets/`). Content rules apply:
 real, verifiable claims only.
 
 Source of the current four cards: a **LinkedIn export** the director provided
