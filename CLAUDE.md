@@ -84,6 +84,19 @@ pre-proposal docs (`proposals/`).
    nothing silently corrupts.
 8. Brand colors are CSS vars at the top (UTHealth palette): `--gulf` navy,
    `--enviro` teal, `--cardio` crimson, `--food` green, `--orange` terracotta.
+9. **The `@media print` block at the end of the stylesheet is load-bearing —
+   don't delete it.** Scroll-reveal parks ~83 elements at `opacity:0` until the
+   IntersectionObserver fires; printing never scrolls, so without it the site
+   prints/PDFs blank (verified 2026-07-27: 83 hidden → 0 after the fix). It
+   also unfolds the hidden publications, swaps `.eco-canvas` for `.eco-mobile`,
+   and flips the dark hero/footer to dark-on-white (browsers drop backgrounds
+   when printing). **If you add a new section that hides content behind a
+   toggle, add a print rule that unfolds it.** Test with Playwright
+   `emulateMedia({media:'print'})`, not by eye.
+10. Wayfinding: `.nav-cta` on the Partner nav link (the site's primary action —
+   grants/collaborators are the top-priority audience) and `.scroll-progress`,
+   a 2px reading-position bar in the sticky header. The footer's Partner link
+   stays a plain link; only the nav one carries `.nav-cta`.
 
 ## Content rules already established (don't undo without asking)
 

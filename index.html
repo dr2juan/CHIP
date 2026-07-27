@@ -847,6 +847,32 @@
   .eco-canvas .eco-pillar:focus{ outline:none; }
   .eco-canvas .eco-pillar:focus-visible{ outline:2px solid var(--orange); outline-offset:4px; border-radius:10px; }
 
+  /* ---------- Wayfinding on a long single page ----------
+     The partner / grant-collaboration path is the site's primary
+     action, so it reads as a button rather than one more link.
+     The progress bar gives readers a sense of position across a
+     page that runs ~20 screens on desktop. */
+  nav.links a.nav-cta{
+    background:var(--orange); color:#fff; font-weight:600;
+    border-radius:999px; padding:.34rem .95rem;
+  }
+  nav.links a.nav-cta:hover{ background:var(--orange-br); color:#fff; text-decoration:none; }
+  nav.links a.nav-cta.active{ color:#fff; }
+  nav.links a.nav-cta.active::after{ display:none; }
+  .scroll-progress{
+    position:absolute; left:0; bottom:-1px; height:2px; width:0;
+    background:var(--orange); z-index:60; pointer-events:none;
+  }
+  @media (max-width:880px){
+    nav.links a.nav-cta{
+      border-radius:0; padding:.9rem var(--gutter);
+      background:var(--orange); color:#fff;
+    }
+  }
+  @media (prefers-reduced-motion: no-preference){
+    .scroll-progress{ transition:width .1s linear; }
+  }
+
   /* ============================================================
      Print / Save-as-PDF
      Scroll-reveal keeps elements at opacity:0 until the
@@ -908,6 +934,7 @@
 <body>
 <a class="skip-link" href="#top">Skip to main content</a>
 <header class="nav">
+<div class="scroll-progress" aria-hidden="true"></div>
 <div class="wrap nav-inner">
 <a class="brand" href="#top" style="text-decoration:none;">
 <img alt="CHIP logo" src="assets/logo.webp" width="236" height="240" style="height:42px;width:auto;margin-right:.1rem;"/>
@@ -922,7 +949,7 @@
 <a href="#projects">Projects</a>
 <a href="#people">People</a>
 <a href="#publications">Publications</a>
-<a href="#partner">Partner With Us</a>
+<a class="nav-cta" href="#partner">Partner With Us</a>
 <a href="#contact">Contact</a>
 <a class="lang-switch" href="es/" hreflang="es" lang="es">Español</a>
 </nav>
@@ -1695,6 +1722,17 @@ requestAnimationFrame(step);
 io.observe(el);
 });
 })();
+(function(){
+var bar=document.querySelector('.scroll-progress');if(!bar)return;
+var ticking=false;
+function update(){
+var h=document.documentElement.scrollHeight-window.innerHeight;
+var pct=h>0?(window.pageYOffset/h)*100:0;
+bar.style.width=Math.max(0,Math.min(100,pct))+'%';
+ticking=false;}
+window.addEventListener('scroll',function(){if(!ticking){requestAnimationFrame(update);ticking=true;}},{passive:true});
+window.addEventListener('resize',update,{passive:true});
+update();})();
 </script>
 </body>
 </html>
