@@ -846,6 +846,63 @@
   .eco-canvas .eco-pillar{ cursor:pointer; pointer-events:auto; }
   .eco-canvas .eco-pillar:focus{ outline:none; }
   .eco-canvas .eco-pillar:focus-visible{ outline:2px solid var(--orange); outline-offset:4px; border-radius:10px; }
+
+  /* ============================================================
+     Print / Save-as-PDF
+     Scroll-reveal keeps elements at opacity:0 until the
+     IntersectionObserver fires. Printing never scrolls, so without
+     this block the entire page prints blank. Also: unfold content
+     hidden behind interactive toggles, swap the rotating project
+     map for its text list, and fix light-on-dark text (browsers
+     drop backgrounds when printing, which would leave white text
+     on white paper).
+     ============================================================ */
+  @media print{
+    /* 1. never let the reveal animation hide printed content */
+    .reveal{ opacity:1 !important; transform:none !important; transition:none !important; }
+
+    /* 2. unfold what interactive toggles hide */
+    .pub.pub-extra.folded{ display:block !important; }
+    .pcard[hidden], .pcard.is-out{ display:block !important; }
+
+    /* 3. drop interactive chrome that means nothing on paper */
+    header.nav, .to-top, .skip-link, .pfilter, .pub-toggle,
+    .lang-switch, .eco-tip, .eco-hint{ display:none !important; }
+
+    /* 4. the project map is an absolutely-positioned rotating canvas;
+          print its accessible text list instead */
+    .eco-canvas{ display:none !important; }
+    .eco-mobile{ display:block !important; }
+
+    /* 5. large dark panels -> ink-friendly light with dark text */
+    .hero2, .hero2 .bg{ background:#fff !important; color:var(--ink) !important; }
+    .hero2 h1, .hero2 h1 .em, .hero2 .lead, .hero2 .eyebrow{ color:var(--gulf) !important; }
+    .hero2 .sig span{ color:var(--ink) !important; border-color:#bbb !important; background:none !important; }
+    .hero2 .btn-ghost{ color:var(--gulf) !important; border-color:#999 !important; }
+    footer.site{ background:#fff !important; color:var(--ink) !important; border-top:1px solid #999; }
+    footer.site h5, footer.site .org, footer.site a, footer .legal span{ color:var(--ink) !important; }
+
+    /* 6. small colored chips keep their fill so labels stay legible */
+    .bar-head, .ptag, .btn-primary, .member .av, .flow-steps .step.last,
+    .eco-m-core, .pillar-map-core, .study-core{
+      -webkit-print-color-adjust:exact; print-color-adjust:exact;
+    }
+
+    /* 7. pagination: keep blocks whole, headings with their content */
+    .card, .pcard, .member, .news-card, .impact-card, .pub,
+    .stripe, .glance-panel, .pillar-card, .figure{
+      break-inside:avoid; page-break-inside:avoid;
+    }
+    h1,h2,h3{ break-after:avoid; page-break-after:avoid; }
+    section{ padding-block:1rem; }
+    body{ background:#fff; font-size:10.5pt; }
+
+    /* 8. paper can't follow a link - surface DOIs and article URLs */
+    .pub-title a::after{
+      content:" [" attr(href) "]";
+      font-size:7.5pt; font-weight:400; color:#555; word-break:break-all;
+    }
+  }
 </style>
 </head>
 <body>
