@@ -119,10 +119,19 @@ pre-proposal docs (`proposals/`).
 - `proj-taster` (added 2026-07-30 from the Taster Space draft report):
   Desert Spoon Food Hub's space-themed family nutrition program; CHIP has
   been evaluation partner since 2020, moving to qualitative methods + force
-  field analysis in 2025. Food × cardio, `collab:true`, map position (88,62).
-  Status label "Evaluation underway" is **inferred** — confirm with the
-  director, and ask whether Desert Spoon should join the acknowledgment list
-  (La Semilla Food Center is listed there as precedent).
+  field analysis in 2025. **Food only** (`p:['food']`), `collab:true`, map
+  position (88,62). It was briefly tagged food × cardio — wrong, and worth
+  remembering as a tagging rule: **domain tags follow measured outcomes, not
+  the background framing.** The report's obesity/chronic-disease context
+  invites a cardio tag, but Appendix B's four objectives are all nutrition
+  (FV availability/consumption, child food-prep self-efficacy, mealtime
+  experience, partner capacity), and the report contains zero BMI, blood
+  pressure, A1c, lipid, or waist measures — Veggie Meter data wasn't even
+  collected in 2025. Contrast `proj-cultivating`, which legitimately carries
+  cardio because it measures cardiovascular outcomes.
+  Desert Spoon Food Hub is now in the acknowledgment list ("Local &
+  community", alongside La Semilla). Status label "Evaluation underway" is
+  still **inferred** — confirm with the director.
 
 ## Open threads (to-dos, not yet done)
 
