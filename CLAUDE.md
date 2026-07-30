@@ -109,6 +109,20 @@ pre-proposal docs (`proposals/`).
   health).
 - Publications are real; article titles stay in their published language
   (English).
+- **Client evaluation reports are not publishable content.** CHIP writes
+  evaluations *for* partner organizations (e.g. the Taster Space report
+  prepared for Desert Spoon Food Hub, Sept 2025). Those reports are drafts
+  and the client's data: the *existence* of the engagement is fine for the
+  project list, but participant quotes, outcome percentages, and named
+  barriers must NOT go on the public site without that partner's written
+  sign-off. When handed such a report, add the project entry and stop there.
+- `proj-taster` (added 2026-07-30 from the Taster Space draft report):
+  Desert Spoon Food Hub's space-themed family nutrition program; CHIP has
+  been evaluation partner since 2020, moving to qualitative methods + force
+  field analysis in 2025. Food × cardio, `collab:true`, map position (88,62).
+  Status label "Evaluation underway" is **inferred** — confirm with the
+  director, and ask whether Desert Spoon should join the acknowledgment list
+  (La Semilla Food Center is listed there as precedent).
 
 ## Open threads (to-dos, not yet done)
 
