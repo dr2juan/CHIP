@@ -93,7 +93,16 @@ pre-proposal docs (`proposals/`).
    when printing). **If you add a new section that hides content behind a
    toggle, add a print rule that unfolds it.** Test with Playwright
    `emulateMedia({media:'print'})`, not by eye.
-10. Wayfinding: `.nav-cta` on the Partner nav link (the site's primary action —
+10. **Metric-strip images double-crop.** `.metric-map .media` is a *fixed*
+   132px-tall box with `object-fit:cover`, so its aspect ratio swings from
+   1.25 (390px viewport) to 2.57 (760px) — anything you drop in gets cropped
+   again on top of however the file was already cropped. That's how the
+   cohort map ended up a narrow band that didn't match the full map in the
+   cardiometabolic section (fixed 2026-07-31: `map-strip-v2.webp`, cropped
+   from `map-cohort.webp` at ratio 1.8 centred on the dot centroid, keeping
+   ~91% of cohort points). Crop new strip images near ratio 1.8 and check
+   them at 390/760/1440px.
+11. Wayfinding: `.nav-cta` on the Partner nav link (the site's primary action —
    grants/collaborators are the top-priority audience) and `.scroll-progress`,
    a 2px reading-position bar in the sticky header. The footer's Partner link
    stays a plain link; only the nav one carries `.nav-cta`.
