@@ -76,7 +76,15 @@ pre-proposal docs (`proposals/`).
    gaps shift. **Always test all four states** — at rest plus each
    `[aria-label^="Bring …"]` clicked (Spanish: `Llevar …`, and test it
    separately since ES labels are longer) — measuring every node box against
-   every pillar box and every other node box. **Two things to keep in sync by hand:** the `.eco-mobile`
+   every pillar box and every other node box. **Boxes aren't the whole story:
+   also check the connecting lines.** A node placed on the same bearing as
+   another node in the same domain makes two near-collinear lines into the
+   shared pillar (that happened at 2026-08-01 with Taster Space vs "Protein in
+   school meals" — both were ~x:80 feeding the food pillar at 80,72, so the
+   lines ran on top of each other). Aim for ≥25° of separation at the pillar,
+   and keep the node off the dashed core→pillar connectors (the core is at
+   50,52 — a node at the midpoint to a pillar lands exactly on one).
+   **Two things to keep in sync by hand:** the `.eco-mobile`
    fallback zone list (mirrors `PROJECTS`), and the fact that **both `index.html`
    and `es/index.html` each carry their own copy of this JS.**
 4. **CSS class names still say "pillar"** (`.pillar-card`, `pz-`, the `PILLARS`
