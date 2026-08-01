@@ -67,8 +67,16 @@ pre-proposal docs (`proposals/`).
    arrays. To add/edit/remove a node, edit `PROJECTS`
    (`{id,label,title,desc,p:[domains],x,y,collab,independent}`). `p:[]` = no
    connecting lines (the independent "AI for clinical care" satellite).
-   Positions are % coords; rotation is rigid, so nodes that don't overlap at
-   rest never will. **Two things to keep in sync by hand:** the `.eco-mobile`
+   Positions are % coords. **Checking overlap at rest is NOT enough — that
+   claim used to live here and it is wrong** (corrected 2026-08-01 after a
+   node landed on the "Food systems & nutrition" label). Two reasons: the
+   three pillar labels are at *fixed* positions (enviro 50,16 / cardio 20,72
+   / food 80,72) and do **not** rotate with the nodes, and the tilted camera
+   projection changes relative node spacing per state, so even node-vs-node
+   gaps shift. **Always test all four states** — at rest plus each
+   `[aria-label^="Bring …"]` clicked (Spanish: `Llevar …`, and test it
+   separately since ES labels are longer) — measuring every node box against
+   every pillar box and every other node box. **Two things to keep in sync by hand:** the `.eco-mobile`
    fallback zone list (mirrors `PROJECTS`), and the fact that **both `index.html`
    and `es/index.html` each carry their own copy of this JS.**
 4. **CSS class names still say "pillar"** (`.pillar-card`, `pz-`, the `PILLARS`
