@@ -195,9 +195,15 @@ a `.tag` eyebrow of the form `Type · date`, an `h3`, and 1–2 sentences).
 Types used so far: Field note, Recognition, Program milestone, Partnership,
 Conference, Award, Field research, Community engagement (plus older: Program
 update, Field milestone, Publications, Now in the field, New book). The section
-currently holds **twelve cards (three rows of four)**, newest-first — this is
-the sensible cap. To add more without an endless wall, add a "show more" fold
-like the Publications section (or drop the stalest card to stay at twelve). Translate for `es/index.html`
+currently holds **thirteen cards, newest-first, with the first eight shown and
+the rest behind a "Show N more updates" fold** (`.news-extra.folded` +
+`.news-toggle`, mirroring the Publications pattern). **Keep the visible count
+at a multiple of four** — the grid is 4-up on desktop, 2-up at ≤900px, 1-up at
+≤680px, so 8 fills clean rows at every breakpoint while 9 leaves an orphan.
+When adding a card: put it first, add `news-extra folded` to it if that pushes
+a visible card past eight, and update the button count in **both** places (the
+button text and the JS reset string). The `@media print` block unfolds these —
+don't drop that rule. Translate for `es/index.html`
 (Spanish `img src` uses `../assets/`). Content rules apply: real, verifiable
 claims only. Cards can feature **any CHIP team member**, not just the director
 (the heat/ozone pilot and APHA-2024 cards feature Dr. Idris).
