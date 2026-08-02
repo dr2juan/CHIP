@@ -67,23 +67,46 @@ pre-proposal docs (`proposals/`).
    arrays. To add/edit/remove a node, edit `PROJECTS`
    (`{id,label,title,desc,p:[domains],x,y,collab,independent}`). `p:[]` = no
    connecting lines (the independent "AI for clinical care" satellite).
-   Positions are % coords. **Checking overlap at rest is NOT enough — that
-   claim used to live here and it is wrong** (corrected 2026-08-01 after a
-   node landed on the "Food systems & nutrition" label). Two reasons: the
-   three pillar labels are at *fixed* positions (enviro 50,16 / cardio 20,72
-   / food 80,72) and do **not** rotate with the nodes, and the tilted camera
-   projection changes relative node spacing per state, so even node-vs-node
-   gaps shift. **Always test all four states** — at rest plus each
-   `[aria-label^="Bring …"]` clicked (Spanish: `Llevar …`, and test it
-   separately since ES labels are longer) — measuring every node box against
-   every pillar box and every other node box. **Boxes aren't the whole story:
-   also check the connecting lines.** A node placed on the same bearing as
-   another node in the same domain makes two near-collinear lines into the
-   shared pillar (that happened at 2026-08-01 with Taster Space vs "Protein in
-   school meals" — both were ~x:80 feeding the food pillar at 80,72, so the
-   lines ran on top of each other). Aim for ≥25° of separation at the pillar,
-   and keep the node off the dashed core→pillar connectors (the core is at
-   50,52 — a node at the midpoint to a pillar lands exactly on one).
+   Positions are % coords.
+
+   **Do not hand-check this. Run `node tools/constellation-qa.js`** (needs
+   `npm install --no-save playwright-core`; dev-only, the site still has no
+   deps). It measures both languages × all four rotation states and exits
+   non-zero on a real collision. Every rule below is already encoded in it —
+   they are written out here because each one cost a shipped regression, and
+   because a future change may need the reasoning, not just the pass/fail.
+
+   - **Checking overlap at rest is NOT enough — that claim used to live here
+     and it is wrong** (corrected 2026-08-01 after a node landed on the "Food
+     systems & nutrition" label). The three pillar labels sit at *fixed*
+     positions (enviro 50,16 / cardio 20,72 / food 80,72) and do **not**
+     rotate with the nodes, and the tilted camera projection changes relative
+     node spacing per state, so even node-vs-node gaps shift.
+   - **The centre core is an obstacle too.** It is neither an `.eco-node` nor
+     an `.eco-pillar`, so an obstacle list built from those two selectors
+     silently omits it — which is exactly how Taster Space ended up sitting on
+     the hub (2026-08-02). `.eco-core` is a fixed ~150px circle at 50,52 in
+     every state.
+   - **Test Spanish separately.** ES labels are longer and wrap to more lines,
+     so a position that clears in English can crowd in Spanish (that is how
+     `proj-coma-ai` ended up 7px from "Mapeo SIG de asma"). The rotation
+     buttons are `[aria-label^="Bring …"]` in EN and `[aria-label^="Llevar …"]`
+     in ES — a script that greps only "Bring" runs zero ES states and reports
+     a cheerful pass.
+   - **Boxes aren't the whole story: check the connecting lines.** A node on
+     the same bearing as another node in the same domain draws two
+     near-collinear lines into the shared pillar (2026-08-01, Taster Space vs
+     "Protein in school meals" — both ~x:80 feeding the food pillar at 80,72).
+     Also keep nodes off the dashed core→pillar connectors: a node at the
+     midpoint between 50,52 and a pillar lands exactly on one.
+     Note the fan-in angles are **not** roomy by design — the environmental
+     pillar takes six lines and legitimately runs 10–18°. The QA script fails
+     under 8°, which is the "indistinguishable" floor, not a comfort target.
+   - **Labels spilling past the `.eco-canvas` box are fine.** There is no
+     `overflow:hidden`, so they render normally on the page; the QA script
+     warns rather than fails. An element-only screenshot *makes them look
+     chopped off* — take a viewport screenshot before "fixing" one.
+
    **Two things to keep in sync by hand:** the `.eco-mobile`
    fallback zone list (mirrors `PROJECTS`), and the fact that **both `index.html`
    and `es/index.html` each carry their own copy of this JS.**
