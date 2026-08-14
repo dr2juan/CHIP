@@ -200,8 +200,16 @@ pre-proposal docs (`proposals/`).
   public sources say USDA announced the program's termination, so the site
   uses the neutral "federal program was terminated in 2025.")
 - Decide whether the held-back co-exposure effect estimates ever go public.
-- **Spanish page needs native-speaker review** — especially team role
-  titles/gender (Abolore Idris, Colby Griffin flagged as guesses).
+- **Spanish page needs native-speaker review.** The two names previously
+  flagged as gender guesses are now resolved: **Dr. Idris is a she**
+  (confirmed by the director 2026-08-14) — the Spanish feminine forms
+  already on the page (`la Dra. Idris`, `Investigadora Posdoctoral`,
+  `La investigadora posdoctoral`) and the English `her` are correct.
+  Colby Griffin's title `Asistente de Investigación de Posgrado` is
+  gender-neutral in Spanish, so it carries no assumption either way.
+  Her published name is **Muinat Abolore Idris** (that is the form used in
+  the publication list and the APHA news card); the team card shows
+  "Abolore Idris" — left as-is, since which form she goes by is her call.
 - Optional: strip the `?depth=` flags; project detail pages.
 - **`evidence-library/` is publicly reachable** on the live site (everything on
   `main` is served by Pages, e.g. `https://chip-ep.com/evidence-library/full-tracker.md`).
