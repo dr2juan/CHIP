@@ -262,13 +262,14 @@
   .hero2{ position:relative; overflow:hidden; background:var(--gulf); color:#fff; }
   .hero2 .bg{ position:absolute; inset:0; background-image:linear-gradient(120deg, rgba(0,40,86,.93) 0%, rgba(28,58,94,.82) 50%, rgba(12,104,116,.6) 100%), var(--hero-photo); background-size:cover; background-position:center; }
   .hero2 .bg::after{ content:""; position:absolute; inset:0; background-image:linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px); background-size:54px 54px; -webkit-mask-image:radial-gradient(120% 95% at 85% 10%,#000,transparent 70%); mask-image:radial-gradient(120% 95% at 85% 10%,#000,transparent 70%); }
-  .hero2 .inner{ position:relative; z-index:2; max-width:880px; margin:0 auto; padding:clamp(3.5rem,9vw,6rem) var(--gutter); text-align:center; }
-  .hero2 h1{ color:#fff; font-size:clamp(2.35rem,5vw,3.9rem); line-height:1.04; letter-spacing:-0.03em; text-wrap:balance; }
+  .hero2 .inner{ position:relative; z-index:2; max-width:1180px; margin:0 auto; padding:3.25rem var(--gutter) 4rem; display:grid; grid-template-columns:minmax(0,1fr) minmax(340px,400px); gap:2.3rem; align-items:start; text-align:left; }
+  .hero2 .hero-copy{ min-width:0; }
+  .hero2 h1{ color:#fff; font-size:clamp(2.35rem,4.3vw,3.55rem); line-height:1.04; letter-spacing:-0.03em; text-wrap:balance; }
   .hero2 h1 .em{ color:var(--orange-br); }
-  .hero2 .lead{ margin-top:1.5rem; max-width:56ch; font-size:clamp(1.02rem,1.5vw,1.2rem); color:#dbe3ec; }
-  .hero2 .sig{ margin-top:1.8rem; display:flex; flex-wrap:wrap; gap:.6rem; }
+  .hero2 .lead{ margin-top:1.5rem; max-width:58ch; font-size:clamp(1.02rem,1.5vw,1.2rem); color:#dbe3ec; }
+  .hero2 .sig{ margin-top:1.8rem; display:flex; flex-wrap:wrap; gap:.6rem; justify-content:flex-start; }
   .hero2 .sig span{ font-family:var(--display); font-size:.8rem; background:rgba(255,255,255,.12); border:1px solid rgba(255,255,255,.2); padding:.4rem .8rem; border-radius:999px; color:#eaf0f6; }
-  .hero2 .cta-row{ margin-top:2rem; }
+  .hero2 .cta-row{ margin-top:2rem; justify-content:flex-start; display:flex; flex-wrap:wrap; gap:1rem; }
   .hcard{ background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.22); border-radius:18px; padding:1rem; backdrop-filter:blur(8px); }
   .hcard .emblem-badge{ width:96px; height:96px; border-radius:50%; background:#fff; padding:8px; margin:0 auto .9rem; display:block; }
   .hcard .emblem-badge img{ width:100%; height:100%; object-fit:contain; }
@@ -303,15 +304,43 @@
   /* data-domain tag cloud */
   .domain-tags{ display:flex; flex-wrap:wrap; gap:.5rem; margin-top:1rem; }
   .domain-tags span{ font-family:var(--display); font-weight:500; font-size:.78rem; padding:.38rem .75rem; border:1px solid var(--line); border-radius:999px; background:var(--white); color:var(--ink); }
-  .hero2 .hero-emblem{ width:120px; height:120px; border-radius:50%; background:#fff; padding:10px; margin:0 auto 1.6rem; display:block; box-shadow:0 8px 30px rgba(0,0,0,.18); }
+  .hero2 .hero-platform{ width:100%; max-width:400px; display:flex; flex-direction:column; align-items:center; }
+  .hero2 .eyebrow,.hero2 .diagram-title{ font-family:var(--display); font-size:.76rem; font-weight:700; line-height:1.2; letter-spacing:.12em; text-transform:uppercase; color:var(--orange-br); margin:0 0 1.35rem; }
+  .hero2 .diagram-title{ width:100%; text-align:center; }
+  .hero2 .hero-hub{ position:relative; width:min(400px,100%); aspect-ratio:400/390; }
+  .hero2 .hub-lines{ position:absolute; inset:0; width:100%; height:100%; }
+  .hero2 .hub-lines path{ stroke:rgba(255,255,255,.45); stroke-width:2; fill:none; stroke-dasharray:5 5; }
+  .hero2 .hub-card{ position:absolute; width:40%; padding:.9rem .8rem; border-radius:9px; background:rgba(255,255,255,.94); box-shadow:0 12px 30px rgba(0,20,45,.2); font-family:var(--display); line-height:1.2; text-align:center; color:var(--gulf); border-top:4px solid; text-decoration:none; transition:transform .15s ease,box-shadow .15s ease; }
+  .hero2 .hub-card:hover,.hero2 .hub-card:focus-visible{ transform:translateY(-3px); box-shadow:0 17px 36px rgba(0,20,45,.28); text-decoration:none; }
+  .hero2 .hub-card small{ display:block; font-size:.64rem; letter-spacing:.1em; text-transform:uppercase; margin-bottom:.35rem; opacity:.65; }
+  .hero2 .hub-card strong{ font-size:.84rem; }
+  .hero2 .hub-env{ left:3.75%; top:5%; border-color:var(--enviro); }
+  .hero2 .hub-cardio{ right:3.75%; top:5%; border-color:var(--cardio); }
+  .hero2 .hub-food{ left:30%; bottom:2%; border-color:var(--food); }
+  .hero2 .hub-core{ position:absolute; left:50%; top:50%; transform:translate(-50%,-45%); z-index:5; width:clamp(104px,31.5%,126px); aspect-ratio:1; border-radius:50%; background:#fff; display:flex; align-items:center; justify-content:center; box-shadow:0 16px 38px rgba(0,20,45,.3); border:4px solid rgba(255,255,255,.8); }
+  .hero2 .hero-emblem{ width:calc(100% - 14px); height:calc(100% - 14px); border-radius:50%; background:#fff; padding:7px; margin:0; display:block; box-shadow:none; }
+  .hero2 .hub-shared{ width:min(320px,88%); margin-top:.35rem; padding-top:.8rem; border-top:1px solid rgba(255,255,255,.3); font-family:var(--display); font-weight:600; font-size:.82rem; color:#e7eef5; letter-spacing:.045em; text-align:center; }
   .hero2 .hero-emblem img{ width:100%; height:100%; object-fit:contain; }
-  .hero2 .lead{ margin-left:auto; margin-right:auto; }
-  .hero2 .sig{ justify-content:center; }
-  .hero2 .cta-row{ justify-content:center; display:flex; flex-wrap:wrap; gap:1rem; }
+
+
+
   section[id]{ scroll-margin-top:80px; }
+  @media (max-width:900px){
+    .hero2 .inner{ grid-template-columns:1fr; gap:2.75rem; padding:3rem var(--gutter) 3.75rem; text-align:center; }
+    .hero2 .lead{ margin-left:auto; margin-right:auto; }
+    .hero2 .sig,.hero2 .cta-row{ justify-content:center; }
+    .hero2 .hero-platform{ margin:0 auto; }
+  }
+  @media (max-width:520px){
+    .hero2 .inner{ padding:2.65rem var(--gutter) 3.35rem; gap:2.35rem; }
+    .hero2 .hub-card{ padding:.72rem .58rem; }
+    .hero2 .hub-card small{ font-size:.57rem; }
+    .hero2 .hub-card strong{ font-size:.74rem; }
+    .hero2 .hub-shared{ font-size:.76rem; }
+  }
   @media (max-width:760px){
     .grid-2 > div:has(.circ-photo){ order:-1; }
-    .hero2 .hero-emblem{ width:96px; height:96px; }
+
   }
 
 
@@ -904,7 +933,9 @@
 
     /* 5. large dark panels -> ink-friendly light with dark text */
     .hero2, .hero2 .bg{ background:#fff !important; color:var(--ink) !important; }
-    .hero2 h1, .hero2 h1 .em, .hero2 .lead, .hero2 .eyebrow{ color:var(--gulf) !important; }
+    .hero2 h1, .hero2 h1 .em, .hero2 .lead, .hero2 .eyebrow, .hero2 .travel, .hero2 .diagram-title, .hero2 .hub-shared{ color:var(--gulf) !important; }
+    .hero2 .hub-lines path{ stroke:#999 !important; }
+    .hero2 .hub-card{ color:var(--ink) !important; background:#fff !important; box-shadow:none !important; }
     .hero2 .sig span{ color:var(--ink) !important; border-color:#bbb !important; background:none !important; }
     .hero2 .btn-ghost{ color:var(--gulf) !important; border-color:#999 !important; }
     footer.site{ background:#fff !important; color:var(--ink) !important; border-top:1px solid #999; }
@@ -962,8 +993,8 @@
 <section class="hero2" style="--hero-photo:url(assets/hero-bg.webp);">
 <div aria-hidden="true" class="bg"></div>
 <div class="inner">
-<span class="hero-emblem"><img alt="CHIP emblem" src="assets/logo.webp" width="236" height="240"/></span>
-<p class="eyebrow on-dark" style="justify-content:center;">Community Health Impact Projects</p>
+<div class="hero-copy">
+<p class="eyebrow on-dark">Community Health Impact Projects</p>
 <h1 class="twotone" style="color:#fff;">A community health platform built for partnership.</h1>
 <p class="travel">Connecting research, communities, and action.</p>
 <p class="lead">CHIP brings together field teams, health screening, exposure science, food-systems research, and program evaluation to turn local priorities into measurable action. Built on the U.S.–Mexico border, our model is designed to support partners and communities across regions.</p>
@@ -973,6 +1004,18 @@
 </div>
 <div class="sig">
 <span>El Paso, Texas</span><span>U.S.–Mexico border</span><span>Community-engaged research</span>
+</div>
+</div>
+<div class="hero-platform" role="group" aria-labelledby="hero-platform-title">
+<p class="diagram-title" id="hero-platform-title">One platform · three connected domains</p>
+<div class="hero-hub">
+<svg class="hub-lines" viewBox="0 0 400 390" aria-hidden="true" focusable="false"><path d="M200 195 L105 90"/><path d="M200 195 L295 90"/><path d="M200 195 L200 315"/></svg>
+<a class="hub-card hub-env" href="#research-enviro"><small>Domain 01</small><strong>Environmental &amp;<br/>occupational health</strong></a>
+<a class="hub-card hub-cardio" href="#research-cardio"><small>Domain 02</small><strong>Cardiometabolic &amp;<br/>chronic disease</strong></a>
+<a class="hub-card hub-food" href="#research-food"><small>Domain 03</small><strong>Food systems &amp;<br/>nutrition</strong></a>
+<div class="hub-core"><span class="hero-emblem"><img alt="CHIP emblem at the center of the connected research domains" src="assets/logo.webp" width="236" height="240"/></span></div>
+</div>
+<p class="hub-shared">Shared field teams · data · evaluation</p>
 </div>
 </div>
 </section>
