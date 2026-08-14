@@ -1,11 +1,11 @@
 /*
  * Constellation QA — run after touching PROJECTS / PILLARS positions.
  *
- *   npm install --no-save playwright-core      # dev-only; the SITE still has
- *   node tools/constellation-qa.js             # no build step and no deps
+ *   npm install --no-save playwright-core  # dev-only; no site runtime deps
+ *   node tools/constellation-qa.js
  *
- * (Chromium is already on the box at PLAYWRIGHT_BROWSERS_PATH — do not run
- *  "playwright install". Adjust CHROME below if the path has moved.)
+ * Browser discovery checks CHIP_BROWSER_PATH, then common Chrome/Edge paths.
+ * If none is found, Playwright's managed Chromium is used.
  *
  * Checks the rotating project map in BOTH languages across ALL FOUR rotation
  * states (at rest + each domain brought to the top), and reports:
@@ -27,9 +27,34 @@
  *
  * Exit code is non-zero if anything fails, so this can gate a change.
  */
+const fs = require('fs');
+const path = require('path');
+const { pathToFileURL } = require('url');
 const { chromium } = require('playwright-core');
 
-const CHROME = '/opt/pw-browsers/chromium_headless_shell-1194/chrome-linux/headless_shell';
+const fromEnv = (name, ...parts) => process.env[name]
+  ? path.join(process.env[name], ...parts)
+  : null;
+const requestedBrowser = process.env.CHIP_BROWSER_PATH || null;
+const browserCandidates = [
+  requestedBrowser,
+  fromEnv('PROGRAMFILES', 'Google', 'Chrome', 'Application', 'chrome.exe'),
+  fromEnv('PROGRAMFILES', 'Microsoft', 'Edge', 'Application', 'msedge.exe'),
+  fromEnv('PROGRAMFILES(X86)', 'Google', 'Chrome', 'Application', 'chrome.exe'),
+  fromEnv('PROGRAMFILES(X86)', 'Microsoft', 'Edge', 'Application', 'msedge.exe'),
+  fromEnv('LOCALAPPDATA', 'Google', 'Chrome', 'Application', 'chrome.exe'),
+  fromEnv('LOCALAPPDATA', 'Microsoft', 'Edge', 'Application', 'msedge.exe'),
+  '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome',
+  '/Applications/Microsoft Edge.app/Contents/MacOS/Microsoft Edge',
+  '/opt/pw-browsers/chromium_headless_shell-1194/chrome-linux/headless_shell',
+  '/usr/bin/google-chrome',
+  '/usr/bin/chromium',
+  '/usr/bin/chromium-browser',
+].filter(Boolean);
+const CHROME = browserCandidates.find(candidate => fs.existsSync(candidate));
+if (requestedBrowser && !CHROME)
+  throw new Error(`CHIP_BROWSER_PATH does not exist: ${requestedBrowser}`);
+const browserOptions = CHROME ? { executablePath: CHROME } : {};
 const MIN_GAP = 8;      // px of breathing room between any two boxes
 // Degrees between two connector lines arriving at the same pillar. This is the
 // "these two lines are indistinguishable" floor, NOT a comfort target: the
@@ -37,7 +62,7 @@ const MIN_GAP = 8;      // px of breathing room between any two boxes
 // 10-18deg. The bug this catches was ~0deg (two collinear lines, 2026-08-01).
 // Do not raise it to 20+ without re-laying-out the whole map.
 const MIN_ANGLE = 8;
-const ROOT = 'file://' + require('path').resolve(__dirname, '..') + '/';
+const ROOT = pathToFileURL(path.resolve(__dirname, '..')).href + '/';
 
 const measure = () => {
   const canvas = document.querySelector('.eco-canvas').getBoundingClientRect();
@@ -100,7 +125,8 @@ const angleAt = (shared, p, q) => {
 };
 
 (async () => {
-  const b = await chromium.launch({ executablePath: CHROME });
+  console.log(`Browser: ${CHROME || 'Playwright-managed Chromium'}`);
+  const b = await chromium.launch(browserOptions);
   let failures = 0;
 
   for (const [file, tag, verb] of [['index.html', 'EN', 'Bring'], ['es/index.html', 'ES', 'Llevar']]) {
