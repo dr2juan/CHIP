@@ -1,14 +1,16 @@
 # CHIP — Community Health Impact Projects
 #
-# NOTE: while the site lives at dr2juan.github.io/CHIP/ (a GitHub project
-# page), crawlers only read robots.txt from the domain root, so this file
-# is dormant. It becomes active automatically if the site moves to a custom
-# domain (repo root = domain root). Keep paths domain-root-relative for
-# that future; update the Sitemap URL when the domain changes.
+# The site moved to the custom domain chip-ep.com on 2026-08-14, so the repo
+# root is now the domain root and this file is LIVE. It was dormant before
+# that, while the site was a github.io project page (crawlers only read
+# robots.txt from a domain root). Paths below are domain-root-relative.
+#
+# Note that Disallow only asks crawlers not to index a path -- it does not
+# make anything private. /evidence-library/ is still publicly fetchable.
 
 User-agent: *
 Disallow: /evidence-library/
 Disallow: /CLAUDE.md
 Allow: /
 
-Sitemap: https://dr2juan.github.io/CHIP/sitemap.xml
+Sitemap: https://chip-ep.com/sitemap.xml

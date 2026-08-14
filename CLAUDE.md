@@ -35,8 +35,10 @@ pre-proposal docs (`proposals/`).
 - Repo: `dr2juan/CHIP`. This is a **hand-written static site — no framework, no
   build step, no npm.** Just HTML/CSS/JS you edit directly.
 - Two pages:
-  - `index.html` (repo root) = **English** → live at https://dr2juan.github.io/CHIP/
-  - `es/index.html` = **Spanish** → live at https://dr2juan.github.io/CHIP/es/
+  - `index.html` (repo root) = **English** → live at https://chip-ep.com/
+  - `es/index.html` = **Spanish** → live at https://chip-ep.com/es/
+  - The old `dr2juan.github.io/CHIP/` URLs still work — GitHub redirects them
+    to the custom domain — so nothing already shared or printed is broken.
 - `assets/` = all 27 images (WebP, plus `favicon.png` and `og-card.jpg`).
 - `evidence-library/` = internal grant-support notes. **Not part of the website.**
 
@@ -52,6 +54,11 @@ pre-proposal docs (`proposals/`).
 - `main` is the live branch. `claude/chip-website-refinement-e6d17k` is a mirror
   dev branch; only `main` reaches the site. If you can't reach GitHub tools,
   confirm a deploy by hard-refreshing the live URL.
+- **`CNAME` at the repo root holds the custom domain (`chip-ep.com`).** GitHub
+  wrote it when the domain was set in Settings → Pages. Deleting it unsets the
+  custom domain and takes the site off `chip-ep.com` — leave it alone. DNS is
+  four A records on `@` (185.199.108–111.153) plus a `www` CNAME to
+  `dr2juan.github.io`, at Spaceship.
 
 ## Editing rules
 
@@ -195,19 +202,23 @@ pre-proposal docs (`proposals/`).
 - Decide whether the held-back co-exposure effect estimates ever go public.
 - **Spanish page needs native-speaker review** — especially team role
   titles/gender (Abolore Idris, Colby Griffin flagged as guesses).
-- Optional: strip the `?depth=` flags; consider a custom domain; project detail
-  pages.
+- Optional: strip the `?depth=` flags; project detail pages.
 - **`evidence-library/` is publicly reachable** on the live site (everything on
-  `main` is served by Pages, e.g. `/CHIP/evidence-library/full-tracker.md`).
-  `robots.txt` can't help while on github.io (project pages don't control the
-  domain root). Decide: either that's acceptable, or move the folder to a
-  non-deployed branch.
-- SEO files added 2026-07-18: `sitemap.xml` (submit to Google Search Console
-  for indexing — robots.txt discovery doesn't work on a project page),
-  `404.html` (bilingual), `robots.txt` (dormant until a custom domain).
-  **If a custom domain is ever added:** update absolute URLs in `sitemap.xml`,
-  `robots.txt`, the canonical/hreflang/og tags in both `index.html` files,
-  and the `/CHIP/`-rooted links in `404.html`.
+  `main` is served by Pages, e.g. `https://chip-ep.com/evidence-library/full-tracker.md`).
+  `robots.txt` now works (custom domain = repo root is domain root) and
+  disallows it, but that only asks crawlers not to index — the files are still
+  fetchable by anyone with the URL. Decide: either that's acceptable, or move
+  the folder to a non-deployed branch.
+- SEO files: `sitemap.xml`, `404.html` (bilingual), `robots.txt` — all now
+  live at the domain root and pointing at `chip-ep.com`.
+  **Still to do on the new domain:** verify `chip-ep.com` as a new property in
+  Google Search Console (usually a DNS TXT record) and resubmit the sitemap —
+  the existing `google45dd06772a9e3a54.html` only verifies the github.io
+  property, and Search Console treats a new domain as a separate site.
+- **If the domain ever changes again**, the absolute URLs live in exactly five
+  files: `index.html` (9), `es/index.html` (9), `sitemap.xml` (8),
+  `404.html` (3 root-relative links), `robots.txt` (Sitemap line + the note).
+  Everything else is relative and needs no edit.
 
 ## News section workflow (added 2026-07-18)
 
