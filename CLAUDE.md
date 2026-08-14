@@ -76,8 +76,8 @@ pre-proposal docs (`proposals/`).
    connecting lines (the independent "AI for clinical care" satellite).
    Positions are % coords.
 
-   **Do not hand-check this. Run `node tools/constellation-qa.js`** (needs
-   `npm install --no-save playwright-core`; dev-only, the site still has no
+   **Do not hand-check this. Run `node tools/constellation-qa.js`** after installing
+   `playwright-core` as a dev-only dependency; the site still has no runtime
    deps). It measures both languages × all four rotation states and exits
    non-zero on a real collision. Every rule below is already encoded in it —
    they are written out here because each one cost a shipped regression, and
@@ -124,8 +124,9 @@ pre-proposal docs (`proposals/`).
    purpose; the number changes).
 6. `?depth=0` / `?depth=1` are leftover URL flags for alternate constellation
    views; the default (no flag) is the committed angled camera-move look.
-7. **QA method:** render locally in headless Chromium (Playwright at
-   `/opt/pw-browsers/chromium`) and screenshot. Make text edits as
+7. **QA method:** render locally in headless Chromium. The QA script discovers
+   common Chrome/Edge installations and Playwright-managed Chromium; set
+   `CHIP_BROWSER_PATH` to override discovery. Make text edits as
    exact-string replacements that assert the source appears exactly once, so
    nothing silently corrupts.
 8. Brand colors are CSS vars at the top (UTHealth palette): `--gulf` navy,
