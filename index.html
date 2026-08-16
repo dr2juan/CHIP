@@ -606,8 +606,14 @@
       repeating-linear-gradient(0deg, rgba(0,40,86,.05) 0 1px, transparent 1px 9px),
       repeating-linear-gradient(90deg, rgba(0,40,86,.05) 0 1px, transparent 1px 9px),
       var(--sand-tint);
-    border-top:1px solid var(--line); border-bottom:1px solid var(--line);
+    border-top:1px solid var(--line); border-bottom:1px solid var(--line); padding-top:clamp(2rem,3vw,2.75rem);
   }
+  .overview-head{ max-width:none; margin-bottom:0; }
+  .overview-intro{ display:grid; grid-template-columns:minmax(0,.85fr) minmax(0,1.25fr); gap:clamp(2rem,5vw,5rem); align-items:start; margin-top:1rem; }
+  .overview-intro h2,.overview-intro p{ margin:0; }
+  .overview-intro p{ color:var(--ink-soft); }
+  .overview-action{ color:var(--gulf); font-family:var(--display); font-weight:600; }
+  @media(max-width:780px){ .overview-intro{ grid-template-columns:1fr; gap:1rem; } }
   .glance-lead{ max-width:52ch; color:var(--ink-soft); margin:.2rem 0 0; font-size:.98rem; }
   .glance-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:1.4rem; margin-top:1.7rem; }
   .glance-panel{
@@ -763,7 +769,7 @@
   .vh{ position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; border:0; }
   html:not(.js) .eco-canvas{ display:none; }
   html:not(.js) .eco-mobile{ display:block; position:relative; margin-top:1.9rem; padding-left:30px; }
-  .eco-canvas{ position:relative; max-width:880px; margin:2.6rem auto 0; aspect-ratio:10/9; }
+  .eco-canvas{ position:relative; max-width:880px; margin:1.8rem auto 0; aspect-ratio:10/9; }
   .eco-lines{ position:absolute; inset:0; width:100%; height:100%; overflow:visible; }
   .eco-lines line{ stroke-width:1.1; vector-effect:non-scaling-stroke; transition:opacity .3s ease; }
   .eco-lines line.l-core{ stroke:var(--gulf); opacity:.24; stroke-dasharray:3 4; }
@@ -1032,10 +1038,12 @@
     <!-- PROJECT ECOSYSTEM (interactive map) -->
 <section class="glance" id="overview" aria-labelledby="ecosystem-title">
 <div class="wrap">
-<div class="section-head reveal" style="margin-bottom:0;">
+<div class="section-head overview-head reveal">
 <span class="bar-head navy">Overview</span>
-<h2 id="ecosystem-title" style="margin-top:1rem;">Three domains, one community-engaged core.</h2>
-<p>CHIP joins environmental epidemiology, community-engaged research, implementation science, and applied evaluation &mdash; three overlapping research domains sharing a common community-engaged core. Environmental exposures drive cardiometabolic risk, food environments shape metabolic health, and occupational conditions cut across all three. The map places our full project portfolio on that model: tap a domain to rotate it to the top, or hover any project to see how it connects.</p>
+<div class="overview-intro">
+<h2 id="ecosystem-title">Three domains, one community-engaged core.</h2>
+<p>Through a shared community-engaged core, CHIP integrates environmental epidemiology, implementation science, and applied evaluation across three overlapping domains where environmental exposures influence cardiometabolic risk, food environments shape metabolic health, and occupational conditions intersect all three. <strong class="overview-action">Select a domain to rotate the map.</strong></p>
+</div>
 </div>
 <div class="eco-canvas" data-eco role="group" aria-label="Relationship map of CHIP's active projects, three research domains, and the community-engaged core">
 <svg class="eco-lines" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true" focusable="false"></svg>
