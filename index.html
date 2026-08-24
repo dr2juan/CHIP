@@ -1587,7 +1587,11 @@ function mk(t,attrs){var e=document.createElementNS(NS,t);for(var k in attrs)e.s
 Object.keys(PILLARS).forEach(function(k){var p=PILLARS[k];mk('ellipse',{cx:p.x,cy:p.y,rx:15,ry:12,'class':'eco-zone z-'+k});});
 function line(x1,y1,x2,y2,cls){return mk('line',{x1:x1,y1:y1,x2:x2,y2:y2,'class':cls});}
 Object.keys(PILLARS).forEach(function(k){var p=PILLARS[k];line(CORE.x,CORE.y,p.x,p.y,'l-core');});
-PROJECTS.forEach(function(pr){pr.lines=pr.p.map(function(k){return line(pr.x,pr.y,PILLARS[k].x,PILLARS[k].y,'l-'+k);});})
+/* A project with a lineage source sits in its domains THROUGH that source,
+   so it does not redraw the domain lines. Dot colour and tooltip tags still
+   come from pr.p. */
+function domainsOf(pr){return pr.src?[]:pr.p;}
+PROJECTS.forEach(function(pr){pr.lines=domainsOf(pr).map(function(k){return line(pr.x,pr.y,PILLARS[k].x,PILLARS[k].y,'l-'+k);});});
 var BYID={};PROJECTS.forEach(function(pr){BYID[pr.id]=pr;});
 /* specimen-lineage edges: pr.src = 'this project analyses specimens or data from that one' */
 PROJECTS.forEach(function(pr){if(pr.src&&BYID[pr.src])pr.srcLine=line(pr.x,pr.y,BYID[pr.src].x,BYID[pr.src].y,'l-src');});
@@ -1718,7 +1722,7 @@ var n=nodes[i];
 n.style.left=np.x+'%';n.style.top=np.y+'%';
 if(DM){n.style.transform='translate(-50%,-8px) scale('+np.s.toFixed(3)+')';n.style.opacity=np.op.toFixed(3);n.style.zIndex=np.zi;}
 pr._np=np;
-pr.p.forEach(function(k,j){
+domainsOf(pr).forEach(function(k,j){
 var pp=clampP(project(wOf(PILLARS[k],ang),phi));
 var l=pr.lines[j];
 l.setAttribute('x1',np.x);l.setAttribute('y1',np.y);
