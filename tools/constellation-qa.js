@@ -105,13 +105,43 @@ const measure = () => {
   // pixels before measuring any angle or the numbers are meaningless.
   const sx = canvas.width / 100, sy = canvas.height / 100;
   const lines = [...document.querySelectorAll('.eco-canvas svg line')]
-    .filter(e => !e.classList.contains('l-core'))
+    .filter(e => !e.classList.contains('l-core') && !e.classList.contains('l-src'))
     .map(e => ({
       x1: +e.getAttribute('x1') * sx, y1: +e.getAttribute('y1') * sy,
       x2: +e.getAttribute('x2') * sx, y2: +e.getAttribute('y2') * sy,
     }));
+  // specimen-lineage edges (l-src) join two project nodes rather than ending at
+  // a pillar, so the fan-in angle check above does not apply to them. They get
+  // their own rule: stay clear of every node they do not connect, and of the core.
+  const segPt = (a, b, p) => {
+    const dx = b[0]-a[0], dy = b[1]-a[1], L = dx*dx + dy*dy;
+    const t = L ? Math.max(0, Math.min(1, ((p[0]-a[0])*dx + (p[1]-a[1])*dy) / L)) : 0;
+    return Math.hypot(a[0]+t*dx-p[0], a[1]+t*dy-p[1]);
+  };
+  const nodePts = items.filter(i => i.kind === 'node').map(i => [i.box.cx, i.box.cy]);
+  const corePt = (() => { const c = items.find(i => i.kind === 'CORE'); return c ? [c.box.cx, c.box.cy] : null; })();
+  const lineage = [];
+  [...document.querySelectorAll('.eco-canvas svg line.l-src')].forEach(e => {
+    const A = [+e.getAttribute('x1') * sx, +e.getAttribute('y1') * sy];
+    const B = [+e.getAttribute('x2') * sx, +e.getAttribute('y2') * sy];
+    // A node's box spans its dot AND the label beneath it, so the box centre is
+    // not where the line attaches. Identify the two endpoints as the nodes
+    // nearest each end, and exclude only those from the clearance check.
+    const nearest = pt => nodePts.reduce((best, p, i) =>
+      Math.hypot(p[0]-pt[0], p[1]-pt[1]) < best.d ? { i, d: Math.hypot(p[0]-pt[0], p[1]-pt[1]) } : best,
+      { i: -1, d: Infinity }).i;
+    const ends = new Set([nearest(A), nearest(B)]);
+    nodePts.forEach((p, i) => {
+      if (ends.has(i)) return;
+      const dd = segPt(A, B, p);
+      if (dd < 18) lineage.push(`lineage edge passes ${Math.round(dd)}px from an unrelated node`);
+    });
+    if (corePt && segPt(A, B, corePt) < 80)
+      lineage.push(`lineage edge cuts within ${Math.round(segPt(A, B, corePt))}px of the centre hub`);
+  });
+
   const hScroll = document.documentElement.scrollWidth - document.documentElement.clientWidth;
-  return { pairs: pairs.sort((x, y) => x.g - y.g), spill: clipped, lines, hScroll,
+  return { pairs: pairs.sort((x, y) => x.g - y.g), spill: clipped, lines, hScroll, lineage,
            canvas: { w: canvas.width, h: canvas.height } };
 };
 
@@ -153,6 +183,7 @@ const angleAt = (shared, p, q) => {
       m.pairs.filter(x => x.g < MIN_GAP).forEach(x =>
         problems.push(`${x.g}px between ${x.a} and ${x.b}`));
       if (m.hScroll > 0) problems.push(`page has ${m.hScroll}px of horizontal scroll`);
+      (m.lineage || []).forEach(x => problems.push(x));
       m.spill.forEach(c => warnings.push(`spills past the canvas box (renders fine): ${c}`));
 
       // group lines by pillar end and compare bearings
