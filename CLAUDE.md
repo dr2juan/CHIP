@@ -119,7 +119,17 @@ pre-proposal docs (`proposals/`).
      `viewBox="0 0 100 100"` with `preserveAspectRatio="none"`, so x and y
      scale independently and any marker would be visibly squashed. The QA
      script excludes these from the pillar fan-in check and applies its own:
-     clear of unrelated nodes, and never cutting across the centre hub.
+     clear of unrelated nodes, and never cutting across the centre hub
+     (sampled along the curve, not across the chord).
+     The edge is a shallow **arc**, not a straight segment, and that is
+     load-bearing: Air & Heat's own domain lines leave it on nearly opposite
+     bearings, so the only free space near it lies along the parallel
+     direction — a straight lineage edge there was indistinguishable from the
+     cardio line (0.1° apart). Searching every position on the canvas, the
+     best achievable crossing angle was 30°, and only by doubling the edge's
+     length and pushing the node into the cardio zone. A curve is distinct
+     from a straight line at ANY bearing, so placement goes back to being
+     about clearance alone.
    - **Labels spilling past the `.eco-canvas` box are fine.** There is no
      `overflow:hidden`, so they render normally on the page; the QA script
      warns rather than fails. An element-only screenshot *makes them look

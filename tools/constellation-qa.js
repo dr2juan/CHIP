@@ -121,9 +121,27 @@ const measure = () => {
   const nodePts = items.filter(i => i.kind === 'node').map(i => [i.box.cx, i.box.cy]);
   const corePt = (() => { const c = items.find(i => i.kind === 'CORE'); return c ? [c.box.cx, c.box.cy] : null; })();
   const lineage = [];
-  [...document.querySelectorAll('.eco-canvas svg line.l-src')].forEach(e => {
-    const A = [+e.getAttribute('x1') * sx, +e.getAttribute('y1') * sy];
-    const B = [+e.getAttribute('x2') * sx, +e.getAttribute('y2') * sy];
+  // l-src is a quadratic arc (M x y Q cx cy x2 y2), so clearance has to be
+  // sampled ALONG the curve -- measuring the straight chord would under-report
+  // how close the bulge actually comes to a node or to the hub.
+  const quad = (a, c, b, t) => {
+    const u = 1 - t;
+    return [u*u*a[0] + 2*u*t*c[0] + t*t*b[0], u*u*a[1] + 2*u*t*c[1] + t*t*b[1]];
+  };
+  const curveDist = (a, c, b, p) => {
+    let m = Infinity;
+    for (let i = 0; i <= 24; i++) {
+      const q = quad(a, c, b, i / 24);
+      m = Math.min(m, Math.hypot(q[0]-p[0], q[1]-p[1]));
+    }
+    return m;
+  };
+  [...document.querySelectorAll('.eco-canvas svg path.l-src')].forEach(e => {
+    const n = (e.getAttribute('d') || '').match(/-?[\d.]+/g);
+    if (!n || n.length < 6) return;
+    const A = [+n[0] * sx, +n[1] * sy];
+    const C = [+n[2] * sx, +n[3] * sy];
+    const B = [+n[4] * sx, +n[5] * sy];
     // A node's box spans its dot AND the label beneath it, so the box centre is
     // not where the line attaches. Identify the two endpoints as the nodes
     // nearest each end, and exclude only those from the clearance check.
@@ -133,11 +151,11 @@ const measure = () => {
     const ends = new Set([nearest(A), nearest(B)]);
     nodePts.forEach((p, i) => {
       if (ends.has(i)) return;
-      const dd = segPt(A, B, p);
+      const dd = curveDist(A, C, B, p);
       if (dd < 18) lineage.push(`lineage edge passes ${Math.round(dd)}px from an unrelated node`);
     });
-    if (corePt && segPt(A, B, corePt) < 80)
-      lineage.push(`lineage edge cuts within ${Math.round(segPt(A, B, corePt))}px of the centre hub`);
+    if (corePt && curveDist(A, C, B, corePt) < 80)
+      lineage.push(`lineage edge cuts within ${Math.round(curveDist(A, C, B, corePt))}px of the centre hub`);
   });
 
   const hScroll = document.documentElement.scrollWidth - document.documentElement.clientWidth;
