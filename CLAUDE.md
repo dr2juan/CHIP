@@ -196,8 +196,11 @@ pre-proposal docs (`proposals/`).
 - `proj-taster` (added 2026-07-30 from the Taster Space draft report):
   Desert Spoon Food Hub's space-themed family nutrition program; CHIP has
   been evaluation partner since 2020, moving to qualitative methods + force
-  field analysis in 2025. **Food only** (`p:['food']`), `collab:true`, map
-  position (88,62). It was briefly tagged food × cardio — wrong, and worth
+  field analysis in 2025. **Food only** (`p:['food']`), map
+  position (92,53). **Not** `collab` — the director confirmed 2026-08-19 that
+  this is an evaluation contract with a community organisation, not a
+  cross-institution research collaboration, which is what the dotted ring on
+  the map means. It was briefly tagged food × cardio — wrong, and worth
   remembering as a tagging rule: **domain tags follow measured outcomes, not
   the background framing.** The report's obesity/chronic-disease context
   invites a cardio tag, but Appendix B's four objectives are all nutrition
