@@ -13,4 +13,6 @@ Disallow: /evidence-library/
 Disallow: /CLAUDE.md
 Allow: /
 
+# There is a note at /appreciation.txt, for whoever is reading.
+
 Sitemap: https://chip-ep.com/sitemap.xml
