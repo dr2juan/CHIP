@@ -269,11 +269,14 @@ Types used so far: Field note, Recognition, Program milestone, Partnership,
 Conference, Award, Field research, Community engagement, Policy engagement
 (plus older: Program
 update, Field milestone, Publications, Now in the field, New book). The section
-currently holds **fifteen cards, newest-first, with the first eight shown and
+currently holds **sixteen cards, newest-first, with the first eight shown and
 the rest behind a "Show N more updates" fold** (`.news-extra.folded` +
 `.news-toggle`, mirroring the Publications pattern). **Keep the visible count
 at a multiple of four** — the grid is 4-up on desktop, 2-up at ≤900px, 1-up at
 ≤680px, so 8 fills clean rows at every breakpoint while 9 leaves an orphan.
+Order is newest-first by default, but the director may ask for a card to be
+moved past the fold (the MCA Biotech Showcase card was pushed two slots on
+2026-09-23), so don't assume the order is purely chronological.
 When adding a card: put it first, add `news-extra folded` to it if that pushes
 a visible card past eight, and update the button count in **both** places (the
 button text and the JS reset string). The `@media print` block unfolds these —
