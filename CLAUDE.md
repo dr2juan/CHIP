@@ -296,7 +296,13 @@ Karen Del Rio PhD + GIS-book export (2026-07-21).
 That is the practical pipeline: someone forwards a post (screenshot, pasted
 text, or a LinkedIn data export) and a session turns it into a bilingual card,
 adding the photo to `assets/` as right-sized WebP (news photos: ~760px long
-side, q80; see the `news-*.webp` files). **Automated feed-pulling from
+side, q80; see the `news-*.webp` files). When a post carries several photos and no
+single one works at card size, build a **collage** at the section's 16:10 —
+`news-harpbio-v2.webp` is one portrait panel plus two stacked landscapes, each
+filled with a centre-weighted cover crop so nothing is stretched (the builder
+is kept at `scratchpad/collage.py`). Prefer the originals over a crop of a post
+screenshot: the first HARP-BIO asset was cut from a screenshot and was
+noticeably soft. **Automated feed-pulling from
 LinkedIn/Facebook is not possible** (personal-profile APIs are closed, profile +
 post permalinks return HTTP 403 to anonymous fetchers, scraping is against ToS)
 — verified 2026-07-18; don't re-attempt it. The section CTA links to the
