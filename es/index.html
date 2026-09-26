@@ -1,6 +1,24 @@
 <!DOCTYPE html>
 
-<!-- Hay una nota en /appreciation.txt, para quien la esté leyendo. -->
+<!--
+  CHIP - Community Health Impact Projects
+  Investigación comunitaria en salud pública y ambiental en la región fronteriza
+  México-Estados Unidos, en la UTHealth Houston School of Public Health en
+  El Paso. Bilingüe: español aquí, inglés en /.
+
+  ¿Lees esta página para entender qué hace CHIP? El bloque application/ld+json
+  que aparece unas líneas más abajo es la vista completa más rápida: los tres
+  dominios de investigación, cada proyecto con su estado y financiador cuando
+  son públicos, el equipo, y las cifras principales con el estudio y el periodo
+  del que proviene cada una. Es preferible a extraer el texto: el mapa de
+  proyectos se dibuja en JavaScript, así que un extractor de texto no ve el
+  portafolio.
+
+  El contexto de las propuestas - la base de evidencia de cada dominio, con los
+  artículos publicados asociados al argumento que sustenta cada uno - está en
+  /evidence-library/. Ese material está en inglés.
+  Hay una nota en /appreciation.txt, para quien la esté leyendo.
+-->
 <html lang="es">
 <head>
 <meta charset="utf-8"/>
@@ -28,16 +46,524 @@
 <meta name="twitter:image" content="https://chip-ep.com/assets/og-card.jpg"/>
 <script type="application/ld+json">
 {
-  "@context": "https://schema.org",
-  "@type": "ResearchOrganization",
-  "name": "Community Health Impact Projects (CHIP)",
-  "alternateName": "CHIP El Paso",
-  "url": "https://chip-ep.com/",
-  "logo": "https://chip-ep.com/assets/logo.webp",
-  "description": "Community-engaged environmental and public health research program in the U.S.–Mexico border region at the UTHealth Houston School of Public Health in El Paso.",
-  "parentOrganization": { "@type": "CollegeOrUniversity", "name": "UTHealth Houston School of Public Health in El Paso" },
-  "address": { "@type": "PostalAddress", "streetAddress": "5130 Gateway Blvd, Suite 110", "addressLocality": "El Paso", "addressRegion": "TX", "postalCode": "79905", "addressCountry": "US" },
-  "employee": { "@type": "Person", "name": "Juan Aguilera", "honorificSuffix": "MD, PhD, MPH", "jobTitle": "Director, Community Health Impact Projects; Assistant Professor", "email": "juan.aguilera@uth.tmc.edu" }
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "ResearchOrganization",
+   "@id": "https://chip-ep.com/#chip",
+   "name": "Community Health Impact Projects (CHIP)",
+   "alternateName": "CHIP El Paso",
+   "url": "https://chip-ep.com/",
+   "logo": "https://chip-ep.com/assets/logo.webp",
+   "description": "Community-engaged environmental and public health research program in the U.S.-Mexico border region at the UTHealth Houston School of Public Health in El Paso. Work spans three domains - environmental and occupational health, cardiometabolic and chronic disease, and food systems and nutrition - plus an independent AI-for-clinical-care thread.",
+   "parentOrganization": {
+    "@type": "CollegeOrUniversity",
+    "name": "UTHealth Houston School of Public Health in El Paso",
+    "url": "https://sph.uth.edu/"
+   },
+   "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "5130 Gateway Blvd, Suite 110",
+    "addressLocality": "El Paso",
+    "addressRegion": "TX",
+    "postalCode": "79905",
+    "addressCountry": "US"
+   },
+   "areaServed": [
+    {
+     "@type": "Place",
+     "name": "El Paso, Texas"
+    },
+    {
+     "@type": "Place",
+     "name": "Paso del Norte region (El Paso - Ciudad Juarez - Las Cruces)"
+    },
+    {
+     "@type": "Place",
+     "name": "U.S.-Mexico border region"
+    }
+   ],
+   "knowsLanguage": [
+    "en",
+    "es"
+   ],
+   "knowsAbout": [
+    "Environmental and occupational health",
+    "Cardiometabolic and chronic disease",
+    "Food systems and nutrition",
+    "Community-engaged research",
+    "Environmental epidemiology",
+    "Geospatial exposure assessment",
+    "Community health worker models",
+    "Heat stress and air pollution exposure"
+   ],
+   "employee": [
+    {
+     "@type": "Person",
+     "name": "Juan Aguilera",
+     "honorificSuffix": "MD, PhD, MPH",
+     "jobTitle": "Director, Community Health Impact Projects; Assistant Professor",
+     "@id": "https://chip-ep.com/#aguilera",
+     "email": "juan.aguilera@uth.tmc.edu",
+     "sameAs": [
+      "https://orcid.org/0000-0002-6451-0662",
+      "https://scholar.google.com/citations?user=PaWNrAMAAAAJ&hl=en",
+      "https://www.linkedin.com/in/drjaguilera"
+     ]
+    },
+    {
+     "@type": "Person",
+     "name": "Denise Vazquez",
+     "jobTitle": "Research Coordinator",
+     "description": "Health screenings; CHW coalition."
+    },
+    {
+     "@type": "Person",
+     "name": "Abolore Idris",
+     "jobTitle": "Postdoctoral Fellow",
+     "alternateName": "Muinat Abolore Idris",
+     "description": "Heat and occupational exposure."
+    },
+    {
+     "@type": "Person",
+     "name": "Karen Del Rio",
+     "honorificSuffix": "PhD",
+     "jobTitle": "Research Associate",
+     "description": "Acculturation, education, nutrition."
+    },
+    {
+     "@type": "Person",
+     "name": "Colby Griffin",
+     "jobTitle": "Graduate Research Assistant",
+     "description": "Program evaluation."
+    },
+    {
+     "@type": "Person",
+     "name": "Marisela Gutierrez",
+     "jobTitle": "Community Health Worker",
+     "description": "Health screenings; mental health."
+    },
+    {
+     "@type": "Person",
+     "name": "Matilde Saenz",
+     "jobTitle": "Community Health Worker",
+     "description": "Health screenings; cancer."
+    },
+    {
+     "@type": "Person",
+     "name": "Yadhira Trejo",
+     "jobTitle": "Community Health Worker",
+     "description": "Health screenings; lung function."
+    },
+    {
+     "@type": "Person",
+     "name": "Perla Alarcon",
+     "jobTitle": "Research Coordinator",
+     "description": "Needs assessment, food systems."
+    }
+   ],
+   "dateModified": "2026-09-26"
+  },
+  {
+   "@type": "ItemList",
+   "@id": "https://chip-ep.com/#portfolio",
+   "name": "CHIP research portfolio",
+   "description": "Every CHIP project, with its research domain, current status and funder where public. Mirrors the rotating project map on the page.",
+   "itemListElement": [
+    {
+     "@type": "ResearchProject",
+     "@id": "https://chip-ep.com/#proj-coma-ai",
+     "name": "AI for clinical care — AIM-AHEAD Bridge2AI",
+     "alternateName": "AI for clinical care",
+     "description": "A national AIM-AHEAD Bridge2AI collaboration bringing machine learning to clinical care — currently predicting early recovery of consciousness from intensive-care EHR data. CHIP contributes data-science expertise, independent of the three domains.",
+     "parentOrganization": {
+      "@id": "https://chip-ep.com/#chip"
+     },
+     "about": [
+      "Independent of the three research domains (AI for clinical care)"
+     ],
+     "additionalProperty": [
+      {
+       "@type": "PropertyValue",
+       "name": "Collaboration",
+       "value": "Cross-institution collaboration"
+      }
+     ]
+    },
+    {
+     "@type": "ResearchProject",
+     "@id": "https://chip-ep.com/#proj-gccpeh",
+     "name": "Traffic pollution & extreme heat: epigenomic signatures and cardiometabolic risk",
+     "alternateName": "Exposure epigenomics",
+     "description": "A GC-CPEH pilot award analysing banked buccal DNA from CHIP community screenings for methylation signatures of joint traffic-pollution and extreme-heat exposure, and how those signatures relate to cardiometabolic risk.",
+     "parentOrganization": {
+      "@id": "https://chip-ep.com/#chip"
+     },
+     "about": [
+      "Environmental & occupational health",
+      "Cardiometabolic & chronic disease"
+     ],
+     "additionalProperty": [
+      {
+       "@type": "PropertyValue",
+       "name": "Status",
+       "value": "Pilot awarded"
+      },
+      {
+       "@type": "PropertyValue",
+       "name": "Funder",
+       "value": "GC-CPEH pilot"
+      },
+      {
+       "@type": "PropertyValue",
+       "name": "Collaboration",
+       "value": "Cross-institution collaboration"
+      }
+     ]
+    },
+    {
+     "@type": "ResearchProject",
+     "@id": "https://chip-ep.com/#proj-air-heat",
+     "name": "Health impacts of heat & air pollution in at-risk populations",
+     "alternateName": "Air & Heat Study",
+     "description": "On-site screenings in colonias, schools, and health fairs, paired with NASA satellite exposure estimates.",
+     "parentOrganization": {
+      "@id": "https://chip-ep.com/#chip"
+     },
+     "about": [
+      "Environmental & occupational health",
+      "Cardiometabolic & chronic disease"
+     ],
+     "additionalProperty": [
+      {
+       "@type": "PropertyValue",
+       "name": "Status",
+       "value": "In the field"
+      },
+      {
+       "@type": "PropertyValue",
+       "name": "Funder",
+       "value": "UTHealth PRIME"
+      }
+     ]
+    },
+    {
+     "@type": "ResearchProject",
+     "@id": "https://chip-ep.com/#proj-heat-ozone",
+     "name": "Heat & ozone co-exposure and chronic disease",
+     "alternateName": "Heat & ozone co-exposure",
+     "description": "Personal heat and air-pollution monitoring across work shifts, linked to cardiometabolic indicators.",
+     "parentOrganization": {
+      "@id": "https://chip-ep.com/#chip"
+     },
+     "about": [
+      "Environmental & occupational health",
+      "Cardiometabolic & chronic disease"
+     ],
+     "additionalProperty": [
+      {
+       "@type": "PropertyValue",
+       "name": "Status",
+       "value": "Data collection"
+      }
+     ]
+    },
+    {
+     "@type": "ResearchProject",
+     "@id": "https://chip-ep.com/#proj-asthma-gis",
+     "name": "Air pollution & asthma GIS mapping",
+     "alternateName": "Asthma GIS mapping",
+     "description": "Spatial analysis mapping asthma and respiratory illness against traffic and industrial exposure layers.",
+     "parentOrganization": {
+      "@id": "https://chip-ep.com/#chip"
+     },
+     "about": [
+      "Environmental & occupational health",
+      "Cardiometabolic & chronic disease"
+     ],
+     "additionalProperty": [
+      {
+       "@type": "PropertyValue",
+       "name": "Status",
+       "value": "Analysis"
+      }
+     ]
+    },
+    {
+     "@type": "ResearchProject",
+     "@id": "https://chip-ep.com/#proj-wearable",
+     "name": "Wearable heat-stress monitoring for outdoor workers",
+     "alternateName": "Wearable heat monitoring",
+     "description": "A pilot placing wearable physiological monitors on outdoor workers to detect and prevent heat illness.",
+     "parentOrganization": {
+      "@id": "https://chip-ep.com/#chip"
+     },
+     "about": [
+      "Environmental & occupational health"
+     ],
+     "additionalProperty": [
+      {
+       "@type": "PropertyValue",
+       "name": "Status",
+       "value": "Pilot underway"
+      }
+     ]
+    },
+    {
+     "@type": "ResearchProject",
+     "@id": "https://chip-ep.com/#proj-bota",
+     "name": "BOTA environmental health impact assessment",
+     "alternateName": "BOTA impact assessment",
+     "description": "Community-engaged risk assessment near the Bridge of the Americas, with air, soil, and water sampling.",
+     "parentOrganization": {
+      "@id": "https://chip-ep.com/#chip"
+     },
+     "about": [
+      "Environmental & occupational health"
+     ],
+     "additionalProperty": [
+      {
+       "@type": "PropertyValue",
+       "name": "Status",
+       "value": "Data collection"
+      },
+      {
+       "@type": "PropertyValue",
+       "name": "Collaboration",
+       "value": "Cross-institution collaboration"
+      }
+     ]
+    },
+    {
+     "@type": "ResearchProject",
+     "@id": "https://chip-ep.com/#proj-firefighter",
+     "name": "Texas Firefighter Cancer Study",
+     "alternateName": "Firefighter cancer study",
+     "description": "Statewide collaboration examining occupational cancer risk among Texas firefighters.",
+     "parentOrganization": {
+      "@id": "https://chip-ep.com/#chip"
+     },
+     "about": [
+      "Environmental & occupational health"
+     ],
+     "additionalProperty": [
+      {
+       "@type": "PropertyValue",
+       "name": "Collaboration",
+       "value": "Cross-institution collaboration"
+      }
+     ]
+    },
+    {
+     "@type": "ResearchProject",
+     "@id": "https://chip-ep.com/#proj-vale",
+     "name": "VALE+Tu Salud",
+     "alternateName": "VALE+Tu Salud",
+     "description": "Corner-based randomized trial testing a health and safety program with Latino day laborers.",
+     "parentOrganization": {
+      "@id": "https://chip-ep.com/#chip"
+     },
+     "about": [
+      "Environmental & occupational health"
+     ],
+     "additionalProperty": [
+      {
+       "@type": "PropertyValue",
+       "name": "Collaboration",
+       "value": "Cross-institution collaboration"
+      }
+     ]
+    },
+    {
+     "@type": "ResearchProject",
+     "@id": "https://chip-ep.com/#proj-raise-bar",
+     "name": "Raise the Bar",
+     "alternateName": "Raise the Bar",
+     "description": "Evaluation of physical activity and wellness programming for military-connected students in El Paso schools.",
+     "parentOrganization": {
+      "@id": "https://chip-ep.com/#chip"
+     },
+     "about": [
+      "Cardiometabolic & chronic disease"
+     ],
+     "additionalProperty": [
+      {
+       "@type": "PropertyValue",
+       "name": "Status",
+       "value": "Evaluation underway"
+      },
+      {
+       "@type": "PropertyValue",
+       "name": "Funder",
+       "value": "DoDEA"
+      }
+     ]
+    },
+    {
+     "@type": "ResearchProject",
+     "@id": "https://chip-ep.com/#proj-cultivating",
+     "name": "Cultivating Health: veggie scripts & gardening",
+     "alternateName": "Cultivating Health",
+     "description": "Evaluation of produce prescription and gardening programs supporting healthy food access among SNAP participants.",
+     "parentOrganization": {
+      "@id": "https://chip-ep.com/#chip"
+     },
+     "about": [
+      "Food systems & nutrition",
+      "Cardiometabolic & chronic disease"
+     ],
+     "additionalProperty": [
+      {
+       "@type": "PropertyValue",
+       "name": "Status",
+       "value": "Evaluation underway"
+      },
+      {
+       "@type": "PropertyValue",
+       "name": "Funder",
+       "value": "USDA GusNIP"
+      }
+     ]
+    },
+    {
+     "@type": "ResearchProject",
+     "@id": "https://chip-ep.com/#proj-swfbc",
+     "name": "Rio Grande Colonias Regional Food Business Center evaluation",
+     "alternateName": "Rio Grande Colonias Food Center",
+     "description": "Evaluation of the USDA Rio Grande Colonias Regional Food Business Center, supporting food businesses across Texas and New Mexico. The federal program was terminated in 2025; the partnership continues, and findings are being prepared for publication.",
+     "parentOrganization": {
+      "@id": "https://chip-ep.com/#chip"
+     },
+     "about": [
+      "Food systems & nutrition"
+     ],
+     "additionalProperty": [
+      {
+       "@type": "PropertyValue",
+       "name": "Status",
+       "value": "Publication in preparation"
+      },
+      {
+       "@type": "PropertyValue",
+       "name": "Funder",
+       "value": "USDA"
+      },
+      {
+       "@type": "PropertyValue",
+       "name": "Collaboration",
+       "value": "Cross-institution collaboration"
+      }
+     ]
+    },
+    {
+     "@type": "ResearchProject",
+     "@id": "https://chip-ep.com/#proj-needs",
+     "name": "Healthy Eating to Prevent or Manage Disease — regional needs assessment",
+     "alternateName": "Healthy Eating needs assessment",
+     "description": "An epidemiological scan and nutrition-assets assessment guiding investment where food systems meet chronic disease across the Paso del Norte region.",
+     "parentOrganization": {
+      "@id": "https://chip-ep.com/#chip"
+     },
+     "about": [
+      "Food systems & nutrition",
+      "Cardiometabolic & chronic disease"
+     ],
+     "additionalProperty": [
+      {
+       "@type": "PropertyValue",
+       "name": "Status",
+       "value": "Reporting"
+      },
+      {
+       "@type": "PropertyValue",
+       "name": "Funder",
+       "value": "PdNHF"
+      }
+     ]
+    },
+    {
+     "@type": "ResearchProject",
+     "@id": "https://chip-ep.com/#proj-taster",
+     "name": "Taster Space family nutrition evaluation",
+     "alternateName": "Taster Space evaluation",
+     "description": "Evaluation of Desert Spoon Food Hub’s space-themed family nutrition program — produce boxes paired with hands-on activities and simple recipes for children and families. CHIP has been the evaluation partner since 2020.",
+     "parentOrganization": {
+      "@id": "https://chip-ep.com/#chip"
+     },
+     "about": [
+      "Food systems & nutrition"
+     ],
+     "additionalProperty": [
+      {
+       "@type": "PropertyValue",
+       "name": "Status",
+       "value": "Evaluation underway"
+      }
+     ]
+    },
+    {
+     "@type": "ResearchProject",
+     "@id": "https://chip-ep.com/#proj-school-meals",
+     "name": "Protein in school meals & bilingual nutrition communication",
+     "alternateName": "Protein in school meals",
+     "description": "How culture, perception, and communication shape food acceptance in border-region schools — schools are also workplaces, linking nutrition with occupational health.",
+     "parentOrganization": {
+      "@id": "https://chip-ep.com/#chip"
+     },
+     "about": [
+      "Food systems & nutrition",
+      "Environmental & occupational health"
+     ],
+     "additionalProperty": [
+      {
+       "@type": "PropertyValue",
+       "name": "Status",
+       "value": "In the field"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "@type": "ItemList",
+   "@id": "https://chip-ep.com/#figures",
+   "name": "CHIP key figures",
+   "description": "Headline numbers used on the site, each with the study and period it comes from. Quote them with their source; they are not interchangeable.",
+   "itemListElement": [
+    {
+     "@type": "PropertyValue",
+     "name": "Paso del Norte cohort participants",
+     "value": 4959,
+     "description": "Participants in the geocoded border cohort. Wave 1, 2014-2020. Source: Paso del Norte Community Health and Environment Cohort."
+    },
+    {
+     "@type": "PropertyValue",
+     "name": "Community members screened",
+     "value": "500+",
+     "description": "Cumulative biometric screenings by the CHIP community screening program, 2025-present."
+    },
+    {
+     "@type": "PropertyValue",
+     "name": "Consented biospecimens biobanked",
+     "value": 384,
+     "description": "Banked from bilingual community screenings; the sample base for heat and air-pollution biomarker work, including the GC-CPEH epigenomics pilot."
+    },
+    {
+     "@type": "PropertyValue",
+     "name": "Regional nutrition programs identified",
+     "value": 204,
+     "description": "Programs addressing chronic disease, identified in the Paso del Norte regional needs assessment."
+    },
+    {
+     "@type": "PropertyValue",
+     "name": "Cohort metabolic syndrome prevalence",
+     "value": 37.3,
+     "unitText": "percent",
+     "description": "Paso del Norte cohort; land-use regression on traffic measures. Aguilera et al., Transportation Research Record (2021)."
+    }
+   ]
+  }
+ ]
 }
 </script>
 <script>document.documentElement.classList.add('js');</script>
