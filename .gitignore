@@ -1,0 +1,12 @@
+# The site itself is hand-written and has NO runtime dependencies — nothing
+# here is needed to serve chip-ep.com. This file only keeps local QA tooling
+# out of the repo.
+
+# `node tools/constellation-qa.js` needs playwright-core, installed dev-only
+# (npm install --no-save playwright-core). It reappears every session.
+node_modules/
+
+# OS / editor noise
+.DS_Store
+Thumbs.db
+*.swp
