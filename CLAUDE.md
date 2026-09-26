@@ -242,12 +242,30 @@ pre-proposal docs (`proposals/`).
   the publication list and the APHA news card); the team card shows
   "Abolore Idris" — left as-is, since which form she goes by is her call.
 - Optional: strip the `?depth=` flags; project detail pages.
-- **`evidence-library/` is publicly reachable** on the live site (everything on
-  `main` is served by Pages, e.g. `https://chip-ep.com/evidence-library/full-tracker.md`).
-  `robots.txt` now works (custom domain = repo root is domain root) and
-  disallows it, but that only asks crawlers not to index — the files are still
-  fetchable by anyone with the URL. Decide: either that's acceptable, or move
-  the folder to a non-deployed branch.
+- ~~**`evidence-library/` is publicly reachable** — decide whether to move it
+  off `main`~~ — **decided 2026-09-26: it stays public on purpose.** Everything
+  on `main` is served by Pages (e.g.
+  `https://chip-ep.com/evidence-library/full-tracker.md`), and the director
+  wants the grant context reachable — it is the fastest way to give a model or
+  a new collaborator the *why* behind each pillar. `robots.txt` still
+  `Disallow`s the path, which only asks crawlers not to index; the files remain
+  fetchable by URL, which is now the intent rather than a leak.
+  What was removed the same day, and must not come back:
+  - **Three Google Drive URLs** in `evidence-library/README.md` (two tracker
+    spreadsheets + the folder). A link-shared Drive doc named on a public page
+    is a live door in. **Never put a Drive/Dropbox/SharePoint URL in this
+    folder** — it is served publicly.
+  - **An internal-voice inference** in `by-grant/nimhd-vale-tu.md` ("the
+    peer-facilitated model VALE+Tú *likely* employs"). Same rule as the public
+    site: guesses about CHIP's own work don't go on a public URL. State what
+    the cited paper establishes, not what CHIP presumably does.
+  The README also listed a `by-pillar/` directory that has never existed on
+  disk — removed, since a model reading this file takes the tree literally.
+  Note what is *not* in here and should not be added: no unpublished CHIP
+  results, no budgets, no participant data, no IRB numbers. All 27 entries are
+  published papers with public DOIs. The one thing a reader does get is the
+  shape of four in-flight proposals (which citation anchors which section) —
+  accepted as the cost of the context being useful.
 - SEO files: `sitemap.xml`, `404.html` (bilingual), `robots.txt` — all now
   live at the domain root and pointing at `chip-ep.com`.
   **Still to do on the new domain:** verify `chip-ep.com` as a new property in

@@ -11,24 +11,12 @@ This evidence library supports grant writing across CHIP's three research pillar
 evidence-library/
 ├── README.md                    ← this file
 ├── full-tracker.md              ← all 27 entries in one place
-├── by-pillar/
-│   ├── pillar-1-cardiometabolic.md
-│   ├── pillar-2-environmental-occupational.md
-│   └── pillar-3-food-systems-nutrition.md
 └── by-grant/
     ├── niosh-heat-ozone.md
     ├── niosh-wearables.md
     ├── asn-school-nutrition.md
     └── nimhd-vale-tu.md
 ```
-
-## Live Google Drive Tracker
-
-The primary tracker (with copy-paste citations and quotable stats) lives in Google Drive:
-
-- **Main tracker (E001–E015):** https://docs.google.com/spreadsheets/d/1HtoxzwMPPfhgnpTARv9JHwEQQOdq6LK1GnLzc43iduA/edit
-- **New entries (E016–E027):** https://docs.google.com/spreadsheets/d/1mZvH_VKDje0mFoVaQ4GETCLsQdUW5dSV7gQAKkvLBGQ/edit
-- **Evidence Library folder:** https://drive.google.com/drive/folders/1jdyNU34ZlWD_SwfgRrBA_9Ph5Lq9PK78
 
 ## Research Pillars
 
@@ -52,4 +40,4 @@ The primary tracker (with copy-paste citations and quotable stats) lives in Goog
 
 ---
 
-*Last updated: 2026-06-22 | 27 entries total*
+*Last updated: 2026-09-26 | 27 entries total*

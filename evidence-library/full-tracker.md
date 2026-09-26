@@ -1,6 +1,5 @@
 # CHIP Evidence Tracker — All Entries (E001–E027)
 
-> For the full spreadsheet with all columns, see the Google Drive tracker linked in README.md.
 > This file is optimized for quick reference and keyword search.
 
 ---

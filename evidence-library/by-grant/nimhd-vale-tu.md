@@ -28,7 +28,7 @@
 
 - Directly demonstrates CBPR effectiveness with Latino day laborer population
 - 66% peer diffusion stat is highly quotable for demonstrating community reach
-- Establishes precedent for the peer-facilitated model VALE+Tú likely employs
+- Establishes precedent for peer-facilitated training models with this population
 
 ---
 
