@@ -260,21 +260,27 @@ pre-proposal docs (`proposals/`).
     attribute every entry to its predecessor. Read the `<li class="pub">`
     blocks, not the surrounding prose.
 - **Open, needs the director** (raised by the same review; nothing changed):
-  - **Cohort-map privacy.** The caption says "each dot marks a participant
-    residence" and the `alt` says "home locations". If those dots are plotted
-    at true coordinates, the map itself discloses participant homes and
-    rewording is cosmetic. **Ask whether the coordinates are jittered, masked
-    or aggregated, then fix the map and/or the wording in both languages
-    together** (EN caption + `alt`, ES caption + `alt`).
+  - ~~**Cohort-map privacy.**~~ **Resolved 2026-09-28: the plotted coordinates
+    are already jittered/masked** (confirmed by the director), so the maps
+    themselves are fine and stay as they are — it was the *copy* that was
+    wrong, claiming to show true residences. The caption and three `alt` texts
+    now say "approximate … masked to protect participant privacy" in both
+    languages. **Keep it that way**: the site must not describe these dots as
+    homes or residences. Note there were **three** residence-claiming alt
+    texts, not one — the metric-strip map, the full cohort map, and the Spanish
+    copies of both. The biospecimen map ("where consented biospecimens were
+    collected") describes screening sites, not homes, and is correct as-is.
   - **Missing denominators.** The pilot findings card's source line names only
     two pilots (14 workers; 28 construction workers), but 69% and 38% are not
     whole-number shares of either, and the 38%/24% hypertension pair looks like
     it comes from the community screening program instead. 76.9% is likewise
     not a whole-number share of the 144 participants named beside it. Each
     figure needs its own n stated.
-  - **"Denise Vazquez"** on the team card vs **"Denise Vasquez"** in
-    `evidence-library/` (E004, where she is a co-author). One spelling is
-    wrong.
+  - ~~**"Denise Vazquez"** vs **"Denise Vasquez"**~~ — **resolved 2026-09-28:
+    it is Vasquez, with an s**, matching the Healthy Fit citation (E004).
+    Corrected in both languages, in all three places per file: the team card
+    `h4`, the photo `alt`, and the JSON-LD `employee` entry. (`grep -c` reports
+    2 here, not 3 — two of them share a line. Count occurrences, not lines.)
   - **Karen Del Rio's title.** The news card announces her PhD; her team card
     still reads "Research Associate" with no doctorate. Same principle as the
     Idris note — how she is listed is her call, so ask rather than assume.
