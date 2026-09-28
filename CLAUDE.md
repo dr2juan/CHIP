@@ -290,8 +290,29 @@ pre-proposal docs (`proposals/`).
   - **Karen Del Rio's title.** The news card announces her PhD; her team card
     still reads "Research Associate" with no doctorate. Same principle as the
     Idris note — how she is listed is her call, so ask rather than assume.
-  - **Bio omissions:** Stanford postdoc (Nadeau lab), NIH Board of Scientific
-    Counselors, Editorial Director of *Health Promotion Practice*.
+  - ~~**Bio omissions**~~ — **done 2026-09-28 from the director's own CV**
+    (`Aguilera_UTH_CV_Sep_2026`). The bio paragraph now carries the Stanford
+    training and the two national roles, and three rows were added after
+    `Affiliate`: Postdoc, Service, Editorial. The JSON-LD `Person` gained
+    `affiliation`, `alumniOf`, `memberOf` and a `description`.
+    Facts, as the CV states them — use these forms, not looser ones:
+    - Stanford is the **Sean Parker Center for Allergy and Asthma Research**,
+      and it was *two* roles: Postdoctoral Fellow 2020–2021, then Basic Life
+      Research Scientist 2021–2023. "Nadeau lab" is colloquial; the centre's
+      name is what the CV uses.
+    - **Member of the NIH Board of Scientific Counselors, 2023–Present.** This
+      is genuinely distinct from the three "Center Reviewer, NIH Clinical
+      Center BSC Review" entries, which are grant-review service. A web search
+      finds only the latter, so a future session may think the membership is
+      overstated — it is not. The CV is the source.
+    - Editorial Director, *Health Promotion Practice*, 2025–Present (Associate
+      Editor 2021–2025). Also added: Board of Directors, Physicians for Social
+      Responsibility Texas (2025–), and Editorial Board, *Nutrition and
+      Diabetes* (2024–).
+    **Flagged back to the director, unresolved:** his CV calls the Wartenberg
+    award a "Competitive National Fellowship", which is where the site's wrong
+    wording came from. The site now says Dan Wartenberg Travel Award; the CV
+    still does not, and it is the CV that goes into applications.
   - **"a decade of baseline data"** sits next to a cohort whose Wave 1 ran
     2014–2020. Either the span or the wording needs adjusting.
   - **Community path.** "Get screened" leads to a research-heavy section and a
