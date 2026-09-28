@@ -231,6 +231,62 @@ pre-proposal docs (`proposals/`).
   public sources say USDA announced the program's termination, so the site
   uses the neutral "federal program was terminated in 2025.")
 - Decide whether the held-back co-exposure effect estimates ever go public.
+- **External review, 2026-09-28** (another model, read the live site). Each
+  claim was checked against a primary source before anything changed; the
+  results are recorded here because two of them were *wrong* and a future
+  session should not "fix" them again.
+  - **Applied** (all verified): the featured Air & Heat paragraph still said
+    "More than 400 residents screened and roughly 300 swabs biobanked" while
+    the hero, project card and news card said 500+/384 — a real contradiction
+    missed when those numbers were updated, now 500+/384 in both languages.
+    The Stotz produce-prescription paper's DOI was truncated
+    (`10.1177/2279903625`); the real one is `10.1177/22799036251329452`
+    (PubMed PMID 40296885), and the title was missing "health outcomes,
+    utilization, and cost of". The ISEE honor is properly the **Dan Wartenberg
+    Travel Award** (launched 2022, supports community-engaged environmental /
+    occupational health work at the ISEE annual conference) — the site called
+    it the "ISEE Wartenberg Award … national fellowship", which was wrong twice
+    over, since ISEE is an *international* society. Five stat labels and two
+    map `alt` texts were still English on the Spanish page. DoDEA and the
+    NIEHS GC-CPEH pilot (P30ES030285) were missing from the funders list
+    although both already appear as project tags.
+  - **Rejected, verified false — do not "fix":** the skip link is fine.
+    `href="#top"` targets `<main id="top">`, which *is* the main content.
+    Publications 11 and 12 (JEOH systematic review, Texas Public Health
+    Journal) are unlinked **on purpose** — no verifiable DOI, per the rule
+    above.
+  - **Watch out:** the reviewer's numbering matched the visible publication
+    list, but a naive script that prints the text *before* each DOI link will
+    attribute every entry to its predecessor. Read the `<li class="pub">`
+    blocks, not the surrounding prose.
+- **Open, needs the director** (raised by the same review; nothing changed):
+  - **Cohort-map privacy.** The caption says "each dot marks a participant
+    residence" and the `alt` says "home locations". If those dots are plotted
+    at true coordinates, the map itself discloses participant homes and
+    rewording is cosmetic. **Ask whether the coordinates are jittered, masked
+    or aggregated, then fix the map and/or the wording in both languages
+    together** (EN caption + `alt`, ES caption + `alt`).
+  - **Missing denominators.** The pilot findings card's source line names only
+    two pilots (14 workers; 28 construction workers), but 69% and 38% are not
+    whole-number shares of either, and the 38%/24% hypertension pair looks like
+    it comes from the community screening program instead. 76.9% is likewise
+    not a whole-number share of the 144 participants named beside it. Each
+    figure needs its own n stated.
+  - **"Denise Vazquez"** on the team card vs **"Denise Vasquez"** in
+    `evidence-library/` (E004, where she is a co-author). One spelling is
+    wrong.
+  - **Karen Del Rio's title.** The news card announces her PhD; her team card
+    still reads "Research Associate" with no doctorate. Same principle as the
+    Idris note — how she is listed is her call, so ask rather than assume.
+  - **Bio omissions:** Stanford postdoc (Nadeau lab), NIH Board of Scientific
+    Counselors, Editorial Director of *Health Promotion Practice*.
+  - **"a decade of baseline data"** sits next to a cohort whose Wave 1 ran
+    2014–2020. Either the span or the wording needs adjusting.
+  - **Community path.** "Get screened" leads to a research-heavy section and a
+    `mailto:` to the director's faculty address with an English subject line.
+    Participants need a phone/WhatsApp number and a schedule of upcoming
+    screenings. Also flagged: "platform", "contracted services" and "we make
+    the setup simple" read as consultancy marketing.
 - **Spanish page needs native-speaker review.** The two names previously
   flagged as gender guesses are now resolved: **Dr. Idris is a she**
   (confirmed by the director 2026-08-14) — the Spanish feminine forms
