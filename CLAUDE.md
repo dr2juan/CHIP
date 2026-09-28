@@ -305,6 +305,20 @@ pre-proposal docs (`proposals/`).
       CV, so it came from him directly. **Every team member is credentialed
       now** — if a new member is added, add theirs too rather than leaving one
       card bare.
+    - **In-progress degrees go in words, never in the post-nominals.** Three
+      people are enrolled in a higher degree, shown on a `.study` line between
+      `.role` and `.focus`: Denise Vasquez *PhD student*, Colby Griffin and
+      Perla Alarcon *MPH student* (ES: *Estudiante de doctorado* /
+      *Estudiante de MPH*). No institutions, per the director.
+      **Do not write `MPH(c)`, `PhD(c)` or `ABD`.** Post-nominals conventionally
+      denote *conferred* credentials, and "candidate" specifically means
+      advanced to candidacy — the director confirmed Denise has just started,
+      so "student" is the accurate word. This is the same failure mode as the
+      Wartenberg entry: a credential written one notch grander than it is.
+      The line is its own element rather than appended to `.role` because cards
+      are 194px at desktop and the Spanish `.role` lines already wrap to two
+      lines there; appending would push three ES cards to a third line. Checked
+      at 390/900/1440px — at 1440 all cards stay equal height.
     - Design reason this became all-or-nothing: with only the doctorates
       lettered, the grid sorts the team into lettered and unlettered on a site
       whose argument is that community health workers are core research
