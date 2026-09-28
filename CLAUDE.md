@@ -301,10 +301,10 @@ pre-proposal docs (`proposals/`).
       line is "Promotora de Salud Comunitaria".
     - **Colby Griffin is BS, not MPH.** The CV lists his MPH as "Exp. 2027", so
       it is not earned yet. Don't promote him from the CV's mentoring section.
-    - **Denise Vasquez still has no credential shown** — she was not in the
-      director's list and her degree is not in the CV. Ask him; do not infer
-      one. She is the only team member without letters, so the grid looks
-      slightly incomplete until then.
+    - Denise Vasquez, **MPH** (director, 2026-09-28). Her degree is not in the
+      CV, so it came from him directly. **Every team member is credentialed
+      now** — if a new member is added, add theirs too rather than leaving one
+      card bare.
     - Design reason this became all-or-nothing: with only the doctorates
       lettered, the grid sorts the team into lettered and unlettered on a site
       whose argument is that community health workers are core research
