@@ -291,7 +291,7 @@ pre-proposal docs (`proposals/`).
     director's point was that crediting one person means crediting everyone, so
     the whole team carries credentials now, given by him directly.
     Karen Del Rio, PhD, MA · Abolore Idris, PhD, MPH · Colby Griffin, BS ·
-    Perla Alarcon, BS · Marisela Gutierrez, Matilde Saenz and Yadhira Trejo each
+    Perla Alarcon, BA · Marisela Gutierrez, Matilde Saenz and Yadhira Trejo each
     **CHW**. Letters go after the name in the card `h4` and into the JSON-LD
     `honorificSuffix`; the photo `alt` keeps the bare name, and role lines are
     unchanged.
