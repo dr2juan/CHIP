@@ -266,10 +266,16 @@ pre-proposal docs (`proposals/`).
     wrong, claiming to show true residences. The caption and three `alt` texts
     now say "approximate … masked to protect participant privacy" in both
     languages. **Keep it that way**: the site must not describe these dots as
-    homes or residences. Note there were **three** residence-claiming alt
-    texts, not one — the metric-strip map, the full cohort map, and the Spanish
-    copies of both. The biospecimen map ("where consented biospecimens were
-    collected") describes screening sites, not homes, and is correct as-is.
+    homes, residences, or precise anything.
+    **All four dot maps are the same situation** — the metric-strip cohort map,
+    the full cohort map, the biospecimen map, and the Spanish copy of each.
+    A session first left the biospecimen map alone on the reasoning that
+    "where consented biospecimens were collected" meant screening venues rather
+    than homes; the director corrected that on 2026-09-28. **Do not infer that
+    a dot layer is exempt because its caption names an event rather than a
+    person** — every dot layer on this site is masked participant geography, so
+    ask, don't reason it out. The only map with no dots (`region-pdn.webp`, the
+    plain regional locator) is the genuine exception.
   - **Missing denominators.** The pilot findings card's source line names only
     two pilots (14 workers; 28 construction workers), but 69% and 38% are not
     whole-number shares of either, and the 38%/24% hypertension pair looks like
