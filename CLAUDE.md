@@ -287,9 +287,28 @@ pre-proposal docs (`proposals/`).
     Corrected in both languages, in all three places per file: the team card
     `h4`, the photo `alt`, and the JSON-LD `employee` entry. (`grep -c` reports
     2 here, not 3 — two of them share a line. Count occurrences, not lines.)
-  - **Karen Del Rio's title.** The news card announces her PhD; her team card
-    still reads "Research Associate" with no doctorate. Same principle as the
-    Idris note — how she is listed is her call, so ask rather than assume.
+  - ~~**Karen Del Rio's title.**~~ **Done 2026-09-28, and widened:** the
+    director's point was that crediting one person means crediting everyone, so
+    the whole team carries credentials now, given by him directly.
+    Karen Del Rio, PhD, MA · Abolore Idris, PhD, MPH · Colby Griffin, BS ·
+    Perla Alarcon, BS · Marisela Gutierrez, Matilde Saenz and Yadhira Trejo each
+    **CHW**. Letters go after the name in the card `h4` and into the JSON-LD
+    `honorificSuffix`; the photo `alt` keeps the bare name, and role lines are
+    unchanged.
+    - **Abbreviations stay in their English form in the Spanish file too**,
+      matching the director's own card, which reads "Juan Aguilera, MD, PhD,
+      MPH" identically in both. That includes CHW, even though the Spanish role
+      line is "Promotora de Salud Comunitaria".
+    - **Colby Griffin is BS, not MPH.** The CV lists his MPH as "Exp. 2027", so
+      it is not earned yet. Don't promote him from the CV's mentoring section.
+    - **Denise Vasquez still has no credential shown** — she was not in the
+      director's list and her degree is not in the CV. Ask him; do not infer
+      one. She is the only team member without letters, so the grid looks
+      slightly incomplete until then.
+    - Design reason this became all-or-nothing: with only the doctorates
+      lettered, the grid sorts the team into lettered and unlettered on a site
+      whose argument is that community health workers are core research
+      infrastructure. CHW is a real Texas DSHS certification and belongs.
   - ~~**Bio omissions**~~ — **done 2026-09-28 from the director's own CV**
     (`Aguilera_UTH_CV_Sep_2026`). The bio paragraph now carries the Stanford
     training and the two national roles, and three rows were added after
