@@ -413,7 +413,7 @@ Types used so far: Field note, Recognition, Program milestone, Partnership,
 Conference, Award, Field research, Community engagement, Policy engagement
 (plus older: Program
 update, Field milestone, Publications, Now in the field, New book). The section
-currently holds **sixteen cards, newest-first, with the first four shown and
+currently holds **seventeen cards, newest-first, with the first four shown and
 the rest behind a "Show N more updates" fold** (`.news-extra.folded` +
 `.news-toggle`, mirroring the Publications pattern). **Keep the visible count
 at a multiple of four** — the grid is 4-up on desktop, 2-up at ≤900px, 1-up at
