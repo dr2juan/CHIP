@@ -401,24 +401,29 @@ pre-proposal docs (`proposals/`).
 
 ## News section workflow (added 2026-07-18)
 
-`#news` ("News & field updates") sits between the Featured Study and Projects
-sections in both files. Current cards are **photo cards** (`.card.top-rule
+`#news` ("News & field updates") sits **directly after `#overview`** (the
+project map) and before `#research`, in both files — moved up 2026-10-21 at the
+director's request so current activity shows before the depth sections, and the
+header nav lists News second to match. Not directly under the hero on purpose:
+the opening states the research thesis, and leading with individual updates
+read as a personal feed. Current cards are **photo cards** (`.card.top-rule
 .news-card`: a `.news-photo` figure with a lazy WebP, then a `.news-body` with
 a `.tag` eyebrow of the form `Type · date`, an `h3`, and 1–2 sentences).
 Types used so far: Field note, Recognition, Program milestone, Partnership,
 Conference, Award, Field research, Community engagement, Policy engagement
 (plus older: Program
 update, Field milestone, Publications, Now in the field, New book). The section
-currently holds **sixteen cards, newest-first, with the first eight shown and
+currently holds **sixteen cards, newest-first, with the first four shown and
 the rest behind a "Show N more updates" fold** (`.news-extra.folded` +
 `.news-toggle`, mirroring the Publications pattern). **Keep the visible count
 at a multiple of four** — the grid is 4-up on desktop, 2-up at ≤900px, 1-up at
-≤680px, so 8 fills clean rows at every breakpoint while 9 leaves an orphan.
+≤680px, so 4 fills clean rows at every breakpoint while 5 leaves an orphan.
+Four, not eight, now that the section sits high on the page: two full desktop
+rows pushed the research sections too far down.
 Order is newest-first by default, but the director may ask for a card to be
 moved past the fold (the MCA Biotech Showcase card was pushed two slots on
 2026-09-23), so don't assume the order is purely chronological.
-When adding a card: put it first, add `news-extra folded` to it if that pushes
-a visible card past eight, and update the button count in **both** places (the
+When adding a card: put it first, refold so only the first four are visible, and update the button count in **both** places (the
 button text and the JS reset string). The `@media print` block unfolds these —
 don't drop that rule. Translate for `es/index.html`
 (Spanish `img src` uses `../assets/`). **Search the names before writing the
