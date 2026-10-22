@@ -232,8 +232,13 @@ pre-proposal docs (`proposals/`).
   force-field and network analysis for coalition discovery (Texas A&M leads that
   as a *separate* project, so this is **not** `collab`), and a workforce pipeline
   review. **Food × cardiometabolic**, the same intersection as the needs
-  assessment (director, 2026-10-22). Map position (79,93), arrow from
-  `proj-needs`. Left off the site on purpose: the budget, and the Taster Space
+  assessment (director, 2026-10-22). Map label **"Healthy Eating coalition and
+  program evaluation"** (ES short form *"Evaluación de coalición y programas"*:
+  the full Spanish wrapped to four lines and collided everywhere). Map position
+  **(58,96)**, bottom-centre, arrow from `proj-needs`. Chosen by an automated
+  search of 71 positions in both languages and all four rotations: only the
+  y=96 row passes; the middle band collides with the hub or the needs label
+  once the map rotates, so don't try to pull it toward the centre again. Left off the site on purpose: the budget, and the Taster Space
   report attached to the proposal as a work sample (client report rule above).
   Status "Year one underway" is **inferred** from the October 1 start date —
   confirm with the director that the contract was awarded.
